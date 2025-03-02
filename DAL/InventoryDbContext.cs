@@ -37,6 +37,8 @@ namespace DAL
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+
+
             modelBuilder.Entity<ProductSupplier>().HasKey(PS => new { PS.SupplierId, PS.ProductId });
 
             modelBuilder.Entity<ProductSupplier>().HasOne(ps => ps.Product)
@@ -46,6 +48,8 @@ namespace DAL
             modelBuilder.Entity<ProductSupplier>().HasOne(ps => ps.Supplier)
                 .WithMany(s => s.ProductSuppliers)
                 .HasForeignKey(ps => ps.SupplierId);
+
+
 
             modelBuilder.Entity<SalesDetails>()
                 .HasKey(sd => new { sd.ProductId, sd.SaleId });
@@ -59,6 +63,19 @@ namespace DAL
                 .HasOne(sd => sd.Sale)
                 .WithMany(s => s.SalesDetails)
                 .HasForeignKey(sd => sd.SaleId);
+
+
+            modelBuilder.Entity<Stock>()
+                .HasKey(s => s.ProductId);
+
+            //modelBuilder.Entity<Stock>()
+            //    .HasKey(s => new { s.ProductId, s.Id });
+
+            modelBuilder.Entity<Stock>()
+                .HasOne(s => s.Product)
+                .WithMany(p => p.Stocks)
+                .HasForeignKey(s => s.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
