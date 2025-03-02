@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DAL": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "INVENTORY_DB_CONNECTION": "Server=REEM;Database=InventoryDb;Trusted_Connection=True;Trust Server Certificate=True;"
+      }
+    }
+  }
+}
