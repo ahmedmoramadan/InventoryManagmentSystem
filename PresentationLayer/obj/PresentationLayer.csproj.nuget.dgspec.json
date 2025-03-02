@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ef\\EF Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj": {}
+    "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj": {}
   },
   "projects": {
-    "D:\\Ef\\EF Project\\InventoryManagmentSystem\\BLL\\BLL.csproj": {
+    "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\BLL\\InventoryManagmentSystem.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\BLL\\BLL.csproj",
-        "projectName": "BLL",
-        "projectPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\BLL\\BLL.csproj",
+        "projectUniqueName": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\BLL\\InventoryManagmentSystem.BLL.csproj",
+        "projectName": "InventoryManagmentSystem.BLL",
+        "projectPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\BLL\\InventoryManagmentSystem.BLL.csproj",
         "packagesPath": "C:\\Users\\CM\\.nuget\\packages\\",
-        "outputPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\BLL\\obj\\",
+        "outputPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Ef\\EF Project\\InventoryManagmentSystem\\DAL\\DAL.csproj": {
-                "projectPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\DAL\\DAL.csproj"
+              "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\DAL\\InventoryManagmentSystem.DAL.csproj": {
+                "projectPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\DAL\\InventoryManagmentSystem.DAL.csproj"
               }
             }
           }
@@ -48,7 +48,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -69,18 +69,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Ef\\EF Project\\InventoryManagmentSystem\\DAL\\DAL.csproj": {
+    "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\DAL\\InventoryManagmentSystem.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\DAL\\DAL.csproj",
-        "projectName": "DAL",
-        "projectPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\DAL\\DAL.csproj",
+        "projectUniqueName": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\DAL\\InventoryManagmentSystem.DAL.csproj",
+        "projectName": "InventoryManagmentSystem.DAL",
+        "projectPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\DAL\\InventoryManagmentSystem.DAL.csproj",
         "packagesPath": "C:\\Users\\CM\\.nuget\\packages\\",
-        "outputPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\DAL\\obj\\",
+        "outputPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -113,7 +113,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -154,18 +154,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Ef\\EF Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj": {
+    "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj",
+        "projectUniqueName": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj",
         "projectName": "PresentationLayer",
-        "projectPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj",
+        "projectPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj",
         "packagesPath": "C:\\Users\\CM\\.nuget\\packages\\",
-        "outputPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\PresentationLayer\\obj\\",
+        "outputPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\PresentationLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -186,8 +186,8 @@
           "net9.0-windows7.0": {
             "targetAlias": "net9.0-windows",
             "projectReferences": {
-              "D:\\Ef\\EF Project\\InventoryManagmentSystem\\BLL\\BLL.csproj": {
-                "projectPath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\BLL\\BLL.csproj"
+              "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\BLL\\InventoryManagmentSystem.BLL.csproj": {
+                "projectPath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\BLL\\InventoryManagmentSystem.BLL.csproj"
               }
             }
           }
@@ -202,7 +202,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0-windows7.0": {
@@ -232,7 +232,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

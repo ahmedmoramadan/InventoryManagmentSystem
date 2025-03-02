@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Eh5dusCGIw=",
+  "dgSpecHash": "qHxNBbt4fgM=",
   "success": true,
-  "projectFilePath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\BLL\\BLL.csproj",
+  "projectFilePath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\BLL\\InventoryManagmentSystem.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CM\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\CM\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qIADtINdP5o=",
+  "dgSpecHash": "3d+zMVUgssA=",
   "success": true,
-  "projectFilePath": "D:\\Ef\\EF Project\\InventoryManagmentSystem\\PresentationLayer\\PresentationLayer.csproj",
+  "projectFilePath": "F:\\ITI\\Linq & Entity framework\\Team Project\\InventoryManagmentSystem\\PresentationLayer\\InventoryManagmentSystem.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CM\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\CM\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

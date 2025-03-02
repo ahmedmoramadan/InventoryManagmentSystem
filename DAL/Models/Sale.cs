@@ -10,7 +10,7 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public string Cust_Name { get; set; } = string.Empty;
+        public string Customer_Name { get; set; } = string.Empty;
         public decimal Total_Price { get; set; }
 
         public virtual List<SalesDetails> SalesDetails { get; set; } = new List<SalesDetails>();

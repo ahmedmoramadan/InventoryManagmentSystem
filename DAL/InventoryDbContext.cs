@@ -12,44 +12,26 @@ namespace DAL
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string? connectionString = Environment.GetEnvironmentVariable("INVENTORY_DB_CONNECTION", EnvironmentVariableTarget.Process)?.Trim();
+            //string? connectionString = Environment.GetEnvironmentVariable("INVENTORY_DB_MOSTAFA", EnvironmentVariableTarget.Process)?.Trim();
 
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                throw new InvalidOperationException("Connection string not found in environment variables.");
-            }
-            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
+            //if (string.IsNullOrEmpty(connectionString))
+            //{
+            //    throw new InvalidOperationException("Connection string not found in environment variables.");
+            //}
+            //optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Server=DESKTOP-F6UUO3E\\SQLSERVER;Database=InventoryDb;Trusted_Connection=True;Trust Server Certificate=True;");
         }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<ProductSupplier> ProductSuppliers { get; set; }
 
         public virtual DbSet<SalesDetails> SalesDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>().HasOne(p => p.Category)
-                .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategoryId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
-
-            modelBuilder.Entity<ProductSupplier>().HasKey(PS => new { PS.SupplierId, PS.ProductId });
-
-            modelBuilder.Entity<ProductSupplier>().HasOne(ps => ps.Product)
-                .WithMany(p => p.ProductSuppliers)
-                .HasForeignKey(ps => ps.ProductId);
-
-            modelBuilder.Entity<ProductSupplier>().HasOne(ps => ps.Supplier)
-                .WithMany(s => s.ProductSuppliers)
-                .HasForeignKey(ps => ps.SupplierId);
-
-
 
             modelBuilder.Entity<SalesDetails>()
                 .HasKey(sd => new { sd.ProductId, sd.SaleId });
@@ -64,18 +46,14 @@ namespace DAL
                 .WithMany(s => s.SalesDetails)
                 .HasForeignKey(sd => sd.SaleId);
 
-
-            modelBuilder.Entity<Stock>()
-                .HasKey(s => s.ProductId);
-
-            //modelBuilder.Entity<Stock>()
-            //    .HasKey(s => new { s.ProductId, s.Id });
-
             modelBuilder.Entity<Stock>()
                 .HasOne(s => s.Product)
                 .WithMany(p => p.Stocks)
                 .HasForeignKey(s => s.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Stock>()
+                .HasKey(s => new { s.Id, s.ProductId });
         }
     }
 }
