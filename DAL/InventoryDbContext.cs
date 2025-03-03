@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace DAL
 {
@@ -12,14 +13,21 @@ namespace DAL
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //string? connectionString = Environment.GetEnvironmentVariable("INVENTORY_DB_CONNECTION", EnvironmentVariableTarget.Process)?.Trim();
+            // Build configuration
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
 
-            //if (string.IsNullOrEmpty(connectionString))
-            //{
-            //    throw new InvalidOperationException("Connection string not found in environment variables.");
-            //}
-            //optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
-            optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Server=DESKTOP-F6UUO3E\\SQLSERVER;Database=InventoryDb;Trusted_Connection=True;Trust Server Certificate=True;");
+            // Get connection string
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new InvalidOperationException("Connection string not found in appsettings.json.");
+            }
+
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
         }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }

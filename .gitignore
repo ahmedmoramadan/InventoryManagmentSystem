@@ -1,11 +1,17 @@
-# Ignore Visual Studio files
-.vs/
-bin/
-obj/
+**/obj/
+**/bin/
+*.nuget.cache
+*.assets.json
+
+# Ignore IDE and project settings
+*.vs/
+.vscode/
+DAL/.vs/ProjectEvaluation/
 
 # Ignore environment variables and sensitive files
 .env
 config.json
+appSettings.json
 
 # Ignore system files
 .DS_Store
