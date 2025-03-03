@@ -12,7 +12,7 @@ namespace DAL
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //string? connectionString = Environment.GetEnvironmentVariable("INVENTORY_DB_MOSTAFA", EnvironmentVariableTarget.Process)?.Trim();
+            //string? connectionString = Environment.GetEnvironmentVariable("INVENTORY_DB_CONNECTION", EnvironmentVariableTarget.Process)?.Trim();
 
             //if (string.IsNullOrEmpty(connectionString))
             //{
@@ -53,7 +53,7 @@ namespace DAL
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Stock>()
-                .HasKey(s => new { s.Id, s.ProductId });
+                .HasKey(s => new { s.LastUpdate, s.ProductId });
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DAL.Migrations
+namespace InventoryManagmentSystem.DAL.Migrations
 {
     /// <inheritdoc />
     public partial class V1_AddTablesAndItsRelations : Migration
@@ -17,7 +17,7 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,7 +31,7 @@ namespace DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Customer_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Customer_Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Total_Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
@@ -45,9 +45,9 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Contact = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Contact = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,9 +60,9 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    UserName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,7 +75,7 @@ namespace DAL.Migrations
                 {
                     ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     SupplierId = table.Column<int>(type: "int", nullable: false)
@@ -128,15 +128,14 @@ namespace DAL.Migrations
                 name: "Stocks",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Type = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stocks", x => new { x.Id, x.ProductId });
+                    table.PrimaryKey("PK_Stocks", x => new { x.LastUpdate, x.ProductId });
                     table.ForeignKey(
                         name: "FK_Stocks_Products_ProductId",
                         column: x => x.ProductId,

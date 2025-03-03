@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj" />
+    <ProjectReference Include="..\BLL\InventoryManagmentSystem.BLL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,10 +2,9 @@
   "profiles": {
     "DAL": {
       "commandName": "Project",
-        "environmentVariables": {
-            "INVENTORY_DB_CONNECTION": "Server=REEM;Database=InventoryDb;Trusted_Connection=True;Trust Server Certificate=True;",
-            "INVENTORY_DB_MOSTAFA": "Server=DESKTOP-F6UUO3E\\SQLSERVER;Database=InventoryDb;Trusted_Connection=True;Trust Server Certificate=True;"
-        }
+      "environmentVariables": {
+        "INVENTORY_DB_CONNECTION": "Server=DESKTOP-F6UUO3E\\SQLSERVER;Database=InventoryDb;Trusted_Connection=True;Trust Server Certificate=True;"
+      }
     }
   }
 }

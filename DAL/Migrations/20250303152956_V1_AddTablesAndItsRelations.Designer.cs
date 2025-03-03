@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DAL.Migrations
+namespace InventoryManagmentSystem.DAL.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    [Migration("20250302232015_V1_AddTablesAndItsRelations")]
+    [Migration("20250303152956_V1_AddTablesAndItsRelations")]
     partial class V1_AddTablesAndItsRelations
     {
         /// <inheritdoc />
@@ -38,7 +38,8 @@ namespace DAL.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
@@ -58,7 +59,8 @@ namespace DAL.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -85,7 +87,8 @@ namespace DAL.Migrations
 
                     b.Property<string>("Customer_Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -124,23 +127,21 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Models.Stock", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("LastUpdate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("LastUpdate")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
-                    b.HasKey("Id", "ProductId");
+                    b.HasKey("LastUpdate", "ProductId");
 
                     b.HasIndex("ProductId");
 
@@ -157,15 +158,18 @@ namespace DAL.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Contact")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
@@ -182,15 +186,18 @@ namespace DAL.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Role")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
