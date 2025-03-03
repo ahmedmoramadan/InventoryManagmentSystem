@@ -1,3 +1,5 @@
+using System.Configuration;
+
 namespace PresentationLayer
 {
     public partial class MainForm : Form
@@ -5,6 +7,7 @@ namespace PresentationLayer
         public MainForm()
         {
             InitializeComponent();
+
         }
     }
 }
