@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
 using Microsoft.Extensions.Configuration;
+//using System.Configuration;
 
 namespace DAL
 {
@@ -28,6 +29,7 @@ namespace DAL
             }
 
             optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
+            
         }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }

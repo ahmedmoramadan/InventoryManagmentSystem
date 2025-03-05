@@ -1,4 +1,5 @@
 using System.Configuration;
+using BLL;
 
 namespace PresentationLayer
 {
@@ -7,7 +8,6 @@ namespace PresentationLayer
         public MainForm()
         {
             InitializeComponent();
-
         }
     }
 }

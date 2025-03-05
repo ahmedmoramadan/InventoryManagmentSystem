@@ -40,7 +40,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Product", b =>
@@ -71,7 +71,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Sale", b =>
@@ -95,7 +95,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sales");
+                    b.ToTable("Sales", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.SalesDetails", b =>
@@ -119,7 +119,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
 
                     b.HasIndex("SaleId");
 
-                    b.ToTable("SalesDetails");
+                    b.ToTable("SalesDetails", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Stock", b =>
@@ -142,7 +142,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Stocks");
+                    b.ToTable("Stocks", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Supplier", b =>
@@ -170,7 +170,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Suppliers", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.User", b =>
@@ -198,7 +198,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Product", b =>
