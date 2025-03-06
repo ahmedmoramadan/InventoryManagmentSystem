@@ -66,7 +66,8 @@ namespace BLL
 
         public Sale GetSaleById(int id)
         {
-            return context.Sales.Find(id);
+            var sale = context.Sales.Find(id);
+            return sale != null ? sale : null;
         }
     }
 }
