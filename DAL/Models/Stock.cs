@@ -10,7 +10,7 @@ namespace DAL.Models
     public class Stock
     {
         [MaxLength(30)]
-        public string Type { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty; //Supply - Sale 
         public int Quantity { get; set; }
         public DateTime LastUpdate { get; set; }
 
