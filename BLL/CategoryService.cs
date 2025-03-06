@@ -59,9 +59,10 @@ namespace BLL
             return context.Categories.ToList();
         }
 
-        public Category GetCategoryById(int id)
+        public Category? GetCategoryById(int id)
         {
-            return context.Categories.Find(id);
+            var category = context.Categories.Find(id);
+            return category != null ? category : null;
         }
     }
 }
