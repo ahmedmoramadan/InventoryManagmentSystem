@@ -74,7 +74,6 @@ namespace BLL
                 dbContext.SaveChanges();
             }
         }
-
         public IEnumerable<Product> GetAll()
         {
             //return all products   (exist and not exist in stock)
@@ -103,7 +102,6 @@ namespace BLL
             }
             return null;
         }
-
         public IEnumerable<Product> Search(string name, int? categoryId, int? sypplierId)
         {
             var query = dbContext.Products.AsQueryable();
@@ -125,7 +123,6 @@ namespace BLL
             //return query.ToList();
             return query.Include(p => p.Category).Include(p => p.Supplier).ToList();
         }
-
         public Product ViewDetails(int id)
         {
             return GetById(id);
