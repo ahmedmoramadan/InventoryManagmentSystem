@@ -64,7 +64,7 @@ namespace BLL
             return context.Sales.ToList();
         }
 
-        public Sale GetSaleById(int id)
+        public Sale? GetSaleById(int id)
         {
             var sale = context.Sales.Find(id);
             return sale != null ? sale : null;
