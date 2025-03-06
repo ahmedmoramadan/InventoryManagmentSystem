@@ -45,8 +45,8 @@ namespace BLL
         {
             return context.Users.ToList();
         }
-
-        public User GetUserById(int id)
+        //return => allow null
+        public User? GetUserById(int id)
         {
             var user = context.Users.Find(id);
             return user != null ? user : null;
