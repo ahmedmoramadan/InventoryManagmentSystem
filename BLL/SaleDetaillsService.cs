@@ -1,52 +1,58 @@
-﻿using DAL;
+﻿using System;
+using System.Collections.Generic;
+using DAL;
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BLL
 {
-    class SaleDetaillsService
+    class SaleDetailsService
     {
         private readonly InventoryDbContext _context;
-        public SaleDetaillsService(InventoryDbContext context)
+
+        public SaleDetailsService(InventoryDbContext context)
         {
             this._context = context;
         }
-       
-        public async Task<bool> AddSalesDetailsAsync(SalesDetails salesDetails)
-        {
-            if (salesDetails == null)
-            {
-                return false;
-            }
 
-            var product = await _context.Products.FindAsync(salesDetails.ProductId);
+        public bool AddSalesDetails(int saleId, int productId, int quantity, decimal price)
+        {
+            var product = _context.Products.Find(productId);
             if (product == null)
             {
-                return false; 
+                return false; // Product not found
             }
 
-            var sale = await _context.Sales.FindAsync(salesDetails.SaleId);
+            var sale = _context.Sales.Find(saleId);
             if (sale == null)
             {
-                return false; 
+                return false; // Sale not found
             }
 
-            await _context.SalesDetails.AddAsync(salesDetails);
+            var salesDetails = new SalesDetails
+            {
+                SaleId = saleId,
+                ProductId = productId,
+                Quantity = quantity,
+                Price = price
+            };
 
-            sale.Total_Price += salesDetails.Quantity * salesDetails.Price;
+            _context.SalesDetails.Add(salesDetails);
+
+            // Update the total price of the sale
+            sale.Total_Price += quantity * price;
             _context.Sales.Update(sale);
 
-            var rowsAffected = await _context.SaveChangesAsync();
+            var rowsAffected = _context.SaveChanges();
             return rowsAffected > 0;
         }
-        public async Task<List<SalesDetails>> GetAllSalesDetailsAsync()
-        {
-            return await _context.SalesDetails
-                .Include(sd => sd.Product) 
-                .Include(sd => sd.Sale)    
-                .ToListAsync();
-        }
 
+        public List<SalesDetails> GetAllSalesDetails()
+        {
+            return _context.SalesDetails
+                .Include(sd => sd.Product)  // Include related Product
+                .Include(sd => sd.Sale)     // Include related Sale
+                .ToList();
+        }
     }
 }
-

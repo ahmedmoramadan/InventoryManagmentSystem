@@ -1,4 +1,6 @@
-﻿using DAL;
+﻿using System;
+using System.Collections.Generic;
+using DAL;
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,68 +9,59 @@ namespace BLL
     class CategoryService
     {
         private readonly InventoryDbContext context;
+
         public CategoryService(InventoryDbContext context)
         {
             this.context = context;
         }
 
-        public async Task<bool> AddCategoryAsync(Category category)
+        public bool AddCategory(string name)
         {
-            if (category == null)
+            var category = new Category
             {
-                return false;
-            }
-            await context.AddAsync(category);
-            var rowsAffected = await context.SaveChangesAsync();
-            return rowsAffected > 0;
-        }
-        public async Task<bool> UpdateCategoryAsync(Category category)
-        {
-            if (category == null)
-            {
-                return false;
-            }
+                Name = name
+            };
 
-            var oldcategory = await context.Categories.FindAsync(category.Id);
-            if (oldcategory == null)
-            {
-                return false;
-            }
-
-            oldcategory.Name = category.Name;
-            oldcategory.Id = category.Id;
-            context.Categories.Update(oldcategory);           
-
-            var rowsAffected = await context.SaveChangesAsync();
+            context.Add(category);
+            var rowsAffected = context.SaveChanges();
             return rowsAffected > 0;
         }
 
-        public async Task<bool> DeleteCategoryAsync(int id)
+        public bool UpdateCategory(int id, string name)
         {
-            var category = await context.Categories.FindAsync(id);
+            var oldCategory = context.Categories.Find(id);
+            if (oldCategory == null)
+            {
+                return false;
+            }
+
+            oldCategory.Name = name;
+            context.Categories.Update(oldCategory);
+            var rowsAffected = context.SaveChanges();
+            return rowsAffected > 0;
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            var category = context.Categories.Find(id);
             if (category == null)
             {
                 return false;
             }
 
             context.Categories.Remove(category);
-            var rowsAffected = await context.SaveChangesAsync();
+            var rowsAffected = context.SaveChanges();
             return rowsAffected > 0;
         }
 
-
-        public async Task<List<Category>> GetAllCategoriesAsync()
+        public List<Category> GetAllCategories()
         {
-            return await context.Categories.ToListAsync();
+            return context.Categories.ToList();
         }
 
-
-        public async Task<Category> GetCategoryByIdAsync(int id)
+        public Category GetCategoryById(int id)
         {
-            return await context.Categories.FindAsync(id);
+            return context.Categories.Find(id);
         }
     }
-
-
 }
-

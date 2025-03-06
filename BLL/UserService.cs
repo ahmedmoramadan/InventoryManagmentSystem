@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using DAL;
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BLL
 {
-    public class UserService  
+    public class UserService
     {
         private readonly InventoryDbContext context;
 
@@ -17,53 +16,54 @@ namespace BLL
             this.context = context;
         }
 
-        public async Task<bool> AddUserAsync(User user)
+        public bool AddUser(string username, string password, string role)
         {
-            if (user == null)
-                throw new ArgumentNullException(nameof(user), "User cannot be null.");
+            var user = new User
+            {
+                UserName = username,
+                Password = password,
+                Role = role
+            };
 
-            await context.AddAsync(user);
-            var rowsAffected = await context.SaveChangesAsync();
+            context.Add(user);
+            var rowsAffected = context.SaveChanges();
             return rowsAffected > 0;
         }
 
-        public async Task<bool> DeleteUserAsync(int id)
+        public bool DeleteUser(int id)
         {
-            var user = await context.Users.FindAsync(id);
+            var user = context.Users.Find(id);
             if (user == null)
                 return false;
 
             context.Users.Remove(user);
-            var rowsAffected = await context.SaveChangesAsync();
+            var rowsAffected = context.SaveChanges();
             return rowsAffected > 0;
         }
 
-        public async Task<List<User>> GetAllUsersAsync()
+        public List<User> GetAllUsers()
         {
-            return await context.Users.ToListAsync();
+            return context.Users.ToList();
         }
 
-        public async Task<User> GetUserByIdAsync(int id)
+        public User GetUserById(int id)
         {
-            var user = await context.Users.FindAsync(id);
-            if (user != null)
-                return user;
-            else
-                return null;
+            var user = context.Users.Find(id);
+            return user != null ? user : null;
         }
 
-        public async Task<bool> UpdateUserAsync(User user)
+        public bool UpdateUser(int id, string username, string role, string password)
         {
-            var oldUser = await context.Users.FindAsync(user.Id);
+            var oldUser = context.Users.Find(id);
             if (oldUser == null)
                 return false;
 
-            oldUser.UserName = user.UserName;  
-            oldUser.Role = user.Role;
-            oldUser.Password = user.Password;   
+            oldUser.UserName = username;
+            oldUser.Role = role;
+            oldUser.Password = password;
 
             context.Users.Update(oldUser);
-            var rowsAffected = await context.SaveChangesAsync();
+            var rowsAffected = context.SaveChanges();
             return rowsAffected > 0;
         }
     }
