@@ -17,48 +17,35 @@ namespace BLL
 
         public bool AddSalesDetails(int saleId, int productId, int quantity, decimal price)
         {
-            var product = _context.Products.Find(productId);
-            if (product == null)
-            {
-                return false; // Product not found
-            }
-
-            var sale = _context.Sales.Find(saleId);
-            if (sale == null)
-            {
-                return false; // Sale not found
-            }
-
-            var salesDetails = new SalesDetails
+            var sale = _context.Sales.FirstOrDefault(s => s.Id == saleId);
+            var oldStock = _context.Stocks.LastOrDefault(l => l.ProductId == productId);
+            if (sale == null || oldStock == null || oldStock.Quantity < quantity) 
+                return false;
+            var newsale = new SalesDetails()
             {
                 SaleId = saleId,
                 ProductId = productId,
-                Quantity = quantity,
                 unitPrice = price,
                 Price = price * quantity,
+                Quantity = quantity
             };
+            _context.SalesDetails.Add(newsale);
 
-            _context.SalesDetails.Add(salesDetails);
-
-            // Update the total price of the sale
-            sale.Total_Price += price;
+            //update sale total price
+            sale!.Total_Price += price * quantity;
             _context.Sales.Update(sale);
 
-            var rowsAffected = _context.SaveChanges();
-            if (rowsAffected > 0) 
+            var newStock = new Stock
             {
-                var oldtStok = _context.Stocks.LastOrDefault(p => p.ProductId == productId);
-                Stock stock = new Stock()
-                {
-                    Type = "Sale",
-                    Quantity = oldtStok.Quantity - quantity,
-                    LastUpdate = DateTime.Now,
-                    ProductId = productId,
-                };
-                _context.Stocks.Add(stock);
-                _context.SaveChanges();
-            }
-            return rowsAffected > 0;
+                Type = "Sale",
+                Quantity = oldStock.Quantity - quantity, // Deduct sold items
+                LastUpdate = DateTime.Now,
+                ProductId = productId
+            };
+            _context.Stocks.Add(newStock);
+
+            int effectedrow = _context.SaveChanges();
+            return effectedrow > 0;
         }
 
         public List<SalesDetails> GetAllSalesDetails()
