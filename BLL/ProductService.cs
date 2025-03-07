@@ -18,6 +18,7 @@ namespace BLL
         }
         public void Add(string name,decimal price,int categoryId,int supplierId,int quantity)
         {
+            #region
             //should validate on categoryId - supplierId
             //var existProduct = Search(name,null,null);
             //if (existProduct != null)
@@ -38,16 +39,34 @@ namespace BLL
             //    dbContext.SaveChanges();
 
             //}
-            Product product = new Product()
+            #endregion
+            var newProduct = dbContext.Products.FirstOrDefault(p => p.Name == name);
+            if (newProduct == null)
             {
-                Name = name,
-                Price = price,
-                CategoryId = categoryId,
-                SupplierId = supplierId
-            };
+                Product product = new Product()
+                {
+                    Name = name,
+                    Price = price,
+                    CategoryId = categoryId,
+                    SupplierId = supplierId
+                };
 
-            dbContext.Products.Add(product);
-            dbContext.SaveChanges();
+                dbContext.Products.Add(product);
+                dbContext.SaveChanges();
+            }
+            else
+            {
+                var oldtStok = dbContext.Stocks.LastOrDefault(p=>p.ProductId == newProduct.ProductId);
+                Stock stock = new Stock()
+                {
+                    Type = "Supply",
+                    Quantity = oldtStok.Quantity + quantity,
+                    LastUpdate = DateTime.Now,
+                    ProductId = newProduct.ProductId,
+                };
+                dbContext.Stocks.Add(stock);
+                dbContext.SaveChanges();
+            }
         }
         public void Update(int id,string name, decimal price, int categoryId, int supplierId)
         {

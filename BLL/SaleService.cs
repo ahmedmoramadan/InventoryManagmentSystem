@@ -14,8 +14,7 @@ namespace BLL
         {
             this.context = context;
         }
-
-        public bool AddSale(DateTime date, string customerName, decimal totalPrice)
+        public bool AddSale(DateTime date, string customerName, decimal totalPrice )
         {
             var sale = new Sale
             {

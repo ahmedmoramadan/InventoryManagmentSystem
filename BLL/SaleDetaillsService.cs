@@ -34,16 +34,30 @@ namespace BLL
                 SaleId = saleId,
                 ProductId = productId,
                 Quantity = quantity,
-                Price = price
+                unitPrice = price,
+                Price = price * quantity,
             };
 
             _context.SalesDetails.Add(salesDetails);
 
             // Update the total price of the sale
-            sale.Total_Price += quantity * price;
+            sale.Total_Price += price;
             _context.Sales.Update(sale);
 
             var rowsAffected = _context.SaveChanges();
+            if (rowsAffected > 0) 
+            {
+                var oldtStok = _context.Stocks.LastOrDefault(p => p.ProductId == productId);
+                Stock stock = new Stock()
+                {
+                    Type = "Sale",
+                    Quantity = oldtStok.Quantity - quantity,
+                    LastUpdate = DateTime.Now,
+                    ProductId = productId,
+                };
+                _context.Stocks.Add(stock);
+                _context.SaveChanges();
+            }
             return rowsAffected > 0;
         }
 
