@@ -18,28 +18,6 @@ namespace BLL
         }
         public void Add(string name,decimal price,int categoryId,int supplierId,int quantity)
         {
-            #region
-            //should validate on categoryId - supplierId
-            //var existProduct = Search(name,null,null);
-            //if (existProduct != null)
-            //{
-            //    //update product 
-            //}
-            //else
-            //{
-            //    Product product = new Product()
-            //    {
-            //        Name = name,
-            //        Price = price,
-            //        CategoryId = categoryId,
-            //        SupplierId = supplierId
-            //    };
-
-            //    dbContext.Products.Add(product);
-            //    dbContext.SaveChanges();
-
-            //}
-            #endregion
             var newProduct = dbContext.Products.FirstOrDefault(p => p.Name == name);
             if (newProduct == null)
             {
@@ -52,7 +30,21 @@ namespace BLL
                 };
 
                 dbContext.Products.Add(product);
-                dbContext.SaveChanges();
+                var affectChanges = dbContext.SaveChanges();
+                if(affectChanges > 0)
+                {
+                    var lastProduct = dbContext.Products.LastOrDefault();
+                    Stock stock = new Stock()
+                    {
+                        Type = "Supply",
+                        Quantity =quantity,
+                        LastUpdate = DateTime.Now,
+                        ProductId = lastProduct!.ProductId
+                    };
+                    dbContext.Stocks.Add(stock);
+                    dbContext.SaveChanges();
+
+                }
             }
             else
             {
@@ -60,7 +52,7 @@ namespace BLL
                 Stock stock = new Stock()
                 {
                     Type = "Supply",
-                    Quantity = oldtStok.Quantity + quantity,
+                    Quantity = oldtStok!.Quantity + quantity,
                     LastUpdate = DateTime.Now,
                     ProductId = newProduct.ProductId,
                 };
@@ -144,7 +136,7 @@ namespace BLL
         }
         public Product ViewDetails(int id)
         {
-            return GetById(id);
+            return GetById(id)!;
         }
     }
 }
