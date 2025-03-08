@@ -4,6 +4,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -400,11 +401,12 @@ namespace PresentationLayer
 
 
 
+        #region Helper methods
         public void LoadSuppliers()
         {
             List<Supplier> suppliers = supplierService.GetAll();
 
-            // Set AutoGenerateColumns to false
+
             dgv_supplier.AutoGenerateColumns = false;
 
             // Add columns manually (excluding Id)
@@ -416,13 +418,13 @@ namespace PresentationLayer
             // Bind the data
             dgv_supplier.DataSource = suppliers;
 
-
-
         }
+
         public void ResetInputs()
         {
             txt_contact.Text = txt_Address.Text = txt_name.Text = string.Empty;
         }
+
         public bool CheckEmptyInput(string content, string message)
         {
             if (string.IsNullOrWhiteSpace(content))
@@ -432,33 +434,66 @@ namespace PresentationLayer
             }
             return false;
         }
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            ResetInputs();
+            btn_Add.Enabled = true;
+            btn_Update.Enabled = false;
+            btn_Delete.Enabled = false;
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            return Regex.IsMatch(phoneNumber, @"^\+?\d{10,15}$");
+        }
+        #endregion
+
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            string supplierName = txt_name.Text;
-            if (CheckEmptyInput(supplierName, "Name"))
-                return;
+            string supplierName = txt_name.Text.Trim();
+            string supplierContact = txt_contact.Text.Trim();
+            string supplierAddress = txt_Address.Text.Trim();
 
-            string supplierContact = txt_contact.Text;
-            if (CheckEmptyInput(supplierContact, "Contact"))
+            
+            if (CheckEmptyInput(supplierName, "Name") ||
+                CheckEmptyInput(supplierContact, "Contact") ||
+                CheckEmptyInput(supplierAddress, "Address")) 
+            {
                 return;
+            }
+            if (!IsValidPhoneNumber(supplierContact))
+            {
+                MessageBox.Show("Invalid phone number. Please enter a valid number (10-15 digits).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            string supplierAddress = txt_Address.Text;
-            if (CheckEmptyInput(supplierAddress, "Address"))
+
+            var existingSupplier = supplierService.GetSupplierByname(supplierName);
+            if (existingSupplier != null)
+            {
+                MessageBox.Show("Supplier with this name already exists!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
 
             bool isAdded = supplierService.Add(supplierName, supplierAddress, supplierContact);
             if (isAdded)
             {
                 MessageBox.Show("Supplier added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadSuppliers();
+                ResetInputs(); 
             }
             else
             {
-                MessageBox.Show("Failed to add supplier", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to add supplier. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            ResetInputs();
         }
+
+
+        private string originalName = "";
+        private string originalContact = "";
+        private string originalAddress = "";
 
         private void dgv_supplier_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -470,6 +505,10 @@ namespace PresentationLayer
                 txt_contact.Text = row.Cells[1].Value.ToString();
                 txt_Address.Text = row.Cells[2].Value.ToString();
 
+                originalName = txt_name.Text;
+                originalContact = txt_contact.Text;
+                originalAddress = txt_Address.Text;
+
                 lbl_Id.Text = supplierService.GetAll()[e.RowIndex].Id.ToString();
             }
             btn_Add.Enabled = false;
@@ -477,23 +516,36 @@ namespace PresentationLayer
             btn_Delete.Enabled = true;
         }
 
+
+
         private void btn_Update_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(lbl_Id.Text))
             {
-                string supplierName = txt_name.Text;
-                if (CheckEmptyInput(supplierName, "Name"))
-                    return;
+                string supplierName = txt_name.Text.Trim();
+                string supplierContact = txt_contact.Text.Trim();
+                string supplierAddress = txt_Address.Text.Trim();
 
-                string supplierContact = txt_contact.Text;
-                if (CheckEmptyInput(supplierContact, "Contact"))
+                if (CheckEmptyInput(supplierName, "Name") ||
+                    CheckEmptyInput(supplierContact, "Contact") ||
+                    CheckEmptyInput(supplierAddress, "Address"))
+                {
                     return;
-
-                string supplierAddress = txt_Address.Text;
-                if (CheckEmptyInput(supplierAddress, "Address"))
+                }
+                if (!IsValidPhoneNumber(supplierContact))
+                {
+                    MessageBox.Show("Invalid phone number. Please enter a valid number (10-15 digits).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
+                }
 
                 int supplierId = int.Parse(lbl_Id.Text);
+
+                
+                if (supplierName == originalName && supplierContact == originalContact && supplierAddress == originalAddress)
+                {
+                    MessageBox.Show("No changes detected. Please modify some fields before updating.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 bool isUpdated = supplierService.update(supplierId, supplierName, supplierAddress, supplierContact);
 
@@ -510,33 +562,42 @@ namespace PresentationLayer
                 {
                     MessageBox.Show("Failed to update supplier", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
             else
             {
                 MessageBox.Show("Please select a supplier first.");
             }
-
         }
+
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             int supplierId = int.Parse(lbl_Id.Text);
 
-            if (supplierService.Delete(supplierId))
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this supplier?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Supplier is deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadSuppliers();
-            }
-            else
-            {
-                MessageBox.Show("Failed to delete supplier information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    if (supplierService.Delete(supplierId))
+                    {
+                        MessageBox.Show("Supplier deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadSuppliers();
+                        ResetInputs(); 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete supplier.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error deleting supplier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            ResetInputs();
-        }
+
     }
 }

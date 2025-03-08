@@ -417,7 +417,7 @@
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(203, 89, 78);
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dgv_supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgv_supplier.Size = new Size(909, 233);
+            dgv_supplier.Size = new Size(909, 222);
             dgv_supplier.TabIndex = 0;
             dgv_supplier.CellClick += dgv_supplier_CellClick;
             // 
@@ -524,6 +524,7 @@
             // btn_Delete
             // 
             btn_Delete.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_Delete.BackColor = Color.Transparent;
             btn_Delete.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btn_Delete.Depth = 0;
             btn_Delete.Enabled = false;
@@ -539,7 +540,7 @@
             btn_Delete.Text = "Delete";
             btn_Delete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_Delete.UseAccentColor = false;
-            btn_Delete.UseVisualStyleBackColor = true;
+            btn_Delete.UseVisualStyleBackColor = false;
             btn_Delete.Click += btn_Delete_Click;
             // 
             // btn_Update

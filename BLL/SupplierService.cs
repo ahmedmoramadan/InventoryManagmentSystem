@@ -69,7 +69,11 @@ namespace BLL
             return dbContext.Suppliers.ToList();
         }
 
-
+        public Supplier? GetSupplierByname(string supplierName)
+        {
+            var existingSupplier = dbContext.Suppliers.Where(s => s.Name.ToLower() == supplierName.ToLower()).FirstOrDefault();
+            return existingSupplier;
+        }
 
         
         //Track product supply history per supplier.
