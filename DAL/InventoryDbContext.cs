@@ -44,12 +44,12 @@ namespace DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
-    new Category { Id = 1, Name = "Laptops" },
-    new Category { Id = 2, Name = "Dell Laptops" },
-    new Category { Id = 3, Name = "HP Laptops" },
-    new Category { Id = 4, Name = "Apple Laptops" },
-    new Category { Id = 5, Name = "Lenovo Laptops" }
-);
+                new Category { Id = 1, Name = "Asus Laptops" },
+                new Category { Id = 2, Name = "Dell Laptops" },
+                new Category { Id = 3, Name = "HP Laptops" },
+                new Category { Id = 4, Name = "Apple Laptops" },
+                new Category { Id = 5, Name = "Lenovo Laptops" }
+            );
 
             // Seed data for Supplier - Adding suppliers for laptops
             modelBuilder.Entity<Supplier>().HasData(
@@ -59,6 +59,37 @@ namespace DAL
                 new Supplier { Id = 4, Name = "Lenovo Group Limited", Address = "6/F, Lenovo Building, 29 Science Park Road, Hong Kong", Contact = "+852 2833 2111" },
                 new Supplier { Id = 5, Name = "Ingram Micro", Address = "3351 Michelson Drive, Suite 100, Irvine, CA 92612, USA", Contact = "+1 800-456-8000" }
             );
+
+            modelBuilder.Entity<Product>().HasData(
+                new Product {ProductId = 1, Name = "Dell XPS 13", Price = 12000, CategoryId = 2, SupplierId = 1 },
+                new Product {ProductId = 2, Name = "HP Spectre x360", Price = 11000, CategoryId = 3, SupplierId = 2 },
+                new Product {ProductId = 3, Name = "MacBook Pro 14", Price = 20000, CategoryId = 4, SupplierId = 3 },
+                new Product {ProductId = 4, Name = "Lenovo ThinkPad X1", Price = 13000, CategoryId = 5, SupplierId = 4 },
+                new Product {ProductId = 5, Name = "Asus ROG Zephyrus G14", Price = 15000, CategoryId = 1, SupplierId = 5 }
+            );
+
+            modelBuilder.Entity<Stock>().HasData(
+                new Stock { ProductId = 1, Type = "Supply", Quantity = 50, LastUpdate = new DateTime(2024, 9, 1) },
+                new Stock { ProductId = 2, Type = "Supply", Quantity = 30, LastUpdate = new DateTime(2025, 3, 9) },
+                new Stock { ProductId = 3, Type = "Supply", Quantity = 20, LastUpdate = new DateTime(2024, 2, 10) },
+                new Stock { ProductId = 4, Type = "Supply", Quantity = 20, LastUpdate = new DateTime(2024, 6, 4) }
+            );
+
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Sale>()
+                .Property(s => s.Total_Price)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<SalesDetails>()
+                .Property(sd => sd.Price)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<SalesDetails>()
+                .Property(sd => sd.unitPrice)
+                .HasColumnType("decimal(18,2)");
 
 
             modelBuilder.Entity<SalesDetails>()

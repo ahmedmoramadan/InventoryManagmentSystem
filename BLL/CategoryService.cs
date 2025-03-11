@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BLL
 {
-    class CategoryService
+    public class CategoryService
     {
         private readonly InventoryDbContext context;
 
-        public CategoryService(InventoryDbContext context)
+        public CategoryService()
         {
-            this.context = context;
+            context = new InventoryDbContext(); ;
         }
 
         public bool AddCategory(string name)
@@ -64,5 +64,7 @@ namespace BLL
             var category = context.Categories.Find(id);
             return category != null ? category : null;
         }
+
+        
     }
 }

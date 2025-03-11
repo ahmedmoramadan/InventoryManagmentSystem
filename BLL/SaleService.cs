@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BLL
 {
-    class SaleService
+    public class SaleService
     {
         private readonly InventoryDbContext context;
 
-        public SaleService(InventoryDbContext context)
+        public SaleService()
         {
-            this.context = context;
+            context = new InventoryDbContext();
         }
         public bool AddSale(DateTime date, string customerName, decimal totalPrice )
         {
@@ -67,6 +67,19 @@ namespace BLL
         {
             var sale = context.Sales.Find(id);
             return sale != null ? sale : null;
+        }
+        public decimal GetTotalRevenue()
+        {
+            return context.Sales.Sum(s => s.Total_Price);
+        }
+
+        public int GetTotalCustomers()
+        {
+            return context.Sales.Select(s => s.Customer_Name).Distinct().Count();
+        }
+        public int GetTotalOrders()
+        {
+            return context.Sales.Count();
         }
     }
 }

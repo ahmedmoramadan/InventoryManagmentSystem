@@ -9,14 +9,19 @@ namespace DAL.Models
 {
     public class Stock
     {
+        public virtual Product Product { get; set; }
+        public int Quantity { get; set; }
         [MaxLength(30)]
         public string Type { get; set; } = string.Empty; //Supply - Sale 
-        public int Quantity { get; set; }
+        
         public DateTime LastUpdate { get; set; }
 
         public int ProductId { get; set; }
-        public virtual Product Product { get; set; }
 
-        
+        public override string ToString()
+        {
+            return $"{Quantity}";
+        }
+
     }
 }

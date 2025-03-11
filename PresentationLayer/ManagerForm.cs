@@ -1,13 +1,12 @@
-﻿using BLL;
+using System.Configuration;
+using BLL;
 using DAL.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using System.Windows.Forms.DataVisualization.Charting;
-
 
 namespace PresentationLayer
 {
-    public partial class AdminDashBoard : MaterialForm
+    public partial class ManagerForm : MaterialForm
     {
         int ProductId;
         ProductService PS = new ProductService();
@@ -15,7 +14,7 @@ namespace PresentationLayer
         SaleService SaleService = new SaleService();
         SaleDetailsService Sd = new SaleDetailsService();
         private readonly MaterialSkinManager materialSkinManager;
-        public AdminDashBoard()
+        public ManagerForm()
         {
             InitializeComponent();
             // Apply Material Theme
@@ -27,12 +26,12 @@ namespace PresentationLayer
                 Accent.LightBlue700, TextShade.WHITE
             );
         }
-        private async void AdminDashBoard_Load(object sender, EventArgs e)
+
+        private void ManagerForm_Load(object sender, EventArgs e)
         {
             LoadProducts();
             LoadSuppliers();
             LoadCategory();
-            LoadStock();
             btn_deleteProduct.Visible = false;
             btn_EditProduct.Visible = false;
             lbl_CountOfProd.Text = PS.GetTotalCount().ToString();
@@ -41,8 +40,6 @@ namespace PresentationLayer
             lbl_dashBestSellingProd.Text = Sd.GetBestSellingProduct().ToString();
             lbl_dashTotalOrders.Text = SaleService.GetTotalOrders().ToString();
             lbl_dashLowStock.Text = PS.GetLowStockProdCount().ToString();
-            await Task.Delay(500);
-            CheckLowStock();
         }
         private void dgv_dashStock_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -89,14 +86,6 @@ namespace PresentationLayer
             dgv_dashStock.Columns["Price"].Visible = false;
             dgv_dashStock.Columns["CategoryName"].Visible = false;
             dgv_dashStock.Columns["SupplierName"].Visible = false;
-
-            cmb_stockProd.DataSource = Products.Select(p => new
-            {
-                Id = (int)p.GetType().GetProperty("ProductId").GetValue(p),
-                Name = (string)p.GetType().GetProperty("Name").GetValue(p)
-            }).ToList();
-            cmb_stockProd.ValueMember = "Id";
-            cmb_stockProd.DisplayMember = "Name";
         }
         public void LoadSuppliers()
         {
@@ -259,55 +248,5 @@ namespace PresentationLayer
             }
         }
         #endregion
-
-        #region Stock Tap
-        public void LoadStock()
-        {
-            var stocks = S.GetAll();
-            dgv_StockTap.DataSource = stocks;
-            dgv_StockTap.Columns["ProductId"].Visible = false;
-            cmb_StockType.SelectedIndex = -1;
-            cmb_stockProd.SelectedIndex = -1;
-        }
-        private void CheckLowStock()
-        {
-            bool lowStockExists = false;
-            foreach (DataGridViewRow row in dgv_dashStock.Rows)
-            {
-                if (row.Cells["TotalStock"].Value != null)
-                {
-                    int quantity = Convert.ToInt32(row.Cells["TotalStock"].Value);
-                    if (quantity < 10)
-                    {
-                        lowStockExists = true;
-                        break;
-                    }
-                }
-            }
-            if (lowStockExists)
-            {
-                MessageBox.Show("There are low stock products that need to be restocked!", "Stock alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        private void btn_StockSearch_Click(object sender, EventArgs e)
-        {
-            int? productId = cmb_stockProd.SelectedValue as int?;
-            string stocktype = cmb_StockType.SelectedItem?.ToString() ?? "";
-
-            var results = S.SearchStocks(stocktype, productId);
-            
-            dgv_StockTap.DataSource = results;
-        }
-        private void btn_StockReset_Click(object sender, EventArgs e)
-        {
-            cmb_StockType.SelectedIndex = - 1;
-            cmb_stockProd.SelectedIndex = -1;
-            cmb_stockProd.Refresh();
-            cmb_StockType.Refresh();
-
-            dgv_StockTap.DataSource = S.GetAll();
-        }
-        #endregion
-
     }
 }

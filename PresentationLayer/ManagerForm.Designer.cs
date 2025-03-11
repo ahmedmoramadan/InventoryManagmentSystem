@@ -1,14 +1,14 @@
 ﻿namespace PresentationLayer
 {
-    partial class AdminDashBoard
+    partial class ManagerForm
     {
         /// <summary>
-        /// Required designer variable.
+        ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,29 +23,24 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashBoard));
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle26 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            imageList1 = new ImageList(components);
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerForm));
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-            Dashboard = new TabPage();
+            Dashboards = new TabPage();
+            materialFloatingActionButton4 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             materialFloatingActionButton6 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             materialCard6 = new MaterialSkin.Controls.MaterialCard();
             lbl_dashTotalOrders = new Label();
@@ -56,7 +51,6 @@
             lbl_dashBestSellingProd = new Label();
             materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel16 = new MaterialSkin.Controls.MaterialLabel();
-            materialFloatingActionButton4 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
             lbl_dashTotalCust = new Label();
             materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
@@ -103,24 +97,12 @@
             cmb_CatProducts = new MaterialSkin.Controls.MaterialComboBox();
             materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             dgv_Products = new DataGridView();
-            Sales = new TabPage();
-            Stock = new TabPage();
-            groupBox4 = new GroupBox();
-            cmb_stockProd = new MaterialSkin.Controls.MaterialComboBox();
-            btn_StockReset = new MaterialSkin.Controls.MaterialButton();
-            btn_StockSearch = new MaterialSkin.Controls.MaterialButton();
-            materialLabel20 = new MaterialSkin.Controls.MaterialLabel();
-            cmb_StockType = new MaterialSkin.Controls.MaterialComboBox();
-            materialLabel21 = new MaterialSkin.Controls.MaterialLabel();
-            dgv_StockTap = new DataGridView();
-            Suppliers = new TabPage();
-            Users = new TabPage();
             Reports = new TabPage();
-            Settings = new TabPage();
+            Sales = new TabPage();
+            imageList1 = new ImageList(components);
             btn_LogOut = new MaterialSkin.Controls.MaterialButton();
-            toolTip1 = new ToolTip(components);
             materialTabControl1.SuspendLayout();
-            Dashboard.SuspendLayout();
+            Dashboards.SuspendLayout();
             materialCard6.SuspendLayout();
             materialCard5.SuspendLayout();
             materialCard4.SuspendLayout();
@@ -132,41 +114,19 @@
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Products).BeginInit();
-            Stock.SuspendLayout();
-            groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_StockTap).BeginInit();
             SuspendLayout();
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "icons8-dashboard-layout-24.png");
-            imageList1.Images.SetKeyName(1, "icons8-home-24.png");
-            imageList1.Images.SetKeyName(2, "icons8-us-dollar-26.png");
-            imageList1.Images.SetKeyName(3, "icons8-product-24.png");
-            imageList1.Images.SetKeyName(4, "icons8-analytics-32.png");
-            imageList1.Images.SetKeyName(5, "icons8-supplier-24.png");
-            imageList1.Images.SetKeyName(6, "icons8-reports-32.png");
-            imageList1.Images.SetKeyName(7, "icons8-users-24.png");
-            imageList1.Images.SetKeyName(8, "icons8-stock-32.png");
-            imageList1.Images.SetKeyName(9, "user (1).png");
-            imageList1.Images.SetKeyName(10, "settings (3).png");
             // 
             // materialTabControl1
             // 
-            materialTabControl1.Controls.Add(Dashboard);
+            materialTabControl1.Controls.Add(Dashboards);
             materialTabControl1.Controls.Add(Products);
-            materialTabControl1.Controls.Add(Sales);
-            materialTabControl1.Controls.Add(Stock);
-            materialTabControl1.Controls.Add(Suppliers);
-            materialTabControl1.Controls.Add(Users);
             materialTabControl1.Controls.Add(Reports);
-            materialTabControl1.Controls.Add(Settings);
+            materialTabControl1.Controls.Add(Sales);
             materialTabControl1.Depth = 0;
             materialTabControl1.Dock = DockStyle.Fill;
+            materialTabControl1.Font = new Font("Microsoft Sans Serif", 9F);
             materialTabControl1.ImageList = imageList1;
+            materialTabControl1.ItemSize = new Size(115, 27);
             materialTabControl1.Location = new Point(3, 58);
             materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             materialTabControl1.Multiline = true;
@@ -175,40 +135,51 @@
             materialTabControl1.Size = new Size(1017, 722);
             materialTabControl1.TabIndex = 0;
             // 
-            // Dashboard
+            // Dashboards
             // 
-            Dashboard.Controls.Add(materialFloatingActionButton6);
-            Dashboard.Controls.Add(materialCard6);
-            Dashboard.Controls.Add(materialFloatingActionButton5);
-            Dashboard.Controls.Add(materialCard5);
-            Dashboard.Controls.Add(materialFloatingActionButton4);
-            Dashboard.Controls.Add(materialCard4);
-            Dashboard.Controls.Add(dgv_dashStock);
-            Dashboard.Controls.Add(materialFloatingActionButton3);
-            Dashboard.Controls.Add(materialCard3);
-            Dashboard.Controls.Add(materialFloatingActionButton2);
-            Dashboard.Controls.Add(materialCard2);
-            Dashboard.Controls.Add(materialFloatingActionButton1);
-            Dashboard.Controls.Add(materialCard1);
-            Dashboard.ImageKey = "icons8-dashboard-layout-24.png";
-            Dashboard.Location = new Point(4, 31);
-            Dashboard.Name = "Dashboard";
-            Dashboard.Padding = new Padding(3);
-            Dashboard.Size = new Size(1009, 687);
-            Dashboard.TabIndex = 0;
-            Dashboard.Text = "Dashboard";
-            Dashboard.ToolTipText = "Dashboard";
-            Dashboard.UseVisualStyleBackColor = true;
+            Dashboards.Controls.Add(materialFloatingActionButton4);
+            Dashboards.Controls.Add(materialFloatingActionButton6);
+            Dashboards.Controls.Add(materialCard6);
+            Dashboards.Controls.Add(materialFloatingActionButton5);
+            Dashboards.Controls.Add(materialCard5);
+            Dashboards.Controls.Add(materialCard4);
+            Dashboards.Controls.Add(dgv_dashStock);
+            Dashboards.Controls.Add(materialFloatingActionButton3);
+            Dashboards.Controls.Add(materialCard3);
+            Dashboards.Controls.Add(materialFloatingActionButton2);
+            Dashboards.Controls.Add(materialCard2);
+            Dashboards.Controls.Add(materialFloatingActionButton1);
+            Dashboards.Controls.Add(materialCard1);
+            Dashboards.ImageKey = "icons8-dashboard-layout-24.png";
+            Dashboards.Location = new Point(4, 31);
+            Dashboards.Name = "Dashboards";
+            Dashboards.Padding = new Padding(3);
+            Dashboards.Size = new Size(1009, 687);
+            Dashboards.TabIndex = 0;
+            Dashboards.Text = "Dashboards";
+            Dashboards.UseVisualStyleBackColor = true;
+            // 
+            // materialFloatingActionButton4
+            // 
+            materialFloatingActionButton4.Depth = 0;
+            materialFloatingActionButton4.Icon = InventoryManagmentSystem.PL.Properties.Resources.icons8_customers_50;
+            materialFloatingActionButton4.Location = new Point(881, 225);
+            materialFloatingActionButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialFloatingActionButton4.Name = "materialFloatingActionButton4";
+            materialFloatingActionButton4.Size = new Size(59, 71);
+            materialFloatingActionButton4.TabIndex = 21;
+            materialFloatingActionButton4.Text = "materialFloatingActionButton4";
+            materialFloatingActionButton4.UseVisualStyleBackColor = true;
             // 
             // materialFloatingActionButton6
             // 
             materialFloatingActionButton6.Depth = 0;
             materialFloatingActionButton6.Icon = InventoryManagmentSystem.PL.Properties.Resources.checkout;
-            materialFloatingActionButton6.Location = new Point(574, 74);
+            materialFloatingActionButton6.Location = new Point(575, 79);
             materialFloatingActionButton6.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton6.Name = "materialFloatingActionButton6";
             materialFloatingActionButton6.Size = new Size(59, 71);
-            materialFloatingActionButton6.TabIndex = 12;
+            materialFloatingActionButton6.TabIndex = 25;
             materialFloatingActionButton6.Text = "materialFloatingActionButton6";
             materialFloatingActionButton6.UseVisualStyleBackColor = true;
             // 
@@ -220,19 +191,19 @@
             materialCard6.Controls.Add(materialLabel18);
             materialCard6.Depth = 0;
             materialCard6.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard6.Location = new Point(347, 56);
+            materialCard6.Location = new Point(348, 61);
             materialCard6.Margin = new Padding(14, 13, 14, 13);
             materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard6.Name = "materialCard6";
             materialCard6.Padding = new Padding(14, 13, 14, 13);
             materialCard6.Size = new Size(250, 95);
-            materialCard6.TabIndex = 11;
+            materialCard6.TabIndex = 24;
             // 
             // lbl_dashTotalOrders
             // 
             lbl_dashTotalOrders.AutoSize = true;
             lbl_dashTotalOrders.Font = new Font("Microsoft Sans Serif", 13.8F);
-            lbl_dashTotalOrders.Location = new Point(102, 53);
+            lbl_dashTotalOrders.Location = new Point(102, 52);
             lbl_dashTotalOrders.Name = "lbl_dashTotalOrders";
             lbl_dashTotalOrders.Size = new Size(52, 29);
             lbl_dashTotalOrders.TabIndex = 4;
@@ -243,7 +214,7 @@
             materialLabel17.AutoSize = true;
             materialLabel17.Depth = 0;
             materialLabel17.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel17.Location = new Point(88, 45);
+            materialLabel17.Location = new Point(88, 44);
             materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel17.Name = "materialLabel17";
             materialLabel17.Size = new Size(1, 0);
@@ -254,7 +225,7 @@
             materialLabel18.AutoSize = true;
             materialLabel18.Depth = 0;
             materialLabel18.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel18.Location = new Point(17, 11);
+            materialLabel18.Location = new Point(17, 10);
             materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel18.Name = "materialLabel18";
             materialLabel18.Size = new Size(88, 19);
@@ -265,11 +236,11 @@
             // 
             materialFloatingActionButton5.Depth = 0;
             materialFloatingActionButton5.Icon = InventoryManagmentSystem.PL.Properties.Resources.best_seller;
-            materialFloatingActionButton5.Location = new Point(255, 205);
+            materialFloatingActionButton5.Location = new Point(256, 210);
             materialFloatingActionButton5.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton5.Name = "materialFloatingActionButton5";
             materialFloatingActionButton5.Size = new Size(59, 71);
-            materialFloatingActionButton5.TabIndex = 10;
+            materialFloatingActionButton5.TabIndex = 23;
             materialFloatingActionButton5.Text = "materialFloatingActionButton5";
             materialFloatingActionButton5.UseVisualStyleBackColor = true;
             // 
@@ -281,19 +252,19 @@
             materialCard5.Controls.Add(materialLabel16);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard5.Location = new Point(35, 201);
+            materialCard5.Location = new Point(36, 206);
             materialCard5.Margin = new Padding(14, 13, 14, 13);
             materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard5.Name = "materialCard5";
             materialCard5.Padding = new Padding(14, 13, 14, 13);
             materialCard5.Size = new Size(250, 95);
-            materialCard5.TabIndex = 9;
+            materialCard5.TabIndex = 22;
             // 
             // lbl_dashBestSellingProd
             // 
             lbl_dashBestSellingProd.AutoSize = true;
             lbl_dashBestSellingProd.Font = new Font("Microsoft Sans Serif", 13.8F);
-            lbl_dashBestSellingProd.Location = new Point(17, 53);
+            lbl_dashBestSellingProd.Location = new Point(17, 52);
             lbl_dashBestSellingProd.Name = "lbl_dashBestSellingProd";
             lbl_dashBestSellingProd.Size = new Size(145, 29);
             lbl_dashBestSellingProd.TabIndex = 4;
@@ -304,7 +275,7 @@
             materialLabel15.AutoSize = true;
             materialLabel15.Depth = 0;
             materialLabel15.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel15.Location = new Point(88, 45);
+            materialLabel15.Location = new Point(88, 44);
             materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel15.Name = "materialLabel15";
             materialLabel15.Size = new Size(1, 0);
@@ -315,24 +286,12 @@
             materialLabel16.AutoSize = true;
             materialLabel16.Depth = 0;
             materialLabel16.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel16.Location = new Point(17, 11);
+            materialLabel16.Location = new Point(17, 10);
             materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel16.Name = "materialLabel16";
             materialLabel16.Size = new Size(143, 19);
             materialLabel16.TabIndex = 2;
             materialLabel16.Text = "Best Selling Product";
-            // 
-            // materialFloatingActionButton4
-            // 
-            materialFloatingActionButton4.Depth = 0;
-            materialFloatingActionButton4.Icon = InventoryManagmentSystem.PL.Properties.Resources.icons8_customers_50;
-            materialFloatingActionButton4.Location = new Point(879, 219);
-            materialFloatingActionButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialFloatingActionButton4.Name = "materialFloatingActionButton4";
-            materialFloatingActionButton4.Size = new Size(59, 71);
-            materialFloatingActionButton4.TabIndex = 8;
-            materialFloatingActionButton4.Text = "materialFloatingActionButton4";
-            materialFloatingActionButton4.UseVisualStyleBackColor = true;
             // 
             // materialCard4
             // 
@@ -342,19 +301,19 @@
             materialCard4.Controls.Add(materialLabel14);
             materialCard4.Depth = 0;
             materialCard4.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard4.Location = new Point(659, 201);
+            materialCard4.Location = new Point(660, 206);
             materialCard4.Margin = new Padding(14, 13, 14, 13);
             materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard4.Name = "materialCard4";
             materialCard4.Padding = new Padding(14, 13, 14, 13);
             materialCard4.Size = new Size(250, 95);
-            materialCard4.TabIndex = 7;
+            materialCard4.TabIndex = 20;
             // 
             // lbl_dashTotalCust
             // 
             lbl_dashTotalCust.AutoSize = true;
             lbl_dashTotalCust.Font = new Font("Microsoft Sans Serif", 13.8F);
-            lbl_dashTotalCust.Location = new Point(107, 53);
+            lbl_dashTotalCust.Location = new Point(107, 52);
             lbl_dashTotalCust.Name = "lbl_dashTotalCust";
             lbl_dashTotalCust.Size = new Size(52, 29);
             lbl_dashTotalCust.TabIndex = 4;
@@ -365,7 +324,7 @@
             materialLabel13.AutoSize = true;
             materialLabel13.Depth = 0;
             materialLabel13.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel13.Location = new Point(88, 46);
+            materialLabel13.Location = new Point(88, 45);
             materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel13.Name = "materialLabel13";
             materialLabel13.Size = new Size(1, 0);
@@ -376,7 +335,7 @@
             materialLabel14.AutoSize = true;
             materialLabel14.Depth = 0;
             materialLabel14.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel14.Location = new Point(17, 12);
+            materialLabel14.Location = new Point(17, 11);
             materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel14.Name = "materialLabel14";
             materialLabel14.Size = new Size(118, 19);
@@ -389,42 +348,42 @@
             dgv_dashStock.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgv_dashStock.BorderStyle = BorderStyle.None;
             dgv_dashStock.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = SystemColors.WindowFrame;
-            dataGridViewCellStyle19.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle19.ForeColor = Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle19.SelectionForeColor = Color.White;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-            dgv_dashStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.WindowFrame;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_dashStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_dashStock.ColumnHeadersHeight = 40;
             dgv_dashStock.Columns.AddRange(new DataGridViewColumn[] { Status });
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle20.ForeColor = Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle20.SelectionForeColor = Color.White;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            dgv_dashStock.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv_dashStock.DefaultCellStyle = dataGridViewCellStyle2;
             dgv_dashStock.EnableHeadersVisualStyles = false;
             dgv_dashStock.GridColor = Color.FromArgb(55, 71, 79);
-            dgv_dashStock.Location = new Point(35, 334);
+            dgv_dashStock.Location = new Point(36, 339);
             dgv_dashStock.Name = "dgv_dashStock";
             dgv_dashStock.ReadOnly = true;
             dgv_dashStock.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = Color.DimGray;
-            dataGridViewCellStyle21.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle21.ForeColor = Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle21.SelectionForeColor = Color.White;
-            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-            dgv_dashStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.DimGray;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv_dashStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_dashStock.RowHeadersWidth = 51;
             dgv_dashStock.RowTemplate.Height = 40;
             dgv_dashStock.Size = new Size(481, 297);
-            dgv_dashStock.TabIndex = 6;
+            dgv_dashStock.TabIndex = 19;
             dgv_dashStock.CellFormatting += dgv_dashStock_CellFormatting;
             // 
             // Status
@@ -441,11 +400,11 @@
             // 
             materialFloatingActionButton3.Depth = 0;
             materialFloatingActionButton3.Icon = InventoryManagmentSystem.PL.Properties.Resources.down;
-            materialFloatingActionButton3.Location = new Point(567, 220);
+            materialFloatingActionButton3.Location = new Point(568, 225);
             materialFloatingActionButton3.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton3.Name = "materialFloatingActionButton3";
             materialFloatingActionButton3.Size = new Size(59, 71);
-            materialFloatingActionButton3.TabIndex = 5;
+            materialFloatingActionButton3.TabIndex = 18;
             materialFloatingActionButton3.Text = "materialFloatingActionButton3";
             materialFloatingActionButton3.UseVisualStyleBackColor = true;
             // 
@@ -457,19 +416,19 @@
             materialCard3.Controls.Add(materialLabel3);
             materialCard3.Depth = 0;
             materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard3.Location = new Point(347, 201);
+            materialCard3.Location = new Point(348, 206);
             materialCard3.Margin = new Padding(14, 13, 14, 13);
             materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard3.Name = "materialCard3";
             materialCard3.Padding = new Padding(14, 13, 14, 13);
             materialCard3.Size = new Size(250, 95);
-            materialCard3.TabIndex = 4;
+            materialCard3.TabIndex = 17;
             // 
             // lbl_dashLowStock
             // 
             lbl_dashLowStock.AutoSize = true;
             lbl_dashLowStock.Font = new Font("Microsoft Sans Serif", 13.8F);
-            lbl_dashLowStock.Location = new Point(114, 53);
+            lbl_dashLowStock.Location = new Point(114, 52);
             lbl_dashLowStock.Name = "lbl_dashLowStock";
             lbl_dashLowStock.Size = new Size(26, 29);
             lbl_dashLowStock.TabIndex = 4;
@@ -480,7 +439,7 @@
             materialLabel6.AutoSize = true;
             materialLabel6.Depth = 0;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(88, 47);
+            materialLabel6.Location = new Point(88, 46);
             materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(1, 0);
@@ -491,7 +450,7 @@
             materialLabel3.AutoSize = true;
             materialLabel3.Depth = 0;
             materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(17, 13);
+            materialLabel3.Location = new Point(17, 12);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
             materialLabel3.Size = new Size(188, 19);
@@ -502,11 +461,11 @@
             // 
             materialFloatingActionButton2.Depth = 0;
             materialFloatingActionButton2.Icon = (Image)resources.GetObject("materialFloatingActionButton2.Icon");
-            materialFloatingActionButton2.Location = new Point(879, 75);
+            materialFloatingActionButton2.Location = new Point(872, 71);
             materialFloatingActionButton2.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton2.Name = "materialFloatingActionButton2";
             materialFloatingActionButton2.Size = new Size(59, 71);
-            materialFloatingActionButton2.TabIndex = 3;
+            materialFloatingActionButton2.TabIndex = 16;
             materialFloatingActionButton2.Text = "materialFloatingActionButton2";
             materialFloatingActionButton2.UseVisualStyleBackColor = true;
             // 
@@ -518,19 +477,19 @@
             materialCard2.Controls.Add(materialLabel2);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(659, 56);
+            materialCard2.Location = new Point(660, 61);
             materialCard2.Margin = new Padding(14, 13, 14, 13);
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
             materialCard2.Padding = new Padding(14, 13, 14, 13);
             materialCard2.Size = new Size(250, 95);
-            materialCard2.TabIndex = 2;
+            materialCard2.TabIndex = 15;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F);
-            label1.Location = new Point(60, 53);
+            label1.Location = new Point(60, 52);
             label1.Name = "label1";
             label1.Size = new Size(26, 29);
             label1.TabIndex = 4;
@@ -540,7 +499,7 @@
             // 
             lbl_dashTotalSales.AutoSize = true;
             lbl_dashTotalSales.Font = new Font("Microsoft Sans Serif", 13.8F);
-            lbl_dashTotalSales.Location = new Point(83, 53);
+            lbl_dashTotalSales.Location = new Point(83, 52);
             lbl_dashTotalSales.Name = "lbl_dashTotalSales";
             lbl_dashTotalSales.Size = new Size(97, 29);
             lbl_dashTotalSales.TabIndex = 2;
@@ -551,7 +510,7 @@
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(17, 13);
+            materialLabel2.Location = new Point(17, 12);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(106, 19);
@@ -563,11 +522,11 @@
             materialFloatingActionButton1.Depth = 0;
             materialFloatingActionButton1.ForeColor = Color.White;
             materialFloatingActionButton1.Icon = InventoryManagmentSystem.PL.Properties.Resources.icons8_products_64;
-            materialFloatingActionButton1.Location = new Point(255, 75);
+            materialFloatingActionButton1.Location = new Point(256, 80);
             materialFloatingActionButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton1.Name = "materialFloatingActionButton1";
             materialFloatingActionButton1.Size = new Size(59, 71);
-            materialFloatingActionButton1.TabIndex = 1;
+            materialFloatingActionButton1.TabIndex = 14;
             materialFloatingActionButton1.Text = "materialFloatingActionButton1";
             materialFloatingActionButton1.UseVisualStyleBackColor = true;
             // 
@@ -578,19 +537,19 @@
             materialCard1.Controls.Add(materialLabel1);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(35, 56);
+            materialCard1.Location = new Point(36, 61);
             materialCard1.Margin = new Padding(14, 13, 14, 13);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(14, 13, 14, 13);
             materialCard1.Size = new Size(250, 95);
-            materialCard1.TabIndex = 0;
+            materialCard1.TabIndex = 13;
             // 
             // lbl_CountOfProd
             // 
             lbl_CountOfProd.AutoSize = true;
             lbl_CountOfProd.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_CountOfProd.Location = new Point(97, 53);
+            lbl_CountOfProd.Location = new Point(97, 52);
             lbl_CountOfProd.Name = "lbl_CountOfProd";
             lbl_CountOfProd.Size = new Size(39, 29);
             lbl_CountOfProd.TabIndex = 1;
@@ -601,7 +560,7 @@
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(17, 13);
+            materialLabel1.Location = new Point(17, 12);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(105, 19);
@@ -613,14 +572,13 @@
             Products.Controls.Add(groupBox2);
             Products.Controls.Add(groupBox1);
             Products.Controls.Add(dgv_Products);
-            Products.ImageKey = "icons8-product-24.png";
+            Products.ImageKey = "icons8-products-32.png";
             Products.Location = new Point(4, 31);
             Products.Name = "Products";
             Products.Padding = new Padding(3);
             Products.Size = new Size(1009, 687);
             Products.TabIndex = 1;
             Products.Text = "Products";
-            Products.ToolTipText = "Products";
             Products.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -633,10 +591,10 @@
             groupBox2.Controls.Add(cmb_searchProdCat);
             groupBox2.Controls.Add(materialLabel9);
             groupBox2.Controls.Add(txt_searchProdName);
-            groupBox2.Location = new Point(24, 293);
+            groupBox2.Location = new Point(25, 290);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(911, 110);
-            groupBox2.TabIndex = 1;
+            groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Text = "Search";
             // 
@@ -800,7 +758,7 @@
             groupBox1.Location = new Point(24, 6);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(911, 282);
-            groupBox1.TabIndex = 0;
+            groupBox1.TabIndex = 21;
             groupBox1.TabStop = false;
             groupBox1.Text = "Manage Products";
             // 
@@ -1051,62 +1009,72 @@
             // 
             // dgv_Products
             // 
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle22.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle22.ForeColor = Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle22.SelectionForeColor = Color.White;
-            dgv_Products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dgv_Products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dgv_Products.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Products.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgv_Products.BorderStyle = BorderStyle.None;
             dgv_Products.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Products.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = Color.DimGray;
-            dataGridViewCellStyle23.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle23.ForeColor = Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle23.SelectionForeColor = Color.White;
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.True;
-            dgv_Products.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.DimGray;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgv_Products.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgv_Products.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle24.ForeColor = Color.White;
-            dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle24.SelectionForeColor = Color.White;
-            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.False;
-            dgv_Products.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgv_Products.DefaultCellStyle = dataGridViewCellStyle6;
             dgv_Products.EnableHeadersVisualStyles = false;
             dgv_Products.GridColor = Color.FromArgb(55, 71, 79);
-            dgv_Products.ImeMode = ImeMode.NoControl;
             dgv_Products.Location = new Point(24, 408);
             dgv_Products.Name = "dgv_Products";
             dgv_Products.ReadOnly = true;
-            dataGridViewCellStyle25.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = Color.DimGray;
-            dataGridViewCellStyle25.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle25.ForeColor = Color.White;
-            dataGridViewCellStyle25.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle25.SelectionForeColor = Color.White;
-            dataGridViewCellStyle25.WrapMode = DataGridViewTriState.True;
-            dgv_Products.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.DimGray;
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgv_Products.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgv_Products.RowHeadersWidth = 40;
             dgv_Products.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle26.ForeColor = Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle26.SelectionForeColor = Color.White;
-            dgv_Products.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dgv_Products.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dgv_Products.RowTemplate.Height = 40;
             dgv_Products.RowTemplate.ReadOnly = true;
             dgv_Products.Size = new Size(911, 278);
-            dgv_Products.TabIndex = 20;
+            dgv_Products.TabIndex = 23;
             dgv_Products.RowHeaderMouseDoubleClick += dgv_Products_RowHeaderMouseDoubleClick;
+            // 
+            // Reports
+            // 
+            Reports.ImageKey = "icons8-reports-32.png";
+            Reports.Location = new Point(4, 31);
+            Reports.Name = "Reports";
+            Reports.Padding = new Padding(3);
+            Reports.Size = new Size(1009, 687);
+            Reports.TabIndex = 2;
+            Reports.Text = "Reports";
+            Reports.UseVisualStyleBackColor = true;
             // 
             // Sales
             // 
@@ -1114,252 +1082,19 @@
             Sales.Location = new Point(4, 31);
             Sales.Name = "Sales";
             Sales.Size = new Size(1009, 687);
-            Sales.TabIndex = 2;
+            Sales.TabIndex = 3;
             Sales.Text = "Sales";
-            Sales.ToolTipText = "Sales";
             Sales.UseVisualStyleBackColor = true;
             // 
-            // Stock
+            // imageList1
             // 
-            Stock.Controls.Add(groupBox4);
-            Stock.Controls.Add(dgv_StockTap);
-            Stock.ImageKey = "icons8-stock-32.png";
-            Stock.Location = new Point(4, 31);
-            Stock.Name = "Stock";
-            Stock.Size = new Size(1009, 687);
-            Stock.TabIndex = 4;
-            Stock.Text = "Stock";
-            Stock.ToolTipText = "Stock";
-            Stock.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(cmb_stockProd);
-            groupBox4.Controls.Add(btn_StockReset);
-            groupBox4.Controls.Add(btn_StockSearch);
-            groupBox4.Controls.Add(materialLabel20);
-            groupBox4.Controls.Add(cmb_StockType);
-            groupBox4.Controls.Add(materialLabel21);
-            groupBox4.Location = new Point(18, 33);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(912, 110);
-            groupBox4.TabIndex = 2;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Search";
-            // 
-            // cmb_stockProd
-            // 
-            cmb_stockProd.AutoResize = false;
-            cmb_stockProd.BackColor = Color.FromArgb(255, 255, 255);
-            cmb_stockProd.Depth = 0;
-            cmb_stockProd.DrawMode = DrawMode.OwnerDrawVariable;
-            cmb_stockProd.DropDownHeight = 174;
-            cmb_stockProd.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb_stockProd.DropDownWidth = 121;
-            cmb_stockProd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cmb_stockProd.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cmb_stockProd.FormattingEnabled = true;
-            cmb_stockProd.IntegralHeight = false;
-            cmb_stockProd.ItemHeight = 43;
-            cmb_stockProd.Location = new Point(108, 45);
-            cmb_stockProd.MaxDropDownItems = 4;
-            cmb_stockProd.MouseState = MaterialSkin.MouseState.OUT;
-            cmb_stockProd.Name = "cmb_stockProd";
-            cmb_stockProd.Size = new Size(205, 49);
-            cmb_stockProd.StartIndex = 0;
-            cmb_stockProd.TabIndex = 71;
-            // 
-            // btn_StockReset
-            // 
-            btn_StockReset.AutoSize = false;
-            btn_StockReset.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_StockReset.Cursor = Cursors.Hand;
-            btn_StockReset.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btn_StockReset.Depth = 0;
-            btn_StockReset.HighEmphasis = true;
-            btn_StockReset.Icon = null;
-            btn_StockReset.Location = new Point(692, 53);
-            btn_StockReset.Margin = new Padding(4, 6, 4, 6);
-            btn_StockReset.MouseState = MaterialSkin.MouseState.HOVER;
-            btn_StockReset.Name = "btn_StockReset";
-            btn_StockReset.NoAccentTextColor = Color.Empty;
-            btn_StockReset.Size = new Size(99, 41);
-            btn_StockReset.TabIndex = 60;
-            btn_StockReset.Text = "Reset";
-            btn_StockReset.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btn_StockReset.UseAccentColor = false;
-            btn_StockReset.UseVisualStyleBackColor = true;
-            btn_StockReset.Click += btn_StockReset_Click;
-            // 
-            // btn_StockSearch
-            // 
-            btn_StockSearch.AutoSize = false;
-            btn_StockSearch.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_StockSearch.Cursor = Cursors.Hand;
-            btn_StockSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btn_StockSearch.Depth = 0;
-            btn_StockSearch.HighEmphasis = true;
-            btn_StockSearch.Icon = InventoryManagmentSystem.PL.Properties.Resources.loupe3;
-            btn_StockSearch.ImageKey = "(none)";
-            btn_StockSearch.Location = new Point(644, 53);
-            btn_StockSearch.Margin = new Padding(4, 6, 4, 6);
-            btn_StockSearch.MouseState = MaterialSkin.MouseState.HOVER;
-            btn_StockSearch.Name = "btn_StockSearch";
-            btn_StockSearch.NoAccentTextColor = Color.Empty;
-            btn_StockSearch.Size = new Size(40, 41);
-            btn_StockSearch.TabIndex = 70;
-            btn_StockSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btn_StockSearch.UseAccentColor = false;
-            btn_StockSearch.UseVisualStyleBackColor = true;
-            btn_StockSearch.Click += btn_StockSearch_Click;
-            // 
-            // materialLabel20
-            // 
-            materialLabel20.AutoSize = true;
-            materialLabel20.Depth = 0;
-            materialLabel20.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel20.Location = new Point(376, 21);
-            materialLabel20.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel20.Name = "materialLabel20";
-            materialLabel20.Size = new Size(75, 19);
-            materialLabel20.TabIndex = 0;
-            materialLabel20.Text = "Stock type";
-            // 
-            // cmb_StockType
-            // 
-            cmb_StockType.AutoResize = false;
-            cmb_StockType.BackColor = Color.FromArgb(255, 255, 255);
-            cmb_StockType.Depth = 0;
-            cmb_StockType.DrawMode = DrawMode.OwnerDrawVariable;
-            cmb_StockType.DropDownHeight = 174;
-            cmb_StockType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb_StockType.DropDownWidth = 121;
-            cmb_StockType.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cmb_StockType.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cmb_StockType.FormattingEnabled = true;
-            cmb_StockType.IntegralHeight = false;
-            cmb_StockType.ItemHeight = 43;
-            cmb_StockType.Items.AddRange(new object[] { "Supply", "Sale" });
-            cmb_StockType.Location = new Point(376, 45);
-            cmb_StockType.MaxDropDownItems = 4;
-            cmb_StockType.MouseState = MaterialSkin.MouseState.OUT;
-            cmb_StockType.Name = "cmb_StockType";
-            cmb_StockType.Size = new Size(205, 49);
-            cmb_StockType.StartIndex = 0;
-            cmb_StockType.TabIndex = 7;
-            // 
-            // materialLabel21
-            // 
-            materialLabel21.AutoSize = true;
-            materialLabel21.Depth = 0;
-            materialLabel21.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel21.Location = new Point(108, 21);
-            materialLabel21.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel21.Name = "materialLabel21";
-            materialLabel21.Size = new Size(102, 19);
-            materialLabel21.TabIndex = 0;
-            materialLabel21.Text = "Product Name";
-            // 
-            // dgv_StockTap
-            // 
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle14.ForeColor = Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle14.SelectionForeColor = Color.White;
-            dgv_StockTap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
-            dgv_StockTap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_StockTap.BackgroundColor = Color.FromArgb(50, 50, 50);
-            dgv_StockTap.BorderStyle = BorderStyle.None;
-            dgv_StockTap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = Color.DimGray;
-            dataGridViewCellStyle15.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle15.ForeColor = Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle15.SelectionForeColor = Color.White;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
-            dgv_StockTap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            dgv_StockTap.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle16.ForeColor = Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
-            dgv_StockTap.DefaultCellStyle = dataGridViewCellStyle16;
-            dgv_StockTap.EnableHeadersVisualStyles = false;
-            dgv_StockTap.GridColor = Color.FromArgb(55, 71, 79);
-            dgv_StockTap.Location = new Point(18, 216);
-            dgv_StockTap.MultiSelect = false;
-            dgv_StockTap.Name = "dgv_StockTap";
-            dgv_StockTap.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = Color.DimGray;
-            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle17.ForeColor = Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle17.SelectionForeColor = Color.White;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
-            dgv_StockTap.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            dgv_StockTap.RowHeadersWidth = 40;
-            dgv_StockTap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle18.ForeColor = Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle18.SelectionForeColor = Color.White;
-            dgv_StockTap.RowsDefaultCellStyle = dataGridViewCellStyle18;
-            dgv_StockTap.RowTemplate.Height = 40;
-            dgv_StockTap.RowTemplate.ReadOnly = true;
-            dgv_StockTap.Size = new Size(912, 468);
-            dgv_StockTap.TabIndex = 0;
-            // 
-            // Suppliers
-            // 
-            Suppliers.ImageKey = "icons8-supplier-24.png";
-            Suppliers.Location = new Point(4, 31);
-            Suppliers.Name = "Suppliers";
-            Suppliers.Size = new Size(1009, 687);
-            Suppliers.TabIndex = 5;
-            Suppliers.Text = "Suppliers";
-            Suppliers.ToolTipText = "Suppliers";
-            Suppliers.UseVisualStyleBackColor = true;
-            // 
-            // Users
-            // 
-            Users.ImageKey = "icons8-users-24.png";
-            Users.Location = new Point(4, 31);
-            Users.Name = "Users";
-            Users.Size = new Size(1009, 687);
-            Users.TabIndex = 6;
-            Users.Text = "Users";
-            Users.ToolTipText = "Users";
-            Users.UseVisualStyleBackColor = true;
-            // 
-            // Reports
-            // 
-            Reports.ImageKey = "icons8-reports-32.png";
-            Reports.Location = new Point(4, 31);
-            Reports.Name = "Reports";
-            Reports.Size = new Size(1009, 687);
-            Reports.TabIndex = 7;
-            Reports.Text = "Reports";
-            Reports.ToolTipText = "Reports";
-            Reports.UseVisualStyleBackColor = true;
-            // 
-            // Settings
-            // 
-            Settings.Cursor = Cursors.Hand;
-            Settings.ImageKey = "settings (3).png";
-            Settings.Location = new Point(4, 31);
-            Settings.Name = "Settings";
-            Settings.Size = new Size(1009, 687);
-            Settings.TabIndex = 3;
-            Settings.Text = "Settings";
-            Settings.ToolTipText = "Settings";
-            Settings.UseVisualStyleBackColor = true;
+            imageList1.ColorDepth = ColorDepth.Depth24Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "icons8-products-32.png");
+            imageList1.Images.SetKeyName(1, "icons8-reports-32.png");
+            imageList1.Images.SetKeyName(2, "icons8-us-dollar-26.png");
+            imageList1.Images.SetKeyName(3, "icons8-dashboard-layout-24.png");
             // 
             // btn_LogOut
             // 
@@ -1377,31 +1112,29 @@
             btn_LogOut.Name = "btn_LogOut";
             btn_LogOut.NoAccentTextColor = Color.Empty;
             btn_LogOut.Size = new Size(46, 39);
-            btn_LogOut.TabIndex = 0;
-            toolTip1.SetToolTip(btn_LogOut, "Log Out");
+            btn_LogOut.TabIndex = 1;
             btn_LogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_LogOut.UseAccentColor = false;
             btn_LogOut.UseVisualStyleBackColor = false;
             btn_LogOut.Click += btn_LogOut_Click;
             // 
-            // AdminDashBoard
+            // ManagerForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1023, 783);
             Controls.Add(btn_LogOut);
             Controls.Add(materialTabControl1);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = materialTabControl1;
-            Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Name = "AdminDashBoard";
+            Name = "ManagerForm";
             Padding = new Padding(3, 58, 3, 3);
             Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inventory Management System";
-            Load += AdminDashBoard_Load;
+            Load += ManagerForm_Load;
             materialTabControl1.ResumeLayout(false);
-            Dashboard.ResumeLayout(false);
+            Dashboards.ResumeLayout(false);
             materialCard6.ResumeLayout(false);
             materialCard6.PerformLayout();
             materialCard5.ResumeLayout(false);
@@ -1421,91 +1154,73 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Products).EndInit();
-            Stock.ResumeLayout(false);
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_StockTap).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private ImageList imageList1;
+
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
-        private TabPage Dashboard;
+        private TabPage Dashboards;
         private TabPage Products;
-        private TabPage Sales;
-        private TabPage Settings;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
-        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton2;
-        private MaterialSkin.Controls.MaterialCard materialCard2;
-        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton3;
-        private MaterialSkin.Controls.MaterialCard materialCard3;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private TabPage Stock;
-        private TabPage Suppliers;
-        private TabPage Users;
         private TabPage Reports;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private Label lbl_dashLowStock;
-        private Label lbl_dashTotalSales;
-        private Label lbl_CountOfProd;
-        private DataGridView dgv_dashStock;
-        private DataGridView dgv_Products;
-        private MaterialSkin.Controls.MaterialButton btn_deleteProduct;
-        private MaterialSkin.Controls.MaterialButton btn_AddProduct;
-        private MaterialSkin.Controls.MaterialButton btn_EditProduct;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private MaterialSkin.Controls.MaterialTextBox txt_NameProduct;
-        private MaterialSkin.Controls.MaterialLabel materialLabel7;
-        private MaterialSkin.Controls.MaterialLabel materialLabel8;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MaterialSkin.Controls.MaterialComboBox cmb_SupProduct;
-        private MaterialSkin.Controls.MaterialComboBox cmb_CatProducts;
-        private MaterialSkin.Controls.MaterialTextBox txt_PriceProduct;
-        private GroupBox groupBox1;
-        private MaterialSkin.Controls.MaterialButton btn_ResetProduct;
+        private ImageList imageList1;
         private GroupBox groupBox2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel9;
-        private MaterialSkin.Controls.MaterialTextBox txt_searchProdName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel11;
+        private MaterialSkin.Controls.MaterialComboBox cmb_searchProdSupplier;
         private MaterialSkin.Controls.MaterialButton btn_resetSearchProd;
         private MaterialSkin.Controls.MaterialButton btn_searchProduct;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialComboBox cmb_searchProdCat;
-        private MaterialSkin.Controls.MaterialLabel materialLabel11;
-        private MaterialSkin.Controls.MaterialComboBox cmb_searchProdSupplier;
-        private MaterialSkin.Controls.MaterialButton btn_LogOut;
-        private ToolTip toolTip1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialTextBox txt_searchProdName;
+        private GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialTextBox txt_QuantityProd;
         private MaterialSkin.Controls.MaterialLabel lbl_quantityProd;
-        private DataGridView dgv_StockTap;
-        private GroupBox groupBox3;
-        private MaterialSkin.Controls.MaterialLabel materialLabel12;
-        private Label label1;
-        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton4;
-        private MaterialSkin.Controls.MaterialCard materialCard4;
-        private Label lbl_dashTotalCust;
-        private MaterialSkin.Controls.MaterialLabel materialLabel13;
-        private MaterialSkin.Controls.MaterialLabel materialLabel14;
-        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton5;
-        private MaterialSkin.Controls.MaterialCard materialCard5;
-        private Label lbl_dashBestSellingProd;
-        private MaterialSkin.Controls.MaterialLabel materialLabel15;
-        private MaterialSkin.Controls.MaterialLabel materialLabel16;
+        private MaterialSkin.Controls.MaterialButton btn_ResetProduct;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialButton btn_deleteProduct;
+        private MaterialSkin.Controls.MaterialComboBox cmb_SupProduct;
+        private MaterialSkin.Controls.MaterialButton btn_AddProduct;
+        private MaterialSkin.Controls.MaterialTextBox txt_PriceProduct;
+        private MaterialSkin.Controls.MaterialButton btn_EditProduct;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialTextBox txt_NameProduct;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private MaterialSkin.Controls.MaterialComboBox cmb_CatProducts;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private DataGridView dgv_Products;
+        private MaterialSkin.Controls.MaterialButton btn_LogOut;
+        private TabPage Sales;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton6;
         private MaterialSkin.Controls.MaterialCard materialCard6;
         private Label lbl_dashTotalOrders;
         private MaterialSkin.Controls.MaterialLabel materialLabel17;
         private MaterialSkin.Controls.MaterialLabel materialLabel18;
+        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton5;
+        private MaterialSkin.Controls.MaterialCard materialCard5;
+        private Label lbl_dashBestSellingProd;
+        private MaterialSkin.Controls.MaterialLabel materialLabel15;
+        private MaterialSkin.Controls.MaterialLabel materialLabel16;
+        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton4;
+        private MaterialSkin.Controls.MaterialCard materialCard4;
+        private Label lbl_dashTotalCust;
+        private MaterialSkin.Controls.MaterialLabel materialLabel13;
+        private MaterialSkin.Controls.MaterialLabel materialLabel14;
+        private DataGridView dgv_dashStock;
         private DataGridViewTextBoxColumn Status;
-        private GroupBox groupBox4;
-        private MaterialSkin.Controls.MaterialButton btn_StockReset;
-        private MaterialSkin.Controls.MaterialButton btn_StockSearch;
-        private MaterialSkin.Controls.MaterialLabel materialLabel20;
-        private MaterialSkin.Controls.MaterialComboBox cmb_StockType;
-        private MaterialSkin.Controls.MaterialLabel materialLabel21;
-        private MaterialSkin.Controls.MaterialComboBox cmb_stockProd;
+        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton3;
+        private MaterialSkin.Controls.MaterialCard materialCard3;
+        private Label lbl_dashLowStock;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton2;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private Label label1;
+        private Label lbl_dashTotalSales;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private Label lbl_CountOfProd;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

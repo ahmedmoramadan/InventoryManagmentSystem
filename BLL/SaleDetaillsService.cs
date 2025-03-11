@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BLL
 {
-    class SaleDetailsService
+    public class SaleDetailsService
     {
         private readonly InventoryDbContext _context;
 
-        public SaleDetailsService(InventoryDbContext context)
+        public SaleDetailsService()
         {
-            this._context = context;
+            _context = new InventoryDbContext();
         }
 
         public bool AddSalesDetails(int saleId, int productId, int quantity, decimal price)
@@ -54,6 +54,20 @@ namespace BLL
                 .Include(sd => sd.Product)  // Include related Product
                 .Include(sd => sd.Sale)     // Include related Sale
                 .ToList();
+        }
+        public string GetBestSellingProduct()
+        {
+            var bestSellingProd = _context.SalesDetails
+                .GroupBy(s => s.ProductId)
+                .Select(g => new { ProductId = g.Key, TotalQuantitySold = g.Sum(s => s.Quantity) })
+                .OrderByDescending(p => p.TotalQuantitySold)
+                .FirstOrDefault();
+            if(bestSellingProd == null)
+            {
+                return "No Sales Data Available";
+            }
+            var Prod = _context.Products.Find(bestSellingProd.ProductId);
+            return Prod != null ? Prod.Name : "No Sales Data Available";
         }
     }
 }
