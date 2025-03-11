@@ -14,7 +14,7 @@ namespace BLL
         }
 
         //Manage supplier details (Name, Contact Info, Address, Product Supply List).
-        public void Add(string name ,string address ,string contact)
+        public bool Add(string name ,string address ,string contact)
         {
             var supplier = new Supplier()
             {
@@ -23,10 +23,10 @@ namespace BLL
                 Contact = contact
             };
             dbContext.Suppliers.Add(supplier);
-            dbContext.SaveChanges();
+            return dbContext.SaveChanges() > 0;
         }
 
-        public void update(int id, string name, string address, string contact)
+        public bool update(int id, string name, string address, string contact)
         {
             var supplier = GetById(id);
 
@@ -37,19 +37,20 @@ namespace BLL
                 supplier.Contact = contact;
 
                 dbContext.Suppliers.Update(supplier);
-                dbContext.SaveChanges();
+                return dbContext.SaveChanges() > 0;
             }
+            return false;
         }
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var supplier = GetById(id);
 
             if(supplier != null)
             {
                 dbContext.Suppliers.Remove(supplier);
-                dbContext.SaveChanges();
+                return dbContext.SaveChanges() > 0;
             }
-
+            return false;
         }
 
         public Supplier? GetById(int id)
@@ -63,12 +64,16 @@ namespace BLL
             return null;
         }
 
-        public IEnumerable<Supplier> GetAll()
+        public List<Supplier> GetAll()
         {
             return dbContext.Suppliers.ToList();
         }
 
-
+        public Supplier? GetSupplierByname(string supplierName)
+        {
+            var existingSupplier = dbContext.Suppliers.Where(s => s.Name.ToLower() == supplierName.ToLower()).FirstOrDefault();
+            return existingSupplier;
+        }
 
         
         //Track product supply history per supplier.
