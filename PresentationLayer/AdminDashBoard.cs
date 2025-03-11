@@ -246,7 +246,6 @@ namespace PresentationLayer
             cmb_searchProdSupplier.Refresh();
             LoadProducts();
         }
-
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -259,7 +258,6 @@ namespace PresentationLayer
             }
         }
         #endregion
-
         #region Stock Tap
         public void LoadStock()
         {
@@ -308,6 +306,5 @@ namespace PresentationLayer
             dgv_StockTap.DataSource = S.GetAll();
         }
         #endregion
-
     }
 }
