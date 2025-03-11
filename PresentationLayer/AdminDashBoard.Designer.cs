@@ -68,7 +68,14 @@
             btn_Update = new MaterialSkin.Controls.MaterialButton();
             btn_Add = new MaterialSkin.Controls.MaterialButton();
             tabPage7 = new TabPage();
-            tabPage8 = new TabPage();
+            btn_ = new TabPage();
+            btn_downloadExcel = new MaterialSkin.Controls.MaterialButton();
+            btn_DownloadPdf = new MaterialSkin.Controls.MaterialButton();
+            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            btn_mostSold = new MaterialSkin.Controls.MaterialButton();
+            btn_lowStock = new MaterialSkin.Controls.MaterialButton();
+            btn_salesPerformance = new MaterialSkin.Controls.MaterialButton();
+            btn_currentStock = new MaterialSkin.Controls.MaterialButton();
             tabPage4 = new TabPage();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -78,6 +85,8 @@
             materialCard1.SuspendLayout();
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).BeginInit();
+            btn_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
             // 
             // imageList1
@@ -103,7 +112,7 @@
             materialTabControl1.Controls.Add(tabPage5);
             materialTabControl1.Controls.Add(tabPage6);
             materialTabControl1.Controls.Add(tabPage7);
-            materialTabControl1.Controls.Add(tabPage8);
+            materialTabControl1.Controls.Add(btn_);
             materialTabControl1.Controls.Add(tabPage4);
             materialTabControl1.Depth = 0;
             materialTabControl1.Dock = DockStyle.Fill;
@@ -359,6 +368,7 @@
             // 
             // btn_Reset
             // 
+            btn_Reset.AutoSize = false;
             btn_Reset.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_Reset.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btn_Reset.Depth = 0;
@@ -369,7 +379,7 @@
             btn_Reset.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Reset.Name = "btn_Reset";
             btn_Reset.NoAccentTextColor = Color.Empty;
-            btn_Reset.Size = new Size(65, 36);
+            btn_Reset.Size = new Size(93, 36);
             btn_Reset.TabIndex = 15;
             btn_Reset.Text = "Reset";
             btn_Reset.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -410,6 +420,7 @@
             dgv_supplier.ImeMode = ImeMode.NoControl;
             dgv_supplier.Location = new Point(17, 72);
             dgv_supplier.Name = "dgv_supplier";
+            dgv_supplier.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgv_supplier.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(50, 50, 50);
@@ -523,6 +534,7 @@
             // 
             // btn_Delete
             // 
+            btn_Delete.AutoSize = false;
             btn_Delete.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_Delete.BackColor = Color.Transparent;
             btn_Delete.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
@@ -535,7 +547,7 @@
             btn_Delete.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Delete.Name = "btn_Delete";
             btn_Delete.NoAccentTextColor = Color.Empty;
-            btn_Delete.Size = new Size(73, 36);
+            btn_Delete.Size = new Size(92, 36);
             btn_Delete.TabIndex = 5;
             btn_Delete.Text = "Delete";
             btn_Delete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -545,6 +557,7 @@
             // 
             // btn_Update
             // 
+            btn_Update.AutoSize = false;
             btn_Update.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_Update.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btn_Update.Depth = 0;
@@ -556,7 +569,7 @@
             btn_Update.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Update.Name = "btn_Update";
             btn_Update.NoAccentTextColor = Color.Empty;
-            btn_Update.Size = new Size(77, 36);
+            btn_Update.Size = new Size(92, 36);
             btn_Update.TabIndex = 4;
             btn_Update.Text = "Update";
             btn_Update.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -566,6 +579,7 @@
             // 
             // btn_Add
             // 
+            btn_Add.AutoSize = false;
             btn_Add.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_Add.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btn_Add.Depth = 0;
@@ -576,7 +590,7 @@
             btn_Add.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Add.Name = "btn_Add";
             btn_Add.NoAccentTextColor = Color.Empty;
-            btn_Add.Size = new Size(64, 36);
+            btn_Add.Size = new Size(92, 36);
             btn_Add.TabIndex = 0;
             btn_Add.Text = "Add";
             btn_Add.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -594,15 +608,161 @@
             tabPage7.Text = "Users";
             tabPage7.UseVisualStyleBackColor = true;
             // 
-            // tabPage8
+            // btn_
             // 
-            tabPage8.ImageKey = "icons8-reports-32.png";
-            tabPage8.Location = new Point(4, 31);
-            tabPage8.Name = "tabPage8";
-            tabPage8.Size = new Size(1017, 601);
-            tabPage8.TabIndex = 7;
-            tabPage8.Text = "Reports";
-            tabPage8.UseVisualStyleBackColor = true;
+            btn_.Controls.Add(btn_downloadExcel);
+            btn_.Controls.Add(btn_DownloadPdf);
+            btn_.Controls.Add(webView21);
+            btn_.Controls.Add(btn_mostSold);
+            btn_.Controls.Add(btn_lowStock);
+            btn_.Controls.Add(btn_salesPerformance);
+            btn_.Controls.Add(btn_currentStock);
+            btn_.ImageKey = "icons8-reports-32.png";
+            btn_.Location = new Point(4, 31);
+            btn_.Name = "btn_";
+            btn_.Size = new Size(1017, 601);
+            btn_.TabIndex = 7;
+            btn_.Text = "Reports";
+            btn_.UseVisualStyleBackColor = true;
+            // 
+            // btn_downloadExcel
+            // 
+            btn_downloadExcel.AutoSize = false;
+            btn_downloadExcel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_downloadExcel.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_downloadExcel.Depth = 0;
+            btn_downloadExcel.HighEmphasis = true;
+            btn_downloadExcel.Icon = null;
+            btn_downloadExcel.Location = new Point(754, 515);
+            btn_downloadExcel.Margin = new Padding(4, 6, 4, 6);
+            btn_downloadExcel.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_downloadExcel.Name = "btn_downloadExcel";
+            btn_downloadExcel.NoAccentTextColor = Color.Empty;
+            btn_downloadExcel.Size = new Size(198, 45);
+            btn_downloadExcel.TabIndex = 6;
+            btn_downloadExcel.Text = "Download as excel";
+            btn_downloadExcel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_downloadExcel.UseAccentColor = false;
+            btn_downloadExcel.UseVisualStyleBackColor = true;
+            btn_downloadExcel.Click += btn_downloadExcel_Click;
+            // 
+            // btn_DownloadPdf
+            // 
+            btn_DownloadPdf.AutoSize = false;
+            btn_DownloadPdf.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_DownloadPdf.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_DownloadPdf.Depth = 0;
+            btn_DownloadPdf.HighEmphasis = true;
+            btn_DownloadPdf.Icon = null;
+            btn_DownloadPdf.Location = new Point(537, 515);
+            btn_DownloadPdf.Margin = new Padding(4, 6, 4, 6);
+            btn_DownloadPdf.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_DownloadPdf.Name = "btn_DownloadPdf";
+            btn_DownloadPdf.NoAccentTextColor = Color.Empty;
+            btn_DownloadPdf.Size = new Size(198, 45);
+            btn_DownloadPdf.TabIndex = 5;
+            btn_DownloadPdf.Text = "Download as pdf";
+            btn_DownloadPdf.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_DownloadPdf.UseAccentColor = false;
+            btn_DownloadPdf.UseVisualStyleBackColor = true;
+            btn_DownloadPdf.Click += btn_DownloadPdf_Click;
+            // 
+            // webView21
+            // 
+            webView21.AllowExternalDrop = true;
+            webView21.BackColor = Color.FromArgb(55, 55, 55);
+            webView21.CreationProperties = null;
+            webView21.DefaultBackgroundColor = Color.FromArgb(55, 55, 55);
+            webView21.Location = new Point(41, 97);
+            webView21.Name = "webView21";
+            webView21.Size = new Size(894, 394);
+            webView21.TabIndex = 4;
+            webView21.Visible = false;
+            webView21.ZoomFactor = 1D;
+            // 
+            // btn_mostSold
+            // 
+            btn_mostSold.AutoSize = false;
+            btn_mostSold.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_mostSold.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_mostSold.Depth = 0;
+            btn_mostSold.HighEmphasis = true;
+            btn_mostSold.Icon = null;
+            btn_mostSold.Location = new Point(728, 19);
+            btn_mostSold.Margin = new Padding(4, 6, 4, 6);
+            btn_mostSold.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_mostSold.Name = "btn_mostSold";
+            btn_mostSold.NoAccentTextColor = Color.Empty;
+            btn_mostSold.Size = new Size(198, 45);
+            btn_mostSold.TabIndex = 3;
+            btn_mostSold.Text = "Most sold products";
+            btn_mostSold.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_mostSold.UseAccentColor = false;
+            btn_mostSold.UseVisualStyleBackColor = true;
+            btn_mostSold.Click += btn_mostSold_Click;
+            // 
+            // btn_lowStock
+            // 
+            btn_lowStock.AutoSize = false;
+            btn_lowStock.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_lowStock.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_lowStock.Depth = 0;
+            btn_lowStock.HighEmphasis = true;
+            btn_lowStock.Icon = null;
+            btn_lowStock.Location = new Point(497, 19);
+            btn_lowStock.Margin = new Padding(4, 6, 4, 6);
+            btn_lowStock.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_lowStock.Name = "btn_lowStock";
+            btn_lowStock.NoAccentTextColor = Color.Empty;
+            btn_lowStock.Size = new Size(198, 45);
+            btn_lowStock.TabIndex = 2;
+            btn_lowStock.Text = "Low-stock products";
+            btn_lowStock.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_lowStock.UseAccentColor = false;
+            btn_lowStock.UseVisualStyleBackColor = true;
+            btn_lowStock.Click += btn_lowStock_Click;
+            // 
+            // btn_salesPerformance
+            // 
+            btn_salesPerformance.AutoSize = false;
+            btn_salesPerformance.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_salesPerformance.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_salesPerformance.Depth = 0;
+            btn_salesPerformance.HighEmphasis = true;
+            btn_salesPerformance.Icon = null;
+            btn_salesPerformance.Location = new Point(241, 19);
+            btn_salesPerformance.Margin = new Padding(4, 6, 4, 6);
+            btn_salesPerformance.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_salesPerformance.Name = "btn_salesPerformance";
+            btn_salesPerformance.NoAccentTextColor = Color.Empty;
+            btn_salesPerformance.Size = new Size(227, 45);
+            btn_salesPerformance.TabIndex = 1;
+            btn_salesPerformance.Text = " Monthly sales performance";
+            btn_salesPerformance.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_salesPerformance.UseAccentColor = false;
+            btn_salesPerformance.UseVisualStyleBackColor = true;
+            btn_salesPerformance.Click += btn_salesPerformance_Click;
+            // 
+            // btn_currentStock
+            // 
+            btn_currentStock.AutoSize = false;
+            btn_currentStock.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_currentStock.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_currentStock.Depth = 0;
+            btn_currentStock.HighEmphasis = true;
+            btn_currentStock.Icon = null;
+            btn_currentStock.Location = new Point(22, 19);
+            btn_currentStock.Margin = new Padding(4, 6, 4, 6);
+            btn_currentStock.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_currentStock.Name = "btn_currentStock";
+            btn_currentStock.NoAccentTextColor = Color.Empty;
+            btn_currentStock.Size = new Size(198, 45);
+            btn_currentStock.TabIndex = 0;
+            btn_currentStock.Text = "Current stock levels";
+            btn_currentStock.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_currentStock.UseAccentColor = false;
+            btn_currentStock.UseVisualStyleBackColor = true;
+            btn_currentStock.Click += btn_currentStock_Click;
             // 
             // tabPage4
             // 
@@ -639,6 +799,8 @@
             tabPage6.ResumeLayout(false);
             tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).EndInit();
+            btn_.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
         }
 
@@ -661,7 +823,7 @@
         private TabPage tabPage5;
         private TabPage tabPage6;
         private TabPage tabPage7;
-        private TabPage tabPage8;
+        private TabPage btn_;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private Label label3;
         private Label label2;
@@ -679,5 +841,12 @@
         private MaterialSkin.Controls.MaterialLabel lbl_Id;
         private DataGridView dgv_supplier;
         private MaterialSkin.Controls.MaterialButton btn_Reset;
+        private MaterialSkin.Controls.MaterialButton btn_mostSold;
+        private MaterialSkin.Controls.MaterialButton btn_lowStock;
+        private MaterialSkin.Controls.MaterialButton btn_salesPerformance;
+        private MaterialSkin.Controls.MaterialButton btn_currentStock;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private MaterialSkin.Controls.MaterialButton btn_downloadExcel;
+        private MaterialSkin.Controls.MaterialButton btn_DownloadPdf;
     }
 }
