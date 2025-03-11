@@ -30,10 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashBoard));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             imageList1 = new ImageList(components);
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
@@ -68,7 +68,7 @@
             btn_Update = new MaterialSkin.Controls.MaterialButton();
             btn_Add = new MaterialSkin.Controls.MaterialButton();
             tabPage7 = new TabPage();
-            btn_ = new TabPage();
+            tabPage8 = new TabPage();
             btn_downloadExcel = new MaterialSkin.Controls.MaterialButton();
             btn_DownloadPdf = new MaterialSkin.Controls.MaterialButton();
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -85,7 +85,7 @@
             materialCard1.SuspendLayout();
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).BeginInit();
-            btn_.SuspendLayout();
+            tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
             // 
@@ -112,7 +112,7 @@
             materialTabControl1.Controls.Add(tabPage5);
             materialTabControl1.Controls.Add(tabPage6);
             materialTabControl1.Controls.Add(tabPage7);
-            materialTabControl1.Controls.Add(btn_);
+            materialTabControl1.Controls.Add(tabPage8);
             materialTabControl1.Controls.Add(tabPage4);
             materialTabControl1.Depth = 0;
             materialTabControl1.Dock = DockStyle.Fill;
@@ -389,45 +389,45 @@
             // 
             // dgv_supplier
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dgv_supplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dgv_supplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dgv_supplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_supplier.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgv_supplier.BorderStyle = BorderStyle.None;
             dgv_supplier.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_supplier.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dgv_supplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dgv_supplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgv_supplier.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgv_supplier.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dgv_supplier.DefaultCellStyle = dataGridViewCellStyle7;
             dgv_supplier.GridColor = Color.FromArgb(55, 71, 79);
             dgv_supplier.ImeMode = ImeMode.NoControl;
             dgv_supplier.Location = new Point(17, 72);
             dgv_supplier.Name = "dgv_supplier";
             dgv_supplier.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgv_supplier.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dgv_supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dgv_supplier.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dgv_supplier.Size = new Size(909, 222);
             dgv_supplier.TabIndex = 0;
             dgv_supplier.CellClick += dgv_supplier_CellClick;
@@ -608,22 +608,22 @@
             tabPage7.Text = "Users";
             tabPage7.UseVisualStyleBackColor = true;
             // 
-            // btn_
+            // tabPage8
             // 
-            btn_.Controls.Add(btn_downloadExcel);
-            btn_.Controls.Add(btn_DownloadPdf);
-            btn_.Controls.Add(webView21);
-            btn_.Controls.Add(btn_mostSold);
-            btn_.Controls.Add(btn_lowStock);
-            btn_.Controls.Add(btn_salesPerformance);
-            btn_.Controls.Add(btn_currentStock);
-            btn_.ImageKey = "icons8-reports-32.png";
-            btn_.Location = new Point(4, 31);
-            btn_.Name = "btn_";
-            btn_.Size = new Size(1017, 601);
-            btn_.TabIndex = 7;
-            btn_.Text = "Reports";
-            btn_.UseVisualStyleBackColor = true;
+            tabPage8.Controls.Add(btn_downloadExcel);
+            tabPage8.Controls.Add(btn_DownloadPdf);
+            tabPage8.Controls.Add(webView21);
+            tabPage8.Controls.Add(btn_mostSold);
+            tabPage8.Controls.Add(btn_lowStock);
+            tabPage8.Controls.Add(btn_salesPerformance);
+            tabPage8.Controls.Add(btn_currentStock);
+            tabPage8.ImageKey = "icons8-reports-32.png";
+            tabPage8.Location = new Point(4, 31);
+            tabPage8.Name = "tabPage8";
+            tabPage8.Size = new Size(1017, 601);
+            tabPage8.TabIndex = 7;
+            tabPage8.Text = "Reports";
+            tabPage8.UseVisualStyleBackColor = true;
             // 
             // btn_downloadExcel
             // 
@@ -799,7 +799,7 @@
             tabPage6.ResumeLayout(false);
             tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).EndInit();
-            btn_.ResumeLayout(false);
+            tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
         }
@@ -823,7 +823,7 @@
         private TabPage tabPage5;
         private TabPage tabPage6;
         private TabPage tabPage7;
-        private TabPage btn_;
+        private TabPage tabPage8;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private Label label3;
         private Label label2;
