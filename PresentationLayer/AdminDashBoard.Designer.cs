@@ -33,8 +33,8 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashBoard));
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashBoard));
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
@@ -46,6 +46,7 @@
             DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
             btn_Reset = new MaterialSkin.Controls.MaterialButton();
             dgv_supplier = new DataGridView();
             lbl_Id = new MaterialSkin.Controls.MaterialLabel();
@@ -171,12 +172,12 @@
             btn_Reset.Depth = 0;
             btn_Reset.HighEmphasis = true;
             btn_Reset.Icon = null;
-            btn_Reset.Location = new Point(647, 519);
+            btn_Reset.Location = new Point(595, 334);
             btn_Reset.Margin = new Padding(4, 6, 4, 6);
             btn_Reset.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Reset.Name = "btn_Reset";
             btn_Reset.NoAccentTextColor = Color.Empty;
-            btn_Reset.Size = new Size(93, 36);
+            btn_Reset.Size = new Size(99, 41);
             btn_Reset.TabIndex = 15;
             btn_Reset.Text = "Reset";
             btn_Reset.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -195,10 +196,9 @@
             dgv_supplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_supplier.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgv_supplier.BorderStyle = BorderStyle.None;
-            dgv_supplier.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_supplier.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle2.BackColor = Color.DimGray;
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(203, 89, 78);
@@ -213,19 +213,29 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.White;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgv_supplier.DefaultCellStyle = dataGridViewCellStyle3;
+            dgv_supplier.EnableHeadersVisualStyles = false;
             dgv_supplier.GridColor = Color.FromArgb(55, 71, 79);
             dgv_supplier.ImeMode = ImeMode.NoControl;
-            dgv_supplier.Location = new Point(17, 72);
+            dgv_supplier.Location = new Point(13, 393);
             dgv_supplier.Name = "dgv_supplier";
             dgv_supplier.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgv_supplier.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle4.BackColor = Color.DimGray;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle4.ForeColor = Color.White;
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dgv_supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgv_supplier.Size = new Size(909, 222);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_supplier.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv_supplier.RowHeadersWidth = 40;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dgv_supplier.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dgv_supplier.RowTemplate.Height = 40;
+            dgv_supplier.Size = new Size(926, 291);
             dgv_supplier.TabIndex = 0;
             dgv_supplier.CellClick += dgv_supplier_CellClick;
             // 
@@ -234,7 +244,7 @@
             lbl_Id.AutoSize = true;
             lbl_Id.Depth = 0;
             lbl_Id.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lbl_Id.Location = new Point(760, 261);
+            lbl_Id.Location = new Point(730, 45);
             lbl_Id.MouseState = MaterialSkin.MouseState.HOVER;
             lbl_Id.Name = "lbl_Id";
             lbl_Id.Size = new Size(14, 19);
@@ -247,7 +257,7 @@
             lbl_address.AutoSize = true;
             lbl_address.Depth = 0;
             lbl_address.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lbl_address.Location = new Point(118, 530);
+            lbl_address.Location = new Point(240, 250);
             lbl_address.MouseState = MaterialSkin.MouseState.HOVER;
             lbl_address.Name = "lbl_address";
             lbl_address.Size = new Size(58, 19);
@@ -259,7 +269,7 @@
             lbl_contact.AutoSize = true;
             lbl_contact.Depth = 0;
             lbl_contact.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lbl_contact.Location = new Point(118, 434);
+            lbl_contact.Location = new Point(240, 153);
             lbl_contact.MouseState = MaterialSkin.MouseState.HOVER;
             lbl_contact.Name = "lbl_contact";
             lbl_contact.Size = new Size(88, 19);
@@ -271,7 +281,7 @@
             lbl_name.AutoSize = true;
             lbl_name.Depth = 0;
             lbl_name.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lbl_name.Location = new Point(118, 346);
+            lbl_name.Location = new Point(240, 60);
             lbl_name.MouseState = MaterialSkin.MouseState.HOVER;
             lbl_name.Name = "lbl_name";
             lbl_name.Size = new Size(43, 19);
@@ -285,7 +295,7 @@
             txt_Address.Depth = 0;
             txt_Address.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txt_Address.LeadingIcon = null;
-            txt_Address.Location = new Point(235, 512);
+            txt_Address.Location = new Point(357, 232);
             txt_Address.MaxLength = 50;
             txt_Address.MouseState = MaterialSkin.MouseState.OUT;
             txt_Address.Multiline = false;
@@ -302,7 +312,7 @@
             txt_contact.Depth = 0;
             txt_contact.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txt_contact.LeadingIcon = null;
-            txt_contact.Location = new Point(235, 414);
+            txt_contact.Location = new Point(357, 136);
             txt_contact.MaxLength = 50;
             txt_contact.MouseState = MaterialSkin.MouseState.OUT;
             txt_contact.Multiline = false;
@@ -319,7 +329,7 @@
             txt_name.Depth = 0;
             txt_name.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txt_name.LeadingIcon = null;
-            txt_name.Location = new Point(235, 326);
+            txt_name.Location = new Point(357, 40);
             txt_name.MaxLength = 50;
             txt_name.MouseState = MaterialSkin.MouseState.OUT;
             txt_name.Multiline = false;
@@ -339,12 +349,12 @@
             btn_Delete.Enabled = false;
             btn_Delete.HighEmphasis = true;
             btn_Delete.Icon = null;
-            btn_Delete.Location = new Point(648, 462);
+            btn_Delete.Location = new Point(273, 334);
             btn_Delete.Margin = new Padding(4, 6, 4, 6);
             btn_Delete.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Delete.Name = "btn_Delete";
             btn_Delete.NoAccentTextColor = Color.Empty;
-            btn_Delete.Size = new Size(92, 36);
+            btn_Delete.Size = new Size(99, 41);
             btn_Delete.TabIndex = 5;
             btn_Delete.Text = "Delete";
             btn_Delete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -361,12 +371,12 @@
             btn_Update.Enabled = false;
             btn_Update.HighEmphasis = true;
             btn_Update.Icon = null;
-            btn_Update.Location = new Point(648, 405);
+            btn_Update.Location = new Point(487, 334);
             btn_Update.Margin = new Padding(4, 6, 4, 6);
             btn_Update.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Update.Name = "btn_Update";
             btn_Update.NoAccentTextColor = Color.Empty;
-            btn_Update.Size = new Size(92, 36);
+            btn_Update.Size = new Size(99, 41);
             btn_Update.TabIndex = 4;
             btn_Update.Text = "Update";
             btn_Update.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -382,12 +392,12 @@
             btn_Add.Depth = 0;
             btn_Add.HighEmphasis = true;
             btn_Add.Icon = null;
-            btn_Add.Location = new Point(648, 346);
+            btn_Add.Location = new Point(380, 334);
             btn_Add.Margin = new Padding(4, 6, 4, 6);
             btn_Add.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Add.Name = "btn_Add";
             btn_Add.NoAccentTextColor = Color.Empty;
-            btn_Add.Size = new Size(92, 36);
+            btn_Add.Size = new Size(99, 41);
             btn_Add.TabIndex = 0;
             btn_Add.Text = "Add";
             btn_Add.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -700,7 +710,7 @@
             // materialFloatingActionButton5
             // 
             materialFloatingActionButton5.Depth = 0;
-            materialFloatingActionButton5.Icon = InventoryManagmentSystem.PL.Properties.Resources.best_seller;
+            materialFloatingActionButton5.Icon = InventoryManagmentSystem.PL.Properties.Resources.icons8_best_seller_64;
             materialFloatingActionButton5.Location = new Point(255, 205);
             materialFloatingActionButton5.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton5.Name = "materialFloatingActionButton5";
@@ -761,7 +771,7 @@
             // materialFloatingActionButton4
             // 
             materialFloatingActionButton4.Depth = 0;
-            materialFloatingActionButton4.Icon = null;
+            materialFloatingActionButton4.Icon = InventoryManagmentSystem.PL.Properties.Resources.icons8_customers_50;
             materialFloatingActionButton4.Location = new Point(879, 219);
             materialFloatingActionButton4.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton4.Name = "materialFloatingActionButton4";
@@ -825,42 +835,43 @@
             dgv_dashStock.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgv_dashStock.BorderStyle = BorderStyle.None;
             dgv_dashStock.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.WindowFrame;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgv_dashStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dgv_dashStock.ColumnHeadersHeight = 40;
-            dgv_dashStock.Columns.AddRange(new DataGridViewColumn[] { Status });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle6.BackColor = SystemColors.WindowFrame;
             dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle6.ForeColor = Color.White;
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(203, 89, 78);
             dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgv_dashStock.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_dashStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgv_dashStock.ColumnHeadersHeight = 40;
+            dgv_dashStock.Columns.AddRange(new DataGridViewColumn[] { Status });
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dgv_dashStock.DefaultCellStyle = dataGridViewCellStyle7;
             dgv_dashStock.EnableHeadersVisualStyles = false;
             dgv_dashStock.GridColor = Color.FromArgb(55, 71, 79);
             dgv_dashStock.Location = new Point(35, 334);
             dgv_dashStock.Name = "dgv_dashStock";
             dgv_dashStock.ReadOnly = true;
             dgv_dashStock.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.DimGray;
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgv_dashStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = Color.DimGray;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dgv_dashStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dgv_dashStock.RowHeadersWidth = 51;
             dgv_dashStock.RowTemplate.Height = 40;
             dgv_dashStock.Size = new Size(481, 297);
             dgv_dashStock.TabIndex = 6;
+            dgv_dashStock.CellFormatting += dgv_dashStock_CellFormatting;
             // 
             // Status
             // 
@@ -875,7 +886,7 @@
             // materialFloatingActionButton3
             // 
             materialFloatingActionButton3.Depth = 0;
-            materialFloatingActionButton3.Icon = null;
+            materialFloatingActionButton3.Icon = InventoryManagmentSystem.PL.Properties.Resources.down;
             materialFloatingActionButton3.Location = new Point(567, 220);
             materialFloatingActionButton3.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton3.Name = "materialFloatingActionButton3";
@@ -997,7 +1008,7 @@
             // 
             materialFloatingActionButton1.Depth = 0;
             materialFloatingActionButton1.ForeColor = Color.White;
-            materialFloatingActionButton1.Icon = null;
+            materialFloatingActionButton1.Icon = InventoryManagmentSystem.PL.Properties.Resources.icons8_products_64;
             materialFloatingActionButton1.Location = new Point(255, 75);
             materialFloatingActionButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialFloatingActionButton1.Name = "materialFloatingActionButton1";
@@ -1129,6 +1140,7 @@
             btn_resetSearchProd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_resetSearchProd.UseAccentColor = false;
             btn_resetSearchProd.UseVisualStyleBackColor = true;
+            btn_resetSearchProd.Click += btn_resetSearchProd_Click;
             // 
             // btn_searchProduct
             // 
@@ -1138,7 +1150,7 @@
             btn_searchProduct.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btn_searchProduct.Depth = 0;
             btn_searchProduct.HighEmphasis = true;
-            btn_searchProduct.Icon = null;
+            btn_searchProduct.Icon = InventoryManagmentSystem.PL.Properties.Resources.loupe1;
             btn_searchProduct.ImageKey = "(none)";
             btn_searchProduct.Location = new Point(754, 60);
             btn_searchProduct.Margin = new Padding(4, 6, 4, 6);
@@ -1150,6 +1162,7 @@
             btn_searchProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_searchProduct.UseAccentColor = false;
             btn_searchProduct.UseVisualStyleBackColor = true;
+            btn_searchProduct.Click += btn_searchProduct_Click;
             // 
             // materialLabel10
             // 
@@ -1253,6 +1266,7 @@
             txt_QuantityProd.TabIndex = 4;
             txt_QuantityProd.Text = "";
             txt_QuantityProd.TrailingIcon = null;
+            txt_QuantityProd.KeyPress += txt_PriceProduct_KeyPress;
             // 
             // lbl_quantityProd
             // 
@@ -1286,6 +1300,7 @@
             btn_ResetProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_ResetProduct.UseAccentColor = false;
             btn_ResetProduct.UseVisualStyleBackColor = true;
+            btn_ResetProduct.Click += btn_ResetProduct_Click;
             // 
             // materialLabel4
             // 
@@ -1319,6 +1334,7 @@
             btn_deleteProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_deleteProduct.UseAccentColor = false;
             btn_deleteProduct.UseVisualStyleBackColor = true;
+            btn_deleteProduct.Click += btn_deleteProduct_Click;
             // 
             // cmb_SupProduct
             // 
@@ -1362,6 +1378,7 @@
             btn_AddProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_AddProduct.UseAccentColor = false;
             btn_AddProduct.UseVisualStyleBackColor = true;
+            btn_AddProduct.Click += btn_AddProduct_Click;
             // 
             // txt_PriceProduct
             // 
@@ -1379,6 +1396,7 @@
             txt_PriceProduct.TabIndex = 1;
             txt_PriceProduct.Text = "";
             txt_PriceProduct.TrailingIcon = null;
+            txt_PriceProduct.KeyPress += txt_PriceProduct_KeyPress;
             // 
             // btn_EditProduct
             // 
@@ -1400,6 +1418,7 @@
             btn_EditProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_EditProduct.UseAccentColor = false;
             btn_EditProduct.UseVisualStyleBackColor = true;
+            btn_EditProduct.Click += btn_EditProduct_Click;
             // 
             // materialLabel5
             // 
@@ -1478,61 +1497,62 @@
             // 
             // dgv_Products
             // 
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dgv_Products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle9.SelectionForeColor = Color.White;
+            dgv_Products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             dgv_Products.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Products.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgv_Products.BorderStyle = BorderStyle.None;
             dgv_Products.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Products.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.DimGray;
-            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle9.SelectionForeColor = Color.White;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgv_Products.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dgv_Products.ColumnHeadersHeight = 40;
             dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle10.BackColor = Color.DimGray;
             dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle10.ForeColor = Color.White;
             dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(203, 89, 78);
             dataGridViewCellStyle10.SelectionForeColor = Color.White;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgv_Products.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgv_Products.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dgv_Products.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle11.SelectionForeColor = Color.White;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgv_Products.DefaultCellStyle = dataGridViewCellStyle11;
             dgv_Products.EnableHeadersVisualStyles = false;
             dgv_Products.GridColor = Color.FromArgb(55, 71, 79);
             dgv_Products.ImeMode = ImeMode.NoControl;
             dgv_Products.Location = new Point(24, 408);
             dgv_Products.Name = "dgv_Products";
             dgv_Products.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = Color.DimGray;
-            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle11.SelectionForeColor = Color.White;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dgv_Products.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            dgv_Products.RowHeadersWidth = 40;
-            dgv_Products.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle12.BackColor = Color.DimGray;
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle12.ForeColor = Color.White;
             dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(203, 89, 78);
             dataGridViewCellStyle12.SelectionForeColor = Color.White;
-            dgv_Products.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgv_Products.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dgv_Products.RowHeadersWidth = 40;
+            dgv_Products.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle13.ForeColor = Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle13.SelectionForeColor = Color.White;
+            dgv_Products.RowsDefaultCellStyle = dataGridViewCellStyle13;
             dgv_Products.RowTemplate.Height = 40;
             dgv_Products.RowTemplate.ReadOnly = true;
             dgv_Products.Size = new Size(911, 278);
             dgv_Products.TabIndex = 20;
+            dgv_Products.RowHeaderMouseDoubleClick += dgv_Products_RowHeaderMouseDoubleClick;
             // 
             // Sales
             // 
@@ -1615,6 +1635,7 @@
             btn_StockReset.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_StockReset.UseAccentColor = false;
             btn_StockReset.UseVisualStyleBackColor = true;
+            btn_StockReset.Click += btn_StockReset_Click;
             // 
             // btn_StockSearch
             // 
@@ -1624,7 +1645,7 @@
             btn_StockSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btn_StockSearch.Depth = 0;
             btn_StockSearch.HighEmphasis = true;
-            btn_StockSearch.Icon = null;
+            btn_StockSearch.Icon = InventoryManagmentSystem.PL.Properties.Resources.loupe1;
             btn_StockSearch.ImageKey = "(none)";
             btn_StockSearch.Location = new Point(644, 53);
             btn_StockSearch.Margin = new Padding(4, 6, 4, 6);
@@ -1636,6 +1657,7 @@
             btn_StockSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_StockSearch.UseAccentColor = false;
             btn_StockSearch.UseVisualStyleBackColor = true;
+            btn_StockSearch.Click += btn_StockSearch_Click;
             // 
             // materialLabel20
             // 
@@ -1686,47 +1708,47 @@
             // 
             // dgv_StockTap
             // 
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle13.ForeColor = Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle13.SelectionForeColor = Color.White;
-            dgv_StockTap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle14.ForeColor = Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle14.SelectionForeColor = Color.White;
+            dgv_StockTap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             dgv_StockTap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_StockTap.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgv_StockTap.BorderStyle = BorderStyle.None;
             dgv_StockTap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = Color.DimGray;
-            dataGridViewCellStyle14.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle14.ForeColor = Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle14.SelectionForeColor = Color.White;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
-            dgv_StockTap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            dgv_StockTap.ColumnHeadersHeight = 40;
             dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle15.BackColor = Color.DimGray;
             dataGridViewCellStyle15.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle15.ForeColor = Color.White;
             dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
-            dgv_StockTap.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle15.SelectionForeColor = Color.White;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            dgv_StockTap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dgv_StockTap.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle16.ForeColor = Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
+            dgv_StockTap.DefaultCellStyle = dataGridViewCellStyle16;
             dgv_StockTap.EnableHeadersVisualStyles = false;
             dgv_StockTap.GridColor = Color.FromArgb(55, 71, 79);
             dgv_StockTap.Location = new Point(18, 216);
             dgv_StockTap.MultiSelect = false;
             dgv_StockTap.Name = "dgv_StockTap";
             dgv_StockTap.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = Color.DimGray;
-            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle16.ForeColor = Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(203, 89, 78);
-            dataGridViewCellStyle16.SelectionForeColor = Color.White;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
-            dgv_StockTap.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = Color.DimGray;
+            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle17.ForeColor = Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle17.SelectionForeColor = Color.White;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dgv_StockTap.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dgv_StockTap.RowHeadersWidth = 40;
             dgv_StockTap.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_StockTap.RowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -1767,7 +1789,7 @@
             btn_LogOut.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btn_LogOut.Depth = 0;
             btn_LogOut.HighEmphasis = true;
-            btn_LogOut.Icon = null;
+            btn_LogOut.Icon = InventoryManagmentSystem.PL.Properties.Resources.icons8_logout_26;
             btn_LogOut.Location = new Point(974, 24);
             btn_LogOut.Margin = new Padding(4, 6, 4, 6);
             btn_LogOut.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1779,6 +1801,7 @@
             btn_LogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_LogOut.UseAccentColor = false;
             btn_LogOut.UseVisualStyleBackColor = false;
+            btn_LogOut.Click += btn_LogOut_Click;
             // 
             // AdminDashBoard
             // 
@@ -1795,6 +1818,7 @@
             Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inventory Management System";
+            Load += AdminDashBoard_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).EndInit();
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             Suppliers.ResumeLayout(false);

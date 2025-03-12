@@ -326,7 +326,6 @@
             // 
             // pictureBox_user
             // 
-            pictureBox_user.Image = InventoryManagmentSystem.PL.Properties.Resources.person_12047661;
             pictureBox_user.Location = new Point(15, 11);
             pictureBox_user.Name = "pictureBox_user";
             pictureBox_user.Size = new Size(24, 24);
@@ -382,7 +381,6 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Cursor = Cursors.Hand;
-            pictureBox2.Image = InventoryManagmentSystem.PL.Properties.Resources.cross;
             pictureBox2.Location = new Point(384, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(30, 30);
@@ -484,7 +482,6 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = InventoryManagmentSystem.PL.Properties.Resources.person_12047661;
             pictureBox4.Location = new Point(15, 11);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(24, 24);
@@ -547,7 +544,6 @@
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Left;
-            pictureBox1.Image = InventoryManagmentSystem.PL.Properties.Resources._12085707_20944201;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(421, 490);
