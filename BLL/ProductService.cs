@@ -18,7 +18,7 @@ namespace BLL
         }
         public void Add(string name,decimal price,int categoryId,int supplierId,int quantity)
         {
-            var newProduct = dbContext.Products.FirstOrDefault(p => p.Name == name);
+            var newProduct = dbContext.Products.Include(p => p.Stocks).FirstOrDefault(p => p.Name == name);
             if (newProduct == null)
             {
                 Product product = new Product()
@@ -28,35 +28,28 @@ namespace BLL
                     CategoryId = categoryId,
                     SupplierId = supplierId
                 };
-
                 dbContext.Products.Add(product);
-                var affectChanges = dbContext.SaveChanges();
-                if(affectChanges > 0)
-                {
-                    var lastProduct = dbContext.Products.LastOrDefault();
-                    Stock stock = new Stock()
-                    {
-                        Type = "Supply",
-                        Quantity =quantity,
-                        LastUpdate = DateTime.Now,
-                        ProductId = lastProduct!.ProductId
-                    };
-                    dbContext.Stocks.Add(stock);
-                    dbContext.SaveChanges();
-
-                }
-            }
-            else
-            {
-                var oldtStok = dbContext.Stocks.LastOrDefault(p=>p.ProductId == newProduct.ProductId);
+                dbContext.SaveChanges();
                 Stock stock = new Stock()
                 {
                     Type = "Supply",
-                    Quantity = oldtStok!.Quantity + quantity,
+                    Quantity = quantity,
                     LastUpdate = DateTime.Now,
-                    ProductId = newProduct.ProductId,
+                    ProductId = product.ProductId
                 };
                 dbContext.Stocks.Add(stock);
+                dbContext.SaveChanges();
+            }
+            else
+            {
+                Stock newStock = new Stock()
+                {
+                    Type = "Supply",
+                    Quantity = quantity,
+                    LastUpdate = DateTime.Now,
+                    ProductId = newProduct.ProductId
+                };
+                dbContext.Stocks.Add(newStock);
                 dbContext.SaveChanges();
             }
         }
@@ -81,22 +74,33 @@ namespace BLL
 
             if (product != null)
             {
+                //dbContext.Stocks.RemoveRange(product.Stocks);
                 dbContext.Products.Remove(product);
                 dbContext.SaveChanges();
             }
         }
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<object> GetAll()
         {
             //return all products   (exist and not exist in stock)
             //return dbContext.Products.Include(p => p.Category).Include(p => p.Supplier).ToList();
             //return dbContext.Products.ToList();
 
             //return only products that have quantity in stock
-            var product = dbContext.Products.Include(p => p.Category)
+            var products = dbContext.Products.Include(p => p.Category)
                                      .Include(p => p.Supplier)
                                      .Include(p => p.Stocks)
-                                     .Where(p => p.Stocks.Any(s => s.Quantity > 0 && s.Type == "Supply"));
-            return product;
+                                     .Where(p => p.Stocks.Any(s => s.Quantity > 0 && s.Type == "Supply"))
+                                     .Select(p => new
+                                     {
+                                         p.ProductId,
+                                         p.Name,
+                                         p.Price,
+                                         CategoryName = p.Category.Name,
+                                         SupplierName = p.Supplier.Name,
+                                         TotalStock = p.Stocks.Where(s => s.Type == "Supply").Sum(s => s.Quantity)
+                                     })
+                                     .ToList();
+            return products;
         }
         public Product? GetById(int id)
         {
@@ -113,30 +117,54 @@ namespace BLL
             }
             return null;
         }
-        public IEnumerable<Product> Search(string name, int? categoryId, int? sypplierId)
+        public IEnumerable<object> Search(string name, int? categoryId, int? supplierId)
         {
-            var query = dbContext.Products.AsQueryable();
+            var query = dbContext.Products
+                         .Include(p => p.Category)
+                         .Include(p => p.Supplier)
+                         .Include(p => p.Stocks)
+                         .Where(p => p.Stocks.Any(s => s.Quantity > 0 && s.Type == "Supply"))
+                         .AsQueryable();
 
             if (!string.IsNullOrEmpty(name))
             {
-                query = query.Where(p => p.Name == name);
+                query = query.Where(p => p.Name.Contains(name));
             }
 
-            if (categoryId != null)
+            if (categoryId.HasValue)
             {
                 query = query.Where(p => p.CategoryId == categoryId);
             }
-            if (sypplierId != null)
+            if (supplierId != null)
             {
-                query = query.Where(p => p.SupplierId == sypplierId);
+                query = query.Where(p => p.SupplierId == supplierId);
             }
 
-            //return query.ToList();
-            return query.Include(p => p.Category).Include(p => p.Supplier).ToList();
+            var result = query.Select(p => new
+            {
+                p.ProductId,
+                p.Name,
+                p.Price,
+                CategoryName = p.Category.Name,
+                SupplierName = p.Supplier.Name,
+                TotalStock = p.Stocks.Where(s => s.Type == "Supply").Sum(s => s.Quantity)
+            }).ToList();
+            return result;
         }
         public Product ViewDetails(int id)
         {
             return GetById(id)!;
         }
+
+        public int GetTotalCount()
+        {
+            return GetAll().Count();
+        }
+        public int GetLowStockProdCount()
+        {
+            var result = GetAll().ToList();
+            return result.Count(p => (int)p.GetType().GetProperty("TotalStock").GetValue(p) < 10);
+        }
+
     }
 }

@@ -7,6 +7,9 @@
     <Compile Update="AdminDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="AdminDashBoard.resx">

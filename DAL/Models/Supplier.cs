@@ -20,5 +20,12 @@ namespace DAL.Models
         public string Address { get; set; } = string.Empty;
 
         public virtual List<Product> Products { get; set; } = new List<Product>();
-     }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
+    }
+
+
 }
