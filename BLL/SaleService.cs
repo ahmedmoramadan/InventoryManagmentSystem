@@ -14,6 +14,10 @@ namespace BLL
         {
             context = new InventoryDbContext();
         }
+        public Sale GetSale(int id)
+        {
+            return context.Sales.OrderBy(x => x.Id).LastOrDefault(x => x.Id == id)!;
+        }
         public bool AddSale(DateTime date, string customerName, decimal totalPrice )
         {
             var sale = new Sale
@@ -80,6 +84,58 @@ namespace BLL
         public int GetTotalOrders()
         {
             return context.Sales.Count();
+        }
+
+        public Sale GetLastSaleWithNoName()
+        {
+            return context.Sales.OrderBy(c => c.Id).LastOrDefault(s => s.Customer_Name == "noname")!;
+        }
+        public List<Sale> GetSalesWithoutNoName()
+        {
+            return context.Sales.Where(n => n.Customer_Name != "noname").ToList();
+        }
+        public bool AddSale(string name)
+        {
+
+            var lastsale = GetLastSaleWithNoName();
+            // var mysale = GetSaleById(lastsale.Id);
+            //when add product create sale without name to use saleId , as soon as finish , add name . 
+            if (string.IsNullOrEmpty(name))
+            {
+                var sale = new Sale
+                {
+                    Date = DateTime.Now,
+                    Customer_Name = "noname",
+                    Total_Price = 0,
+                };
+
+                context.Add(sale);
+            }
+            else
+            {
+                if (lastsale != null)
+                {
+                    lastsale!.Customer_Name = name;
+                    lastsale.Total_Price = GetTotalPrice();
+                    context.Update(lastsale);
+                }
+            }
+            var rowsAffected = context.SaveChanges();
+            return rowsAffected > 0;
+        }
+        public decimal GetTotalPrice()
+        {
+            var sale = context.Sales.Include(s => s.SalesDetails).OrderBy(x => x.Id).LastOrDefault();
+            decimal totalprice = 0;
+            foreach (var item in sale!.SalesDetails)
+            {
+                totalprice += item.Price;
+            }
+            return totalprice;
+        }
+        public List<Sale> GetAll()
+        {
+            return context.Sales.ToList();
         }
     }
 }

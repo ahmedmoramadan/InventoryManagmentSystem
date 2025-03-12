@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InventoryManagmentSystem.DAL.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    [Migration("20250307151121_addcolumn")]
-    partial class addcolumn
+    [Migration("20250312225019_AddDatabase")]
+    partial class AddDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Laptops"
+                            Name = "Asus Laptops"
                         },
                         new
                         {
@@ -102,6 +102,48 @@ namespace InventoryManagmentSystem.DAL.Migrations
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            CategoryId = 2,
+                            Name = "Dell XPS 13",
+                            Price = 12000m,
+                            SupplierId = 1
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            CategoryId = 3,
+                            Name = "HP Spectre x360",
+                            Price = 11000m,
+                            SupplierId = 2
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            CategoryId = 4,
+                            Name = "MacBook Pro 14",
+                            Price = 20000m,
+                            SupplierId = 3
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            CategoryId = 5,
+                            Name = "Lenovo ThinkPad X1",
+                            Price = 13000m,
+                            SupplierId = 4
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            CategoryId = 1,
+                            Name = "Asus ROG Zephyrus G14",
+                            Price = 15000m,
+                            SupplierId = 5
+                        });
                 });
 
             modelBuilder.Entity("DAL.Models.Sale", b =>
@@ -176,6 +218,36 @@ namespace InventoryManagmentSystem.DAL.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Stocks");
+
+                    b.HasData(
+                        new
+                        {
+                            LastUpdate = new DateTime(2024, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 1,
+                            Quantity = 50,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 2,
+                            Quantity = 30,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2024, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 3,
+                            Quantity = 20,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2024, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 4,
+                            Quantity = 20,
+                            Type = "Supply"
+                        });
                 });
 
             modelBuilder.Entity("DAL.Models.Supplier", b =>
