@@ -35,8 +35,8 @@
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             imageList1 = new ImageList(components);
-            materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-            tabPage1 = new TabPage();
+            Products = new MaterialSkin.Controls.MaterialTabControl();
+            Dashboard = new TabPage();
             dataGridView1 = new DataGridView();
             materialFloatingActionButton3 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             materialCard3 = new MaterialSkin.Controls.MaterialCard();
@@ -52,9 +52,9 @@
             label1 = new Label();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
-            tabPage5 = new TabPage();
-            tabPage6 = new TabPage();
+            Sales = new TabPage();
+            Stock = new TabPage();
+            Suppliers = new TabPage();
             btn_Reset = new MaterialSkin.Controls.MaterialButton();
             dgv_supplier = new DataGridView();
             lbl_Id = new MaterialSkin.Controls.MaterialLabel();
@@ -67,8 +67,8 @@
             btn_Delete = new MaterialSkin.Controls.MaterialButton();
             btn_Update = new MaterialSkin.Controls.MaterialButton();
             btn_Add = new MaterialSkin.Controls.MaterialButton();
-            tabPage7 = new TabPage();
-            tabPage8 = new TabPage();
+            Users = new TabPage();
+            Reports = new TabPage();
             btn_downloadExcel = new MaterialSkin.Controls.MaterialButton();
             btn_DownloadPdf = new MaterialSkin.Controls.MaterialButton();
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -76,16 +76,16 @@
             btn_lowStock = new MaterialSkin.Controls.MaterialButton();
             btn_salesPerformance = new MaterialSkin.Controls.MaterialButton();
             btn_currentStock = new MaterialSkin.Controls.MaterialButton();
-            tabPage4 = new TabPage();
-            materialTabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
+            Settings = new TabPage();
+            Products.SuspendLayout();
+            Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             materialCard3.SuspendLayout();
             materialCard2.SuspendLayout();
             materialCard1.SuspendLayout();
-            tabPage6.SuspendLayout();
+            Suppliers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).BeginInit();
-            tabPage8.SuspendLayout();
+            Reports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
             // 
@@ -104,44 +104,44 @@
             imageList1.Images.SetKeyName(7, "icons8-users-24.png");
             imageList1.Images.SetKeyName(8, "icons8-stock-32.png");
             // 
-            // materialTabControl1
+            // Products
             // 
-            materialTabControl1.Controls.Add(tabPage1);
-            materialTabControl1.Controls.Add(tabPage2);
-            materialTabControl1.Controls.Add(tabPage3);
-            materialTabControl1.Controls.Add(tabPage5);
-            materialTabControl1.Controls.Add(tabPage6);
-            materialTabControl1.Controls.Add(tabPage7);
-            materialTabControl1.Controls.Add(tabPage8);
-            materialTabControl1.Controls.Add(tabPage4);
-            materialTabControl1.Depth = 0;
-            materialTabControl1.Dock = DockStyle.Fill;
-            materialTabControl1.ImageList = imageList1;
-            materialTabControl1.Location = new Point(3, 58);
-            materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialTabControl1.Multiline = true;
-            materialTabControl1.Name = "materialTabControl1";
-            materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(1025, 636);
-            materialTabControl1.TabIndex = 0;
+            Products.Controls.Add(Dashboard);
+            Products.Controls.Add(tabPage2);
+            Products.Controls.Add(Sales);
+            Products.Controls.Add(Stock);
+            Products.Controls.Add(Suppliers);
+            Products.Controls.Add(Users);
+            Products.Controls.Add(Reports);
+            Products.Controls.Add(Settings);
+            Products.Depth = 0;
+            Products.Dock = DockStyle.Fill;
+            Products.ImageList = imageList1;
+            Products.Location = new Point(3, 58);
+            Products.MouseState = MaterialSkin.MouseState.HOVER;
+            Products.Multiline = true;
+            Products.Name = "Products";
+            Products.SelectedIndex = 0;
+            Products.Size = new Size(1025, 636);
+            Products.TabIndex = 0;
             // 
-            // tabPage1
+            // Dashboard
             // 
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Controls.Add(materialFloatingActionButton3);
-            tabPage1.Controls.Add(materialCard3);
-            tabPage1.Controls.Add(materialFloatingActionButton2);
-            tabPage1.Controls.Add(materialCard2);
-            tabPage1.Controls.Add(materialFloatingActionButton1);
-            tabPage1.Controls.Add(materialCard1);
-            tabPage1.ImageKey = "icons8-dashboard-layout-24.png";
-            tabPage1.Location = new Point(4, 31);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1017, 601);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Dashboard";
-            tabPage1.UseVisualStyleBackColor = true;
+            Dashboard.Controls.Add(dataGridView1);
+            Dashboard.Controls.Add(materialFloatingActionButton3);
+            Dashboard.Controls.Add(materialCard3);
+            Dashboard.Controls.Add(materialFloatingActionButton2);
+            Dashboard.Controls.Add(materialCard2);
+            Dashboard.Controls.Add(materialFloatingActionButton1);
+            Dashboard.Controls.Add(materialCard1);
+            Dashboard.ImageKey = "icons8-dashboard-layout-24.png";
+            Dashboard.Location = new Point(4, 31);
+            Dashboard.Name = "Dashboard";
+            Dashboard.Padding = new Padding(3);
+            Dashboard.Size = new Size(1017, 601);
+            Dashboard.TabIndex = 0;
+            Dashboard.Text = "Dashboard";
+            Dashboard.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -324,47 +324,47 @@
             tabPage2.Text = "Products";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // Sales
             // 
-            tabPage3.ImageKey = "icons8-us-dollar-26.png";
-            tabPage3.Location = new Point(4, 31);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1017, 601);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Sales";
-            tabPage3.UseVisualStyleBackColor = true;
+            Sales.ImageKey = "icons8-us-dollar-26.png";
+            Sales.Location = new Point(4, 31);
+            Sales.Name = "Sales";
+            Sales.Size = new Size(1017, 601);
+            Sales.TabIndex = 2;
+            Sales.Text = "Sales";
+            Sales.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
+            // Stock
             // 
-            tabPage5.ImageKey = "icons8-stock-32.png";
-            tabPage5.Location = new Point(4, 31);
-            tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1017, 601);
-            tabPage5.TabIndex = 4;
-            tabPage5.Text = "Stock";
-            tabPage5.UseVisualStyleBackColor = true;
+            Stock.ImageKey = "icons8-stock-32.png";
+            Stock.Location = new Point(4, 31);
+            Stock.Name = "Stock";
+            Stock.Size = new Size(1017, 601);
+            Stock.TabIndex = 4;
+            Stock.Text = "Stock";
+            Stock.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // Suppliers
             // 
-            tabPage6.Controls.Add(btn_Reset);
-            tabPage6.Controls.Add(dgv_supplier);
-            tabPage6.Controls.Add(lbl_Id);
-            tabPage6.Controls.Add(materialLabel7);
-            tabPage6.Controls.Add(materialLabel5);
-            tabPage6.Controls.Add(materialLabel4);
-            tabPage6.Controls.Add(txt_Address);
-            tabPage6.Controls.Add(txt_contact);
-            tabPage6.Controls.Add(txt_name);
-            tabPage6.Controls.Add(btn_Delete);
-            tabPage6.Controls.Add(btn_Update);
-            tabPage6.Controls.Add(btn_Add);
-            tabPage6.ImageKey = "icons8-supplier-24.png";
-            tabPage6.Location = new Point(4, 31);
-            tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(1017, 601);
-            tabPage6.TabIndex = 5;
-            tabPage6.Text = "Suppliers";
-            tabPage6.UseVisualStyleBackColor = true;
+            Suppliers.Controls.Add(btn_Reset);
+            Suppliers.Controls.Add(dgv_supplier);
+            Suppliers.Controls.Add(lbl_Id);
+            Suppliers.Controls.Add(materialLabel7);
+            Suppliers.Controls.Add(materialLabel5);
+            Suppliers.Controls.Add(materialLabel4);
+            Suppliers.Controls.Add(txt_Address);
+            Suppliers.Controls.Add(txt_contact);
+            Suppliers.Controls.Add(txt_name);
+            Suppliers.Controls.Add(btn_Delete);
+            Suppliers.Controls.Add(btn_Update);
+            Suppliers.Controls.Add(btn_Add);
+            Suppliers.ImageKey = "icons8-supplier-24.png";
+            Suppliers.Location = new Point(4, 31);
+            Suppliers.Name = "Suppliers";
+            Suppliers.Size = new Size(1017, 601);
+            Suppliers.TabIndex = 5;
+            Suppliers.Text = "Suppliers";
+            Suppliers.UseVisualStyleBackColor = true;
             // 
             // btn_Reset
             // 
@@ -402,7 +402,7 @@
             dgv_supplier.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle6.ForeColor = Color.White;
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(203, 89, 78);
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
@@ -410,7 +410,7 @@
             dgv_supplier.ColumnHeadersHeight = 40;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle7.ForeColor = Color.White;
             dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(203, 89, 78);
             dataGridViewCellStyle7.SelectionForeColor = Color.White;
@@ -598,32 +598,32 @@
             btn_Add.UseVisualStyleBackColor = true;
             btn_Add.Click += btn_Add_Click;
             // 
-            // tabPage7
+            // Users
             // 
-            tabPage7.ImageKey = "icons8-users-24.png";
-            tabPage7.Location = new Point(4, 31);
-            tabPage7.Name = "tabPage7";
-            tabPage7.Size = new Size(1017, 601);
-            tabPage7.TabIndex = 6;
-            tabPage7.Text = "Users";
-            tabPage7.UseVisualStyleBackColor = true;
+            Users.ImageKey = "icons8-users-24.png";
+            Users.Location = new Point(4, 31);
+            Users.Name = "Users";
+            Users.Size = new Size(1017, 601);
+            Users.TabIndex = 6;
+            Users.Text = "Users";
+            Users.UseVisualStyleBackColor = true;
             // 
-            // tabPage8
+            // Reports
             // 
-            tabPage8.Controls.Add(btn_downloadExcel);
-            tabPage8.Controls.Add(btn_DownloadPdf);
-            tabPage8.Controls.Add(webView21);
-            tabPage8.Controls.Add(btn_mostSold);
-            tabPage8.Controls.Add(btn_lowStock);
-            tabPage8.Controls.Add(btn_salesPerformance);
-            tabPage8.Controls.Add(btn_currentStock);
-            tabPage8.ImageKey = "icons8-reports-32.png";
-            tabPage8.Location = new Point(4, 31);
-            tabPage8.Name = "tabPage8";
-            tabPage8.Size = new Size(1017, 601);
-            tabPage8.TabIndex = 7;
-            tabPage8.Text = "Reports";
-            tabPage8.UseVisualStyleBackColor = true;
+            Reports.Controls.Add(btn_downloadExcel);
+            Reports.Controls.Add(btn_DownloadPdf);
+            Reports.Controls.Add(webView21);
+            Reports.Controls.Add(btn_mostSold);
+            Reports.Controls.Add(btn_lowStock);
+            Reports.Controls.Add(btn_salesPerformance);
+            Reports.Controls.Add(btn_currentStock);
+            Reports.ImageKey = "icons8-reports-32.png";
+            Reports.Location = new Point(4, 31);
+            Reports.Name = "Reports";
+            Reports.Size = new Size(1017, 601);
+            Reports.TabIndex = 7;
+            Reports.Text = "Reports";
+            Reports.UseVisualStyleBackColor = true;
             // 
             // btn_downloadExcel
             // 
@@ -764,31 +764,31 @@
             btn_currentStock.UseVisualStyleBackColor = true;
             btn_currentStock.Click += btn_currentStock_Click;
             // 
-            // tabPage4
+            // Settings
             // 
-            tabPage4.Location = new Point(4, 31);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1017, 601);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Settings | Logout";
-            tabPage4.UseVisualStyleBackColor = true;
+            Settings.Location = new Point(4, 31);
+            Settings.Name = "Settings";
+            Settings.Size = new Size(1017, 601);
+            Settings.TabIndex = 3;
+            Settings.Text = "Settings | Logout";
+            Settings.UseVisualStyleBackColor = true;
             // 
             // AdminDashBoard
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1031, 697);
-            Controls.Add(materialTabControl1);
+            Controls.Add(Products);
             DrawerShowIconsWhenHidden = true;
-            DrawerTabControl = materialTabControl1;
+            DrawerTabControl = Products;
             Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "AdminDashBoard";
             Padding = new Padding(3, 58, 3, 3);
             Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inventory Management System";
-            materialTabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
+            Products.ResumeLayout(false);
+            Dashboard.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             materialCard3.ResumeLayout(false);
             materialCard3.PerformLayout();
@@ -796,21 +796,21 @@
             materialCard2.PerformLayout();
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
-            tabPage6.ResumeLayout(false);
-            tabPage6.PerformLayout();
+            Suppliers.ResumeLayout(false);
+            Suppliers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).EndInit();
-            tabPage8.ResumeLayout(false);
+            Reports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private ImageList imageList1;
-        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
-        private TabPage tabPage1;
+        private MaterialSkin.Controls.MaterialTabControl Products;
+        private TabPage Dashboard;
         private TabPage tabPage2;
-        private TabPage tabPage3;
-        private TabPage tabPage4;
+        private TabPage Sales;
+        private TabPage Settings;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton2;
@@ -820,10 +820,10 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private TabPage tabPage5;
-        private TabPage tabPage6;
-        private TabPage tabPage7;
-        private TabPage tabPage8;
+        private TabPage Stock;
+        private TabPage Suppliers;
+        private TabPage Users;
+        private TabPage Reports;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private Label label3;
         private Label label2;
