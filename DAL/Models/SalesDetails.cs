@@ -9,7 +9,7 @@ namespace DAL.Models
 {
     public class SalesDetails
     {
-        public int Id { get; set; }
+     //   public int Id { get; set; }
         [ForeignKey(nameof(Sale))]
         public int SaleId { get; set; }
         [ForeignKey(nameof(Product))]
