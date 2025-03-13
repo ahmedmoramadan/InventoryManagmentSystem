@@ -71,18 +71,6 @@ namespace BLL
             var Prod = _context.Products.Find(bestSellingProd.ProductId);
             return Prod != null ? Prod.Name : "No Sales Data Available";
         }
-        int effectedrow;
-        public bool CheckSaleDetails(int P_Id, int S_Id)
-        {
-            var salewithoutname = _saleService.GetLastSaleWithNoName();
-            foreach (var i in salewithoutname.SalesDetails)
-            {
-                if (i.ProductId == P_Id)                
-                    return false;               
-            }
-
-                    return true;
-        }
         public bool AddSalesDetails(int saleId, int productId, int quantity, decimal? price = null)
         {
             var sale = _context.Sales.FirstOrDefault(s => s.Id == saleId);
@@ -129,39 +117,6 @@ namespace BLL
             return _context.SaveChanges() > 0;
         }
 
-        //public bool AddSalesDetails(int saleId, int productId, int quantity)
-        //{
-        //    var sale = _context.Sales.FirstOrDefault(s => s.Id == saleId);
-        //    var Product = _context.Products.Find(productId);
-        //    var unitprice = Product!.Price;
-        //    var oldStock = _context.Stocks.OrderBy(t => t.LastUpdate).LastOrDefault(l => l.ProductId == productId);
-        //    if (sale == null || oldStock == null || oldStock.Quantity < quantity || !(CheckSaleDetails(productId,saleId)))
-        //        return false;
-
-        //        var newsaleDetails = new SalesDetails()
-        //        {
-        //            SaleId = saleId,
-        //            ProductId = productId,
-        //            unitPrice = unitprice,
-        //            Price = unitprice * quantity,
-        //            Quantity = quantity
-        //        };
-        //        _context.SalesDetails.Add(newsaleDetails);
-
-        //        //effectedrow = _context.SaveChanges();
-        //        var newStock = new Stock
-        //        {
-        //            Type = "Sale",
-        //            Quantity = oldStock.Quantity - quantity, // Deduct sold items
-        //            LastUpdate = DateTime.Now,
-        //            ProductId = productId
-        //        };
-        //        _context.Stocks.Add(newStock);
-
-        //        effectedrow = _context.SaveChanges();
-
-        //    return effectedrow > 1;
-        //}
         public List<SalesDetails> GetSaleDetailsById(int id)
         {
             return _context.SalesDetails.Where(i => i.SaleId == id).ToList();
