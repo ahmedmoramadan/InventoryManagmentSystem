@@ -1670,7 +1670,7 @@
             dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
             dgv_SaleDetails.DefaultCellStyle = dataGridViewCellStyle16;
             dgv_SaleDetails.EnableHeadersVisualStyles = false;
-            dgv_SaleDetails.Location = new Point(167, 424);
+            dgv_SaleDetails.Location = new Point(226, 424);
             dgv_SaleDetails.Name = "dgv_SaleDetails";
             dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = Color.Silver;
@@ -1684,7 +1684,7 @@
             dataGridViewCellStyle18.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle18.SelectionBackColor = Color.Maroon;
             dgv_SaleDetails.RowsDefaultCellStyle = dataGridViewCellStyle18;
-            dgv_SaleDetails.Size = new Size(777, 156);
+            dgv_SaleDetails.Size = new Size(718, 156);
             dgv_SaleDetails.TabIndex = 25;
             // 
             // dgv_Sale
@@ -1710,7 +1710,7 @@
             dataGridViewCellStyle21.WrapMode = DataGridViewTriState.False;
             dgv_Sale.DefaultCellStyle = dataGridViewCellStyle21;
             dgv_Sale.EnableHeadersVisualStyles = false;
-            dgv_Sale.Location = new Point(358, 48);
+            dgv_Sale.Location = new Point(390, 48);
             dgv_Sale.Name = "dgv_Sale";
             dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle22.BackColor = Color.Silver;
@@ -1724,7 +1724,7 @@
             dataGridViewCellStyle23.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle23.SelectionBackColor = Color.IndianRed;
             dgv_Sale.RowsDefaultCellStyle = dataGridViewCellStyle23;
-            dgv_Sale.Size = new Size(586, 322);
+            dgv_Sale.Size = new Size(554, 322);
             dgv_Sale.TabIndex = 24;
             dgv_Sale.RowHeaderMouseDoubleClick += dgv_Sale_RowHeaderMouseDoubleClick;
             // 
