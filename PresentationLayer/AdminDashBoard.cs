@@ -326,8 +326,8 @@ namespace PresentationLayer
         // my code Ahmed Ramadan
         private void AddProduct_Click(object sender, EventArgs e)
         {
-            if (CB_Product.SelectedIndex == -1 || (n_QTY.Value <= 0))
-            {
+            if (CB_Product.SelectedIndex == -1 || (n_QTY.Value <= 0) || Txt_CName.Text.Length <= 2)
+            { 
                 MessageBox.Show("Failed to add Product", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -345,6 +345,8 @@ namespace PresentationLayer
                 {
                     Clearfilds();
                     MessageBox.Show("Product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Txt_CName.ReadOnly = true;
+                    Txt_CName.ForeColor = Color.Gray;
                 }
             }
         }
@@ -371,11 +373,25 @@ namespace PresentationLayer
 
         private void BTN_OK_Click(object sender, EventArgs e)
         {
+            if (Txt_CName.Text.Length <= 3)
+            {
+                Txt_CName.ReadOnly = false;
+                MessageBox.Show("name length shoud by more than 3", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
             if (Txt_CName.Text != null && Txt_CName.Text.Length > 3 && n_QTY.Value == 0 && CB_Product.SelectedValue == null)
             {
                 var result = SaleService.AddSale(Txt_CName.Text);
                 Txt_CName.Text = string.Empty;
+                Txt_CName.ReadOnly = false ;
+                Txt_CName.ForeColor = Color.White;
+            }else
+            {
+                CB_Product.SelectedValue = -1;
+                MessageBox.Show("remove value from Quantity or add new product first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
             //get new data
             LoadSaleData();
             dgv_SaleDetails.DataSource = null;
@@ -464,19 +480,6 @@ namespace PresentationLayer
             CB_Product.ValueMember = "ProductId";
             CB_Product.SelectedIndex = -1; // Optionally clear the selected item
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
