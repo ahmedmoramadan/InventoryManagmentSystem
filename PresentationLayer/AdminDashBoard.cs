@@ -2,13 +2,9 @@
 using DAL.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using System;
-using System.Drawing;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using System.Windows.Forms.DataVisualization.Charting;
 
 
 namespace PresentationLayer
@@ -24,6 +20,8 @@ namespace PresentationLayer
         SaleService SaleService = new SaleService();
         SaleDetailsService Sd = new SaleDetailsService();
         ReportService reportService = new ReportService();
+        UserService userService = new UserService();
+        private int selectedUserId = -1;
         public AdminDashBoard()
         {
             InitializeComponent();
@@ -38,6 +36,7 @@ namespace PresentationLayer
             supplierService = new SupplierService();
             LoadSuppliers();
         }
+        //Dashboard
         private async void AdminDashBoard_Load(object sender, EventArgs e)
         {
             LoadProducts();
@@ -56,7 +55,10 @@ namespace PresentationLayer
             CheckLowStock();
             loadProductInCB();
             LoadSaleData();
-             LoadSalesIntoComboBox();
+            LoadSalesIntoComboBox();
+            cmb_Role.SelectedIndex = -1;
+            cmb_searchRole.SelectedIndex = -1;
+            LoadUsers();
         }
 
         private void dgv_dashStock_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -323,7 +325,7 @@ namespace PresentationLayer
         #endregion
 
 
-        // my code Ahmed Ramadan
+        #region Sale Tap
         private void AddProduct_Click(object sender, EventArgs e)
         {
             if (CB_Product.SelectedIndex == -1 || (n_QTY.Value <= 0) || Txt_CName.Text.Length <= 2)
@@ -481,430 +483,7 @@ namespace PresentationLayer
             CB_Product.ValueMember = "ProductId";
             CB_Product.SelectedIndex = -1; // Optionally clear the selected item
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        #endregion
 
         #region Helper methods
         public void LoadSuppliers()
@@ -954,6 +533,7 @@ namespace PresentationLayer
         }
         #endregion
 
+        #region Supplier and Reports
         private void btn_Add_Click(object sender, EventArgs e)
         {
             string supplierName = txt_name.Text.Trim();
@@ -1206,7 +786,159 @@ namespace PresentationLayer
         {
             await DownloadReport("EXCELOPENXML", "xlsx");
         }
+        #endregion
 
-        
+        #region Users Tap
+        private void LoadUsers()
+        {
+            btn_EditUser.Visible = false;
+            btn_deleteUser.Visible = false;
+            var Users = userService.GetAllUsers();
+            dgv_Users.DataSource = Users;
+            dgv_Users.Columns["Id"].Visible = false;
+            dgv_Users.Columns["ConfirmPassword"].Visible = false;
+            dgv_Users.Columns["Password"].Visible = false;
+            txt_confirmPass.Visible = false;
+            lbl_confirmPass.Visible = false;
+            btn_AddUser.Visible = true;
+        }
+        private void dgv_Users_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var row = dgv_Users.SelectedRows[0];
+            selectedUserId = (int)row.Cells["Id"].Value;
+            txt_UserName.Text = row.Cells["UserName"].Value.ToString();
+            cmb_Role.SelectedItem = row.Cells["Role"].Value.ToString();
+            cmb_Role.Refresh();
+            txt_UserPassword.Text = row.Cells["Password"].Value.ToString();
+            btn_EditUser.Visible = true;
+            btn_deleteUser.Visible = true;
+            txt_confirmPass.Visible = true;
+            lbl_confirmPass.Visible = true;
+            btn_AddUser.Visible = false;
+            btn_ClearUser.Location = new Point(407, 223);
+        }
+        private void chk_ShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_ShowPassword.Checked)
+            {
+                txt_UserPassword.Password = false;
+                txt_UserPassword.Refresh();
+                txt_confirmPass.Password = false;
+                txt_confirmPass.Refresh();
+            }
+            else
+            {
+                txt_UserPassword.Password = true;
+                txt_UserPassword.Refresh();
+                txt_confirmPass.Password = true;
+                txt_confirmPass.Refresh();
+            }
+        }
+        private void btn_AddUser_Click(object sender, EventArgs e)
+        {
+
+            string username = txt_UserName.Text.Trim();
+            string password = txt_UserPassword.Text.Trim();
+            string role = cmb_Role.SelectedItem.ToString();
+
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Username and password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            string result = userService.AddUser(username, password, role);
+            MessageBox.Show(result);
+            LoadUsers();
+            ClearFields();
+        }
+        private void ClearFields()
+        {
+            cmb_Role.SelectedIndex = -1;
+            cmb_Role.Refresh();
+            txt_confirmPass.Clear();
+            txt_UserPassword.Clear();
+            txt_UserName.Clear();
+            selectedUserId = -1;
+            errorProvider1.Clear();
+            txt_confirmPass.Visible = false;
+            lbl_confirmPass.Visible = false;
+            btn_EditUser.Visible = false;
+            btn_deleteUser.Visible = false;
+
+        }
+
+        private void btn_EditUser_Click(object sender, EventArgs e)
+        {
+            string username = txt_UserName.Text.Trim();
+            string password = txt_UserPassword.Text.Trim();
+            string role = cmb_Role.SelectedItem?.ToString();
+            string confirmPassword = txt_confirmPass.Text;
+
+            if (password != confirmPassword)
+            {
+                errorProvider1.SetError(txt_confirmPass, "Passwords do not match.");
+                return;
+            }
+            bool isUpdated = userService.UpdateUser(selectedUserId, username, role, password);
+            MessageBox.Show(isUpdated ? "User updated successfully." : "Update failed.");
+            LoadUsers();
+            ClearFields();
+            btn_AddUser.Visible = true;
+            btn_ClearUser.Location = new Point(469, 223);
+        }
+        private void btn_deleteUser_Click(object sender, EventArgs e)
+        {
+            string password = txt_UserPassword.Text.ToString();
+            string confirmPassword = txt_confirmPass.Text;
+
+
+            if (password != confirmPassword)
+            {
+                errorProvider1.SetError(txt_confirmPass, "Passwords do not match.");
+                return;
+            }
+            DialogResult result = MessageBox.Show(
+                        "Are you sure you want to delete this user?",
+                        "Confirm Deletion",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                        );
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            bool isDeleted = userService.DeleteUser(selectedUserId);
+            MessageBox.Show(isDeleted ? "User deleted successfully." : "Delete failed.");
+            LoadUsers();
+            ClearFields();
+            btn_AddUser.Visible = true;
+            btn_ClearUser.Location = new Point(469, 223);
+        }
+        private void btn_ClearUser_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+            btn_ClearUser.Location = new Point(469, 223);
+            btn_AddUser.Visible = true;
+        }
+
+        private void btn_searchUser_Click(object sender, EventArgs e)
+        {
+            string username = txt_searchUsername.Text;
+            string? role = cmb_searchRole.SelectedItem?.ToString();
+
+            var results = userService.SearchUsers(username, role);
+            dgv_Users.DataSource = null;
+            dgv_Users.DataSource = results;
+            dgv_Users.Refresh();
+        }
+        private void btn_resetSearchUser_Click(object sender, EventArgs e)
+        {
+            txt_searchUsername.Clear();
+            cmb_searchRole.SelectedIndex = -1;
+            cmb_searchRole.Refresh();
+            LoadUsers();
+        }
     }
+    #endregion
 }
