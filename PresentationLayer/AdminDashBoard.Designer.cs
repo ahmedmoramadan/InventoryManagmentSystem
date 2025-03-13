@@ -57,6 +57,11 @@
             DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle26 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle27 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle28 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle29 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle30 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle31 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle32 = new DataGridViewCellStyle();
             btn_Reset = new MaterialSkin.Controls.MaterialButton();
             dgv_supplier = new DataGridView();
             lbl_Id = new MaterialSkin.Controls.MaterialLabel();
@@ -159,13 +164,35 @@
             materialLabel21 = new MaterialSkin.Controls.MaterialLabel();
             dgv_StockTap = new DataGridView();
             Users = new TabPage();
-            Settings = new TabPage();
-            tabPage1 = new TabPage();
+            groupBox5 = new GroupBox();
+            btn_resetSearchUser = new MaterialSkin.Controls.MaterialButton();
+            btn_searchUser = new MaterialSkin.Controls.MaterialButton();
+            lbl_searchRole = new MaterialSkin.Controls.MaterialLabel();
+            cmb_searchRole = new MaterialSkin.Controls.MaterialComboBox();
+            lbl_userName = new MaterialSkin.Controls.MaterialLabel();
+            txt_searchUsername = new MaterialSkin.Controls.MaterialTextBox();
+            groupBox6 = new GroupBox();
+            chk_ShowPassword = new MaterialSkin.Controls.MaterialCheckbox();
+            btn_ClearUser = new MaterialSkin.Controls.MaterialButton();
+            btn_deleteUser = new MaterialSkin.Controls.MaterialButton();
+            btn_AddUser = new MaterialSkin.Controls.MaterialButton();
+            btn_EditUser = new MaterialSkin.Controls.MaterialButton();
+            txt_confirmPass = new MaterialSkin.Controls.MaterialTextBox();
+            lbl_confirmPass = new MaterialSkin.Controls.MaterialLabel();
+            lbl_Role = new MaterialSkin.Controls.MaterialLabel();
+            cmb_Role = new MaterialSkin.Controls.MaterialComboBox();
+            lbl_Userusername = new MaterialSkin.Controls.MaterialLabel();
+            txt_UserPassword = new MaterialSkin.Controls.MaterialTextBox();
+            txt_UserName = new MaterialSkin.Controls.MaterialTextBox();
+            materialLabel19 = new MaterialSkin.Controls.MaterialLabel();
+            dgv_Users = new DataGridView();
+            SaleReceive = new TabPage();
             CB_SALES = new MaterialSkin.Controls.MaterialComboBox();
             btn_Receive_sale = new MaterialSkin.Controls.MaterialButton();
             myshoereport = new Microsoft.Web.WebView2.WinForms.WebView2();
             btn_LogOut = new MaterialSkin.Controls.MaterialButton();
             toolTip1 = new ToolTip(components);
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dgv_supplier).BeginInit();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             Suppliers.SuspendLayout();
@@ -190,8 +217,13 @@
             Stock.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_StockTap).BeginInit();
-            tabPage1.SuspendLayout();
+            Users.SuspendLayout();
+            groupBox5.SuspendLayout();
+            groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Users).BeginInit();
+            SaleReceive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)myshoereport).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // btn_Reset
@@ -629,6 +661,7 @@
             imageList1.Images.SetKeyName(6, "icons8-stock-32.png");
             imageList1.Images.SetKeyName(7, "user (1).png");
             imageList1.Images.SetKeyName(8, "settings (3).png");
+            imageList1.Images.SetKeyName(9, "icons8-sales-64.png");
             // 
             // materialTabControl1
             // 
@@ -639,8 +672,7 @@
             materialTabControl1.Controls.Add(Suppliers);
             materialTabControl1.Controls.Add(Users);
             materialTabControl1.Controls.Add(Reports);
-            materialTabControl1.Controls.Add(Settings);
-            materialTabControl1.Controls.Add(tabPage1);
+            materialTabControl1.Controls.Add(SaleReceive);
             materialTabControl1.Depth = 0;
             materialTabControl1.Dock = DockStyle.Fill;
             materialTabControl1.ImageList = imageList1;
@@ -1608,19 +1640,20 @@
             // 
             // BTN_OK
             // 
+            BTN_OK.AutoSize = false;
             BTN_OK.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BTN_OK.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             BTN_OK.Depth = 0;
             BTN_OK.HighEmphasis = true;
             BTN_OK.Icon = null;
-            BTN_OK.Location = new Point(252, 334);
+            BTN_OK.Location = new Point(245, 329);
             BTN_OK.Margin = new Padding(4, 6, 4, 6);
             BTN_OK.MouseState = MaterialSkin.MouseState.HOVER;
             BTN_OK.Name = "BTN_OK";
             BTN_OK.NoAccentTextColor = Color.Empty;
-            BTN_OK.Size = new Size(64, 36);
+            BTN_OK.Size = new Size(99, 41);
             BTN_OK.TabIndex = 27;
-            BTN_OK.Text = "OK";
+            BTN_OK.Text = "Done";
             BTN_OK.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             BTN_OK.UseAccentColor = false;
             BTN_OK.UseVisualStyleBackColor = true;
@@ -1628,17 +1661,18 @@
             // 
             // AddProduct
             // 
+            AddProduct.AutoSize = false;
             AddProduct.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             AddProduct.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             AddProduct.Depth = 0;
             AddProduct.HighEmphasis = true;
             AddProduct.Icon = null;
-            AddProduct.Location = new Point(79, 334);
+            AddProduct.Location = new Point(87, 329);
             AddProduct.Margin = new Padding(4, 6, 4, 6);
             AddProduct.MouseState = MaterialSkin.MouseState.HOVER;
             AddProduct.Name = "AddProduct";
             AddProduct.NoAccentTextColor = Color.Empty;
-            AddProduct.Size = new Size(121, 36);
+            AddProduct.Size = new Size(113, 41);
             AddProduct.TabIndex = 26;
             AddProduct.Text = "Add Product";
             AddProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1652,17 +1686,22 @@
             dataGridViewCellStyle14.ForeColor = Color.White;
             dataGridViewCellStyle14.SelectionBackColor = Color.IndianRed;
             dgv_SaleDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = Color.Silver;
+            dgv_SaleDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_SaleDetails.BackgroundColor = Color.FromArgb(50, 50, 50);
+            dgv_SaleDetails.BorderStyle = BorderStyle.None;
+            dgv_SaleDetails.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = Color.DimGray;
             dataGridViewCellStyle15.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle15.ForeColor = Color.Black;
+            dataGridViewCellStyle15.ForeColor = Color.White;
             dataGridViewCellStyle15.SelectionBackColor = Color.IndianRed;
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.SelectionForeColor = Color.White;
             dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
             dgv_SaleDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            dgv_SaleDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = Color.FromArgb(64, 64, 64);
+            dgv_SaleDetails.ColumnHeadersHeight = 40;
+            dgv_SaleDetails.ColumnHeadersVisible = false;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = Color.FromArgb(50, 50, 50);
             dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle16.ForeColor = Color.White;
             dataGridViewCellStyle16.SelectionBackColor = Color.IndianRed;
@@ -1670,21 +1709,31 @@
             dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
             dgv_SaleDetails.DefaultCellStyle = dataGridViewCellStyle16;
             dgv_SaleDetails.EnableHeadersVisualStyles = false;
-            dgv_SaleDetails.Location = new Point(167, 424);
+            dgv_SaleDetails.GridColor = Color.FromArgb(55, 71, 79);
+            dgv_SaleDetails.Location = new Point(30, 395);
             dgv_SaleDetails.Name = "dgv_SaleDetails";
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = Color.Silver;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = Color.DimGray;
             dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle17.ForeColor = Color.White;
             dataGridViewCellStyle17.SelectionBackColor = Color.IndianRed;
             dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
             dgv_SaleDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            dgv_SaleDetails.RowHeadersWidth = 51;
-            dataGridViewCellStyle18.BackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle18.SelectionBackColor = Color.Maroon;
+            dgv_SaleDetails.RowHeadersWidth = 40;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle18.ForeColor = Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = Color.IndianRed;
+            dataGridViewCellStyle18.SelectionForeColor = Color.White;
             dgv_SaleDetails.RowsDefaultCellStyle = dataGridViewCellStyle18;
-            dgv_SaleDetails.Size = new Size(777, 156);
+            dgv_SaleDetails.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_SaleDetails.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
+            dgv_SaleDetails.RowTemplate.DefaultCellStyle.ForeColor = Color.White;
+            dgv_SaleDetails.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.IndianRed;
+            dgv_SaleDetails.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgv_SaleDetails.RowTemplate.Height = 40;
+            dgv_SaleDetails.Size = new Size(914, 289);
             dgv_SaleDetails.TabIndex = 25;
             // 
             // dgv_Sale
@@ -1692,17 +1741,21 @@
             dataGridViewCellStyle19.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle19.SelectionBackColor = Color.IndianRed;
             dgv_Sale.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = Color.Silver;
+            dgv_Sale.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Sale.BackgroundColor = Color.FromArgb(50, 50, 50);
+            dgv_Sale.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = Color.DimGray;
             dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle20.ForeColor = SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle20.ForeColor = Color.White;
             dataGridViewCellStyle20.SelectionBackColor = Color.IndianRed;
-            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle20.SelectionForeColor = Color.White;
             dataGridViewCellStyle20.WrapMode = DataGridViewTriState.True;
             dgv_Sale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            dgv_Sale.ColumnHeadersHeight = 29;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = Color.FromArgb(64, 64, 64);
+            dgv_Sale.ColumnHeadersHeight = 40;
+            dgv_Sale.ColumnHeadersVisible = false;
+            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = Color.FromArgb(50, 50, 50);
             dataGridViewCellStyle21.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle21.ForeColor = Color.White;
             dataGridViewCellStyle21.SelectionBackColor = Color.IndianRed;
@@ -1710,21 +1763,31 @@
             dataGridViewCellStyle21.WrapMode = DataGridViewTriState.False;
             dgv_Sale.DefaultCellStyle = dataGridViewCellStyle21;
             dgv_Sale.EnableHeadersVisualStyles = false;
-            dgv_Sale.Location = new Point(358, 48);
+            dgv_Sale.GridColor = Color.FromArgb(55, 71, 79);
+            dgv_Sale.Location = new Point(414, 48);
             dgv_Sale.Name = "dgv_Sale";
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = Color.Silver;
+            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = Color.DimGray;
             dataGridViewCellStyle22.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle22.ForeColor = Color.Black;
+            dataGridViewCellStyle22.ForeColor = Color.White;
             dataGridViewCellStyle22.SelectionBackColor = Color.IndianRed;
-            dataGridViewCellStyle22.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle22.SelectionForeColor = Color.White;
             dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
             dgv_Sale.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            dgv_Sale.RowHeadersWidth = 51;
-            dataGridViewCellStyle23.BackColor = Color.FromArgb(64, 64, 64);
+            dgv_Sale.RowHeadersWidth = 40;
+            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle23.ForeColor = Color.White;
             dataGridViewCellStyle23.SelectionBackColor = Color.IndianRed;
+            dataGridViewCellStyle23.SelectionForeColor = Color.White;
             dgv_Sale.RowsDefaultCellStyle = dataGridViewCellStyle23;
-            dgv_Sale.Size = new Size(586, 322);
+            dgv_Sale.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv_Sale.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
+            dgv_Sale.RowTemplate.DefaultCellStyle.ForeColor = Color.White;
+            dgv_Sale.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.IndianRed;
+            dgv_Sale.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgv_Sale.RowTemplate.Height = 40;
+            dgv_Sale.Size = new Size(530, 322);
             dgv_Sale.TabIndex = 24;
             dgv_Sale.RowHeaderMouseDoubleClick += dgv_Sale_RowHeaderMouseDoubleClick;
             // 
@@ -1734,7 +1797,7 @@
             lblQty.Depth = 0;
             lblQty.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             lblQty.ForeColor = Color.White;
-            lblQty.Location = new Point(30, 267);
+            lblQty.Location = new Point(30, 241);
             lblQty.MouseState = MaterialSkin.MouseState.HOVER;
             lblQty.Name = "lblQty";
             lblQty.Size = new Size(61, 19);
@@ -1743,9 +1806,9 @@
             // 
             // n_QTY
             // 
-            n_QTY.Location = new Point(167, 262);
+            n_QTY.Location = new Point(189, 237);
             n_QTY.Name = "n_QTY";
-            n_QTY.Size = new Size(150, 24);
+            n_QTY.Size = new Size(202, 24);
             n_QTY.TabIndex = 22;
             // 
             // CB_Product
@@ -1764,11 +1827,11 @@
             CB_Product.FormattingEnabled = true;
             CB_Product.IntegralHeight = false;
             CB_Product.ItemHeight = 43;
-            CB_Product.Location = new Point(167, 149);
+            CB_Product.Location = new Point(189, 123);
             CB_Product.MaxDropDownItems = 6;
             CB_Product.MouseState = MaterialSkin.MouseState.OUT;
             CB_Product.Name = "CB_Product";
-            CB_Product.Size = new Size(151, 49);
+            CB_Product.Size = new Size(202, 49);
             CB_Product.StartIndex = 0;
             CB_Product.TabIndex = 21;
             // 
@@ -1778,12 +1841,12 @@
             Lbl_Product.Depth = 0;
             Lbl_Product.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             Lbl_Product.ForeColor = Color.White;
-            Lbl_Product.Location = new Point(30, 179);
+            Lbl_Product.Location = new Point(30, 153);
             Lbl_Product.MouseState = MaterialSkin.MouseState.HOVER;
             Lbl_Product.Name = "Lbl_Product";
-            Lbl_Product.Size = new Size(56, 19);
+            Lbl_Product.Size = new Size(102, 19);
             Lbl_Product.TabIndex = 20;
-            Lbl_Product.Text = "Product";
+            Lbl_Product.Text = "Product Name";
             // 
             // Txt_CName
             // 
@@ -1792,12 +1855,12 @@
             Txt_CName.Depth = 0;
             Txt_CName.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             Txt_CName.LeadingIcon = null;
-            Txt_CName.Location = new Point(167, 48);
+            Txt_CName.Location = new Point(189, 48);
             Txt_CName.MaxLength = 50;
             Txt_CName.MouseState = MaterialSkin.MouseState.OUT;
             Txt_CName.Multiline = false;
             Txt_CName.Name = "Txt_CName";
-            Txt_CName.Size = new Size(151, 36);
+            Txt_CName.Size = new Size(202, 36);
             Txt_CName.TabIndex = 19;
             Txt_CName.Text = "";
             Txt_CName.TrailingIcon = null;
@@ -1812,9 +1875,9 @@
             Cust_Name.Location = new Point(30, 65);
             Cust_Name.MouseState = MaterialSkin.MouseState.HOVER;
             Cust_Name.Name = "Cust_Name";
-            Cust_Name.Size = new Size(111, 19);
+            Cust_Name.Size = new Size(115, 19);
             Cust_Name.TabIndex = 18;
-            Cust_Name.Text = "CustomerName";
+            Cust_Name.Text = "Customer Name";
             // 
             // Stock
             // 
@@ -2010,6 +2073,9 @@
             // 
             // Users
             // 
+            Users.Controls.Add(groupBox5);
+            Users.Controls.Add(groupBox6);
+            Users.Controls.Add(dgv_Users);
             Users.ImageKey = "icons8-users-24.png";
             Users.Location = new Point(4, 31);
             Users.Name = "Users";
@@ -2019,30 +2085,450 @@
             Users.ToolTipText = "Users";
             Users.UseVisualStyleBackColor = true;
             // 
-            // Settings
+            // groupBox5
             // 
-            Settings.Cursor = Cursors.Hand;
-            Settings.ImageKey = "settings (3).png";
-            Settings.Location = new Point(4, 31);
-            Settings.Name = "Settings";
-            Settings.Size = new Size(1009, 687);
-            Settings.TabIndex = 3;
-            Settings.Text = "Settings";
-            Settings.ToolTipText = "Settings";
-            Settings.UseVisualStyleBackColor = true;
+            groupBox5.Controls.Add(btn_resetSearchUser);
+            groupBox5.Controls.Add(btn_searchUser);
+            groupBox5.Controls.Add(lbl_searchRole);
+            groupBox5.Controls.Add(cmb_searchRole);
+            groupBox5.Controls.Add(lbl_userName);
+            groupBox5.Controls.Add(txt_searchUsername);
+            groupBox5.Location = new Point(17, 291);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(922, 110);
+            groupBox5.TabIndex = 29;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Search";
             // 
-            // tabPage1
+            // btn_resetSearchUser
             // 
-            tabPage1.Controls.Add(CB_SALES);
-            tabPage1.Controls.Add(btn_Receive_sale);
-            tabPage1.Controls.Add(myshoereport);
-            tabPage1.Location = new Point(4, 31);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1009, 687);
-            tabPage1.TabIndex = 8;
-            tabPage1.Text = "SaleReceive";
-            tabPage1.UseVisualStyleBackColor = true;
+            btn_resetSearchUser.AutoSize = false;
+            btn_resetSearchUser.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_resetSearchUser.Cursor = Cursors.Hand;
+            btn_resetSearchUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_resetSearchUser.Depth = 0;
+            btn_resetSearchUser.HighEmphasis = true;
+            btn_resetSearchUser.Icon = null;
+            btn_resetSearchUser.Location = new Point(779, 60);
+            btn_resetSearchUser.Margin = new Padding(4, 6, 4, 6);
+            btn_resetSearchUser.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_resetSearchUser.Name = "btn_resetSearchUser";
+            btn_resetSearchUser.NoAccentTextColor = Color.Empty;
+            btn_resetSearchUser.Size = new Size(99, 41);
+            btn_resetSearchUser.TabIndex = 60;
+            btn_resetSearchUser.Text = "Reset";
+            btn_resetSearchUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_resetSearchUser.UseAccentColor = false;
+            btn_resetSearchUser.UseVisualStyleBackColor = true;
+            btn_resetSearchUser.Click += btn_resetSearchUser_Click;
+            // 
+            // btn_searchUser
+            // 
+            btn_searchUser.AutoSize = false;
+            btn_searchUser.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_searchUser.Cursor = Cursors.Hand;
+            btn_searchUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_searchUser.Depth = 0;
+            btn_searchUser.HighEmphasis = true;
+            btn_searchUser.Icon = InventoryManagmentSystem.PL.Properties.Resources.loupe1;
+            btn_searchUser.ImageKey = "(none)";
+            btn_searchUser.Location = new Point(731, 60);
+            btn_searchUser.Margin = new Padding(4, 6, 4, 6);
+            btn_searchUser.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_searchUser.Name = "btn_searchUser";
+            btn_searchUser.NoAccentTextColor = Color.Empty;
+            btn_searchUser.Size = new Size(40, 41);
+            btn_searchUser.TabIndex = 70;
+            btn_searchUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_searchUser.UseAccentColor = false;
+            btn_searchUser.UseVisualStyleBackColor = true;
+            btn_searchUser.Click += btn_searchUser_Click;
+            // 
+            // lbl_searchRole
+            // 
+            lbl_searchRole.AutoSize = true;
+            lbl_searchRole.Depth = 0;
+            lbl_searchRole.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lbl_searchRole.Location = new Point(395, 28);
+            lbl_searchRole.MouseState = MaterialSkin.MouseState.HOVER;
+            lbl_searchRole.Name = "lbl_searchRole";
+            lbl_searchRole.Size = new Size(32, 19);
+            lbl_searchRole.TabIndex = 0;
+            lbl_searchRole.Text = "Role";
+            // 
+            // cmb_searchRole
+            // 
+            cmb_searchRole.AutoResize = false;
+            cmb_searchRole.BackColor = Color.FromArgb(255, 255, 255);
+            cmb_searchRole.Depth = 0;
+            cmb_searchRole.DrawMode = DrawMode.OwnerDrawVariable;
+            cmb_searchRole.DropDownHeight = 174;
+            cmb_searchRole.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_searchRole.DropDownWidth = 121;
+            cmb_searchRole.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cmb_searchRole.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cmb_searchRole.FormattingEnabled = true;
+            cmb_searchRole.IntegralHeight = false;
+            cmb_searchRole.ItemHeight = 43;
+            cmb_searchRole.Items.AddRange(new object[] { "Admin", "Manager", "Staff", "All" });
+            cmb_searchRole.Location = new Point(395, 52);
+            cmb_searchRole.MaxDropDownItems = 4;
+            cmb_searchRole.MouseState = MaterialSkin.MouseState.OUT;
+            cmb_searchRole.Name = "cmb_searchRole";
+            cmb_searchRole.Size = new Size(285, 49);
+            cmb_searchRole.StartIndex = 0;
+            cmb_searchRole.TabIndex = 7;
+            // 
+            // lbl_userName
+            // 
+            lbl_userName.AutoSize = true;
+            lbl_userName.Depth = 0;
+            lbl_userName.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lbl_userName.Location = new Point(23, 28);
+            lbl_userName.MouseState = MaterialSkin.MouseState.HOVER;
+            lbl_userName.Name = "lbl_userName";
+            lbl_userName.Size = new Size(72, 19);
+            lbl_userName.TabIndex = 0;
+            lbl_userName.Text = "Username";
+            // 
+            // txt_searchUsername
+            // 
+            txt_searchUsername.AnimateReadOnly = false;
+            txt_searchUsername.BorderStyle = BorderStyle.None;
+            txt_searchUsername.Depth = 0;
+            txt_searchUsername.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txt_searchUsername.LeadingIcon = null;
+            txt_searchUsername.Location = new Point(23, 53);
+            txt_searchUsername.MaxLength = 50;
+            txt_searchUsername.MouseState = MaterialSkin.MouseState.OUT;
+            txt_searchUsername.Multiline = false;
+            txt_searchUsername.Name = "txt_searchUsername";
+            txt_searchUsername.Size = new Size(285, 50);
+            txt_searchUsername.TabIndex = 6;
+            txt_searchUsername.Text = "";
+            txt_searchUsername.TrailingIcon = null;
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(chk_ShowPassword);
+            groupBox6.Controls.Add(btn_ClearUser);
+            groupBox6.Controls.Add(btn_deleteUser);
+            groupBox6.Controls.Add(btn_AddUser);
+            groupBox6.Controls.Add(btn_EditUser);
+            groupBox6.Controls.Add(txt_confirmPass);
+            groupBox6.Controls.Add(lbl_confirmPass);
+            groupBox6.Controls.Add(lbl_Role);
+            groupBox6.Controls.Add(cmb_Role);
+            groupBox6.Controls.Add(lbl_Userusername);
+            groupBox6.Controls.Add(txt_UserPassword);
+            groupBox6.Controls.Add(txt_UserName);
+            groupBox6.Controls.Add(materialLabel19);
+            groupBox6.Location = new Point(17, 6);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(922, 278);
+            groupBox6.TabIndex = 28;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "User Data";
+            // 
+            // chk_ShowPassword
+            // 
+            chk_ShowPassword.AutoSize = true;
+            chk_ShowPassword.Depth = 0;
+            chk_ShowPassword.Location = new Point(629, 176);
+            chk_ShowPassword.Margin = new Padding(0);
+            chk_ShowPassword.MouseLocation = new Point(-1, -1);
+            chk_ShowPassword.MouseState = MaterialSkin.MouseState.HOVER;
+            chk_ShowPassword.Name = "chk_ShowPassword";
+            chk_ShowPassword.ReadOnly = false;
+            chk_ShowPassword.Ripple = true;
+            chk_ShowPassword.Size = new Size(149, 37);
+            chk_ShowPassword.TabIndex = 14;
+            chk_ShowPassword.Text = "Show Password";
+            chk_ShowPassword.UseVisualStyleBackColor = true;
+            chk_ShowPassword.CheckedChanged += chk_ShowPassword_CheckedChanged;
+            // 
+            // btn_ClearUser
+            // 
+            btn_ClearUser.AutoSize = false;
+            btn_ClearUser.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_ClearUser.Cursor = Cursors.Hand;
+            btn_ClearUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_ClearUser.Depth = 0;
+            btn_ClearUser.HighEmphasis = true;
+            btn_ClearUser.Icon = null;
+            btn_ClearUser.Location = new Point(469, 223);
+            btn_ClearUser.Margin = new Padding(4, 6, 4, 6);
+            btn_ClearUser.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_ClearUser.Name = "btn_ClearUser";
+            btn_ClearUser.NoAccentTextColor = Color.Empty;
+            btn_ClearUser.Size = new Size(99, 41);
+            btn_ClearUser.TabIndex = 10;
+            btn_ClearUser.Text = "Clear";
+            btn_ClearUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_ClearUser.UseAccentColor = false;
+            btn_ClearUser.UseVisualStyleBackColor = true;
+            btn_ClearUser.Click += btn_ClearUser_Click;
+            // 
+            // btn_deleteUser
+            // 
+            btn_deleteUser.AutoSize = false;
+            btn_deleteUser.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_deleteUser.Cursor = Cursors.Hand;
+            btn_deleteUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_deleteUser.Depth = 0;
+            btn_deleteUser.HighEmphasis = true;
+            btn_deleteUser.Icon = null;
+            btn_deleteUser.Location = new Point(593, 223);
+            btn_deleteUser.Margin = new Padding(4, 6, 4, 6);
+            btn_deleteUser.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_deleteUser.Name = "btn_deleteUser";
+            btn_deleteUser.NoAccentTextColor = Color.Empty;
+            btn_deleteUser.Size = new Size(99, 41);
+            btn_deleteUser.TabIndex = 11;
+            btn_deleteUser.Text = "Delete";
+            btn_deleteUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_deleteUser.UseAccentColor = false;
+            btn_deleteUser.UseVisualStyleBackColor = true;
+            btn_deleteUser.Click += btn_deleteUser_Click;
+            // 
+            // btn_AddUser
+            // 
+            btn_AddUser.AutoSize = false;
+            btn_AddUser.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_AddUser.Cursor = Cursors.Hand;
+            btn_AddUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_AddUser.Depth = 0;
+            btn_AddUser.HighEmphasis = true;
+            btn_AddUser.Icon = null;
+            btn_AddUser.Location = new Point(345, 223);
+            btn_AddUser.Margin = new Padding(4, 6, 4, 6);
+            btn_AddUser.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_AddUser.Name = "btn_AddUser";
+            btn_AddUser.NoAccentTextColor = Color.Empty;
+            btn_AddUser.Size = new Size(99, 41);
+            btn_AddUser.TabIndex = 12;
+            btn_AddUser.Text = "Add";
+            btn_AddUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_AddUser.UseAccentColor = false;
+            btn_AddUser.UseVisualStyleBackColor = true;
+            btn_AddUser.Click += btn_AddUser_Click;
+            // 
+            // btn_EditUser
+            // 
+            btn_EditUser.AutoSize = false;
+            btn_EditUser.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_EditUser.Cursor = Cursors.Hand;
+            btn_EditUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_EditUser.Depth = 0;
+            btn_EditUser.HighEmphasis = true;
+            btn_EditUser.Icon = null;
+            btn_EditUser.Location = new Point(221, 223);
+            btn_EditUser.Margin = new Padding(4, 6, 4, 6);
+            btn_EditUser.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_EditUser.Name = "btn_EditUser";
+            btn_EditUser.NoAccentTextColor = Color.Empty;
+            btn_EditUser.Size = new Size(99, 41);
+            btn_EditUser.TabIndex = 13;
+            btn_EditUser.Text = "Update";
+            btn_EditUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_EditUser.UseAccentColor = false;
+            btn_EditUser.UseVisualStyleBackColor = true;
+            btn_EditUser.Click += btn_EditUser_Click;
+            // 
+            // txt_confirmPass
+            // 
+            txt_confirmPass.AnimateReadOnly = false;
+            txt_confirmPass.BorderStyle = BorderStyle.None;
+            txt_confirmPass.Depth = 0;
+            txt_confirmPass.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txt_confirmPass.LeadingIcon = null;
+            txt_confirmPass.Location = new Point(629, 111);
+            txt_confirmPass.MaxLength = 8;
+            txt_confirmPass.MouseState = MaterialSkin.MouseState.OUT;
+            txt_confirmPass.Multiline = false;
+            txt_confirmPass.Name = "txt_confirmPass";
+            txt_confirmPass.Password = true;
+            txt_confirmPass.Size = new Size(249, 50);
+            txt_confirmPass.TabIndex = 9;
+            txt_confirmPass.Text = "";
+            txt_confirmPass.TrailingIcon = null;
+            // 
+            // lbl_confirmPass
+            // 
+            lbl_confirmPass.AutoSize = true;
+            lbl_confirmPass.Depth = 0;
+            lbl_confirmPass.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lbl_confirmPass.Location = new Point(468, 131);
+            lbl_confirmPass.MouseState = MaterialSkin.MouseState.HOVER;
+            lbl_confirmPass.Name = "lbl_confirmPass";
+            lbl_confirmPass.Size = new Size(132, 19);
+            lbl_confirmPass.TabIndex = 8;
+            lbl_confirmPass.Text = "Confirm Password";
+            // 
+            // lbl_Role
+            // 
+            lbl_Role.AutoSize = true;
+            lbl_Role.Depth = 0;
+            lbl_Role.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lbl_Role.Location = new Point(23, 131);
+            lbl_Role.MouseState = MaterialSkin.MouseState.HOVER;
+            lbl_Role.Name = "lbl_Role";
+            lbl_Role.Size = new Size(32, 19);
+            lbl_Role.TabIndex = 6;
+            lbl_Role.Text = "Role";
+            // 
+            // cmb_Role
+            // 
+            cmb_Role.AutoResize = false;
+            cmb_Role.BackColor = Color.FromArgb(255, 255, 255);
+            cmb_Role.Depth = 0;
+            cmb_Role.DrawMode = DrawMode.OwnerDrawVariable;
+            cmb_Role.DropDownHeight = 174;
+            cmb_Role.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_Role.DropDownWidth = 121;
+            cmb_Role.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cmb_Role.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cmb_Role.FormattingEnabled = true;
+            cmb_Role.IntegralHeight = false;
+            cmb_Role.ItemHeight = 43;
+            cmb_Role.Items.AddRange(new object[] { "Admin", "Manager", "Staff" });
+            cmb_Role.Location = new Point(118, 112);
+            cmb_Role.MaxDropDownItems = 4;
+            cmb_Role.MouseState = MaterialSkin.MouseState.OUT;
+            cmb_Role.Name = "cmb_Role";
+            cmb_Role.Size = new Size(249, 49);
+            cmb_Role.StartIndex = 0;
+            cmb_Role.TabIndex = 7;
+            // 
+            // lbl_Userusername
+            // 
+            lbl_Userusername.AutoSize = true;
+            lbl_Userusername.Depth = 0;
+            lbl_Userusername.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lbl_Userusername.Location = new Point(23, 55);
+            lbl_Userusername.MouseState = MaterialSkin.MouseState.HOVER;
+            lbl_Userusername.Name = "lbl_Userusername";
+            lbl_Userusername.Size = new Size(43, 19);
+            lbl_Userusername.TabIndex = 2;
+            lbl_Userusername.Text = "Name";
+            // 
+            // txt_UserPassword
+            // 
+            txt_UserPassword.AnimateReadOnly = false;
+            txt_UserPassword.BorderStyle = BorderStyle.None;
+            txt_UserPassword.Depth = 0;
+            txt_UserPassword.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txt_UserPassword.LeadingIcon = null;
+            txt_UserPassword.Location = new Point(629, 37);
+            txt_UserPassword.MaxLength = 50;
+            txt_UserPassword.MouseState = MaterialSkin.MouseState.OUT;
+            txt_UserPassword.Multiline = false;
+            txt_UserPassword.Name = "txt_UserPassword";
+            txt_UserPassword.Password = true;
+            txt_UserPassword.Size = new Size(249, 50);
+            txt_UserPassword.TabIndex = 5;
+            txt_UserPassword.Text = "";
+            txt_UserPassword.TrailingIcon = null;
+            // 
+            // txt_UserName
+            // 
+            txt_UserName.AnimateReadOnly = false;
+            txt_UserName.BorderStyle = BorderStyle.None;
+            txt_UserName.Depth = 0;
+            txt_UserName.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txt_UserName.LeadingIcon = null;
+            txt_UserName.Location = new Point(118, 37);
+            txt_UserName.MaxLength = 50;
+            txt_UserName.MouseState = MaterialSkin.MouseState.OUT;
+            txt_UserName.Multiline = false;
+            txt_UserName.Name = "txt_UserName";
+            txt_UserName.Size = new Size(249, 50);
+            txt_UserName.TabIndex = 3;
+            txt_UserName.Text = "";
+            txt_UserName.TrailingIcon = null;
+            // 
+            // materialLabel19
+            // 
+            materialLabel19.AutoSize = true;
+            materialLabel19.Depth = 0;
+            materialLabel19.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel19.Location = new Point(468, 55);
+            materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel19.Name = "materialLabel19";
+            materialLabel19.Size = new Size(71, 19);
+            materialLabel19.TabIndex = 4;
+            materialLabel19.Text = "Password";
+            // 
+            // dgv_Users
+            // 
+            dataGridViewCellStyle28.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle28.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle28.ForeColor = Color.White;
+            dataGridViewCellStyle28.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle28.SelectionForeColor = Color.White;
+            dgv_Users.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dgv_Users.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Users.BackgroundColor = Color.FromArgb(50, 50, 50);
+            dgv_Users.BorderStyle = BorderStyle.None;
+            dgv_Users.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = Color.DimGray;
+            dataGridViewCellStyle29.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle29.ForeColor = Color.White;
+            dataGridViewCellStyle29.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle29.SelectionForeColor = Color.White;
+            dataGridViewCellStyle29.WrapMode = DataGridViewTriState.True;
+            dgv_Users.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dgv_Users.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle30.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle30.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle30.ForeColor = Color.White;
+            dataGridViewCellStyle30.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle30.SelectionForeColor = Color.White;
+            dataGridViewCellStyle30.WrapMode = DataGridViewTriState.False;
+            dgv_Users.DefaultCellStyle = dataGridViewCellStyle30;
+            dgv_Users.EnableHeadersVisualStyles = false;
+            dgv_Users.GridColor = Color.FromArgb(55, 71, 79);
+            dgv_Users.Location = new Point(17, 407);
+            dgv_Users.Name = "dgv_Users";
+            dgv_Users.ReadOnly = true;
+            dataGridViewCellStyle31.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = Color.DimGray;
+            dataGridViewCellStyle31.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle31.ForeColor = Color.White;
+            dataGridViewCellStyle31.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle31.SelectionForeColor = Color.White;
+            dataGridViewCellStyle31.WrapMode = DataGridViewTriState.True;
+            dgv_Users.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dgv_Users.RowHeadersWidth = 40;
+            dgv_Users.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle32.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle32.ForeColor = Color.White;
+            dataGridViewCellStyle32.SelectionBackColor = Color.FromArgb(203, 89, 78);
+            dataGridViewCellStyle32.SelectionForeColor = Color.White;
+            dgv_Users.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dgv_Users.RowTemplate.Height = 40;
+            dgv_Users.RowTemplate.ReadOnly = true;
+            dgv_Users.Size = new Size(504, 267);
+            dgv_Users.TabIndex = 27;
+            dgv_Users.ColumnHeaderMouseClick += dgv_Users_RowHeaderMouseClick;
+            // 
+            // SaleReceive
+            // 
+            SaleReceive.Controls.Add(CB_SALES);
+            SaleReceive.Controls.Add(btn_Receive_sale);
+            SaleReceive.Controls.Add(myshoereport);
+            SaleReceive.ImageKey = "icons8-sales-64.png";
+            SaleReceive.Location = new Point(4, 31);
+            SaleReceive.Name = "SaleReceive";
+            SaleReceive.Padding = new Padding(3);
+            SaleReceive.Size = new Size(1009, 687);
+            SaleReceive.TabIndex = 8;
+            SaleReceive.Text = "SaleReceive";
+            SaleReceive.UseVisualStyleBackColor = true;
             // 
             // CB_SALES
             // 
@@ -2121,6 +2607,10 @@
             btn_LogOut.UseVisualStyleBackColor = false;
             btn_LogOut.Click += btn_LogOut_Click;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // AdminDashBoard
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
@@ -2172,9 +2662,16 @@
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_StockTap).EndInit();
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
+            Users.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Users).EndInit();
+            SaleReceive.ResumeLayout(false);
+            SaleReceive.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)myshoereport).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -2184,7 +2681,6 @@
         private TabPage Dashboard;
         private TabPage Products;
         private TabPage Sales;
-        private TabPage Settings;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton2;
@@ -2286,9 +2782,32 @@
         private MaterialSkin.Controls.MaterialLabel Lbl_Product;
         private MaterialSkin.Controls.MaterialTextBox Txt_CName;
         private MaterialSkin.Controls.MaterialLabel Cust_Name;
-        private TabPage tabPage1;
+        private TabPage SaleReceive;
         private MaterialSkin.Controls.MaterialComboBox CB_SALES;
         private MaterialSkin.Controls.MaterialButton btn_Receive_sale;
         private Microsoft.Web.WebView2.WinForms.WebView2 myshoereport;
+        private GroupBox groupBox5;
+        private MaterialSkin.Controls.MaterialButton btn_resetSearchUser;
+        private MaterialSkin.Controls.MaterialButton btn_searchUser;
+        private MaterialSkin.Controls.MaterialLabel lbl_searchRole;
+        private MaterialSkin.Controls.MaterialComboBox cmb_searchRole;
+        private MaterialSkin.Controls.MaterialLabel lbl_userName;
+        private MaterialSkin.Controls.MaterialTextBox txt_searchUsername;
+        private GroupBox groupBox6;
+        private MaterialSkin.Controls.MaterialCheckbox chk_ShowPassword;
+        private MaterialSkin.Controls.MaterialButton btn_ClearUser;
+        private MaterialSkin.Controls.MaterialButton btn_deleteUser;
+        private MaterialSkin.Controls.MaterialButton btn_AddUser;
+        private MaterialSkin.Controls.MaterialButton btn_EditUser;
+        private MaterialSkin.Controls.MaterialTextBox txt_confirmPass;
+        private MaterialSkin.Controls.MaterialLabel lbl_confirmPass;
+        private MaterialSkin.Controls.MaterialLabel lbl_Role;
+        private MaterialSkin.Controls.MaterialComboBox cmb_Role;
+        private MaterialSkin.Controls.MaterialLabel lbl_Userusername;
+        private MaterialSkin.Controls.MaterialTextBox txt_UserPassword;
+        private MaterialSkin.Controls.MaterialTextBox txt_UserName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel19;
+        private DataGridView dgv_Users;
+        private ErrorProvider errorProvider1;
     }
 }
