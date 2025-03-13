@@ -36,7 +36,7 @@ namespace PresentationLayer
                 Accent.LightBlue700, TextShade.WHITE
             );
             supplierService = new SupplierService();
-            //LoadSuppliers();
+            LoadSuppliers();
         }
         private async void AdminDashBoard_Load(object sender, EventArgs e)
         {
@@ -395,6 +395,7 @@ namespace PresentationLayer
             //get new data
             LoadSaleData();
             dgv_SaleDetails.DataSource = null;
+            LoadSalesIntoComboBox();
         }
         private void LoadSaleData()
         {
