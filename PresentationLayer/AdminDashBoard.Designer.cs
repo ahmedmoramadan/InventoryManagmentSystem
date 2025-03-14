@@ -1699,7 +1699,6 @@
             dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
             dgv_SaleDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             dgv_SaleDetails.ColumnHeadersHeight = 40;
-            dgv_SaleDetails.ColumnHeadersVisible = false;
             dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle16.BackColor = Color.FromArgb(50, 50, 50);
             dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1753,7 +1752,6 @@
             dataGridViewCellStyle20.WrapMode = DataGridViewTriState.True;
             dgv_Sale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             dgv_Sale.ColumnHeadersHeight = 40;
-            dgv_Sale.ColumnHeadersVisible = false;
             dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle21.BackColor = Color.FromArgb(50, 50, 50);
             dataGridViewCellStyle21.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);

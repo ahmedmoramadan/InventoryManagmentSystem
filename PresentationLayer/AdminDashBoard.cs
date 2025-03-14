@@ -13,7 +13,7 @@ namespace PresentationLayer
     {
         private readonly MaterialSkinManager materialSkinManager;
         SupplierService supplierService;
-
+        string Role;
         int ProductId;
         ProductService PS = new ProductService();
         StockService S = new StockService();
@@ -92,6 +92,7 @@ namespace PresentationLayer
         #region Product Tap
         public void LoadProducts()
         {
+            
             var Products = PS.GetAll();
             dgv_Products.DataSource = Products;
             dgv_Products.Columns["ProductId"].Visible = false;
@@ -100,12 +101,15 @@ namespace PresentationLayer
 
             btn_deleteProduct.Visible = false;
             btn_EditProduct.Visible = false;
-
-            dgv_dashStock.DataSource = Products;
-            dgv_dashStock.Columns["ProductId"].Visible = false;
-            dgv_dashStock.Columns["Price"].Visible = false;
-            dgv_dashStock.Columns["CategoryName"].Visible = false;
-            dgv_dashStock.Columns["SupplierName"].Visible = false;
+            if (Role != "Staff")
+            {
+                // return;
+                dgv_dashStock.DataSource = Products;
+                dgv_dashStock.Columns["ProductId"].Visible = false;
+                dgv_dashStock.Columns["Price"].Visible = false;
+                dgv_dashStock.Columns["CategoryName"].Visible = false;
+                dgv_dashStock.Columns["SupplierName"].Visible = false;
+            }
 
             cmb_stockProd.DataSource = Products.Select(p => new
             {
@@ -118,15 +122,15 @@ namespace PresentationLayer
         public void LoadSupplier()
         {
             SupplierService S = new SupplierService();
+            cmb_searchProdSupplier.DataSource = S.GetAll();
+            cmb_searchProdSupplier.ValueMember = "Id";
+            cmb_searchProdSupplier.DisplayMember = "Name";
+            cmb_searchProdSupplier.SelectedIndex = -1;
             cmb_SupProduct.DataSource = S.GetAll();
             cmb_SupProduct.ValueMember = "Id";
             cmb_SupProduct.DisplayMember = "Name";
             cmb_SupProduct.SelectedIndex = -1;
 
-            cmb_searchProdSupplier.DataSource = S.GetAll();
-            cmb_searchProdSupplier.ValueMember = "Id";
-            cmb_searchProdSupplier.DisplayMember = "Name";
-            cmb_searchProdSupplier.SelectedIndex = -1;
         }
         public void LoadCategory()
         {
@@ -150,6 +154,9 @@ namespace PresentationLayer
         }
         private void dgv_Products_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (Role == "Staff")            
+                return;
+
             var row = dgv_Products.SelectedRows[0];
             ProductId = (int)row.Cells["ProductId"].Value;
             Product P = PS.GetById(ProductId);
@@ -160,7 +167,8 @@ namespace PresentationLayer
             cmb_CatProducts.Refresh();
             cmb_SupProduct.Refresh();
             btn_EditProduct.Visible = true;
-            btn_deleteProduct.Visible = true;
+            if (Role == "Admin")
+                btn_deleteProduct.Visible = true;
             btn_AddProduct.Visible = false;
             btn_ResetProduct.Location = new Point(400, 227);
             lbl_quantityProd.Visible = false;
@@ -278,6 +286,8 @@ namespace PresentationLayer
         #region Stock Tap
         public void LoadStock()
         {
+            if (Role == "Staff")
+                return;
             var stocks = S.GetAll();
             dgv_StockTap.DataSource = stocks;
             dgv_StockTap.Columns["ProductId"].Visible = false;
@@ -286,6 +296,8 @@ namespace PresentationLayer
         }
         private void CheckLowStock()
         {
+            if(Role == "Staff")
+                return ;
             bool lowStockExists = false;
             foreach (DataGridViewRow row in dgv_dashStock.Rows)
             {
@@ -329,7 +341,7 @@ namespace PresentationLayer
         private void AddProduct_Click(object sender, EventArgs e)
         {
             if (CB_Product.SelectedIndex == -1 || (n_QTY.Value <= 0) || Txt_CName.Text.Length <= 2)
-            { 
+            {
                 MessageBox.Show("Failed to add Product", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -385,9 +397,10 @@ namespace PresentationLayer
             {
                 var result = SaleService.AddSale(Txt_CName.Text);
                 Txt_CName.Text = string.Empty;
-                Txt_CName.ReadOnly = false ;
+                Txt_CName.ReadOnly = false;
                 Txt_CName.ForeColor = Color.White;
-            }else
+            }
+            else
             {
                 CB_Product.SelectedValue = -1;
                 MessageBox.Show("remove value from Quantity or add new product first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -488,6 +501,8 @@ namespace PresentationLayer
         #region Helper methods
         public void LoadSuppliers()
         {
+            if (Role == "Staff")
+                return;
             List<Supplier> suppliers = supplierService.GetAll();
 
 
@@ -598,7 +613,10 @@ namespace PresentationLayer
             }
             btn_Add.Enabled = false;
             btn_Update.Enabled = true;
-            btn_Delete.Enabled = true;
+            if (Role == "Admin")
+            {
+                btn_Delete.Enabled = true;
+            }
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -791,6 +809,8 @@ namespace PresentationLayer
         #region Users Tap
         private void LoadUsers()
         {
+            if (Role != "Admin")
+                return;
             btn_EditUser.Visible = false;
             btn_deleteUser.Visible = false;
             var Users = userService.GetAllUsers();
@@ -801,9 +821,11 @@ namespace PresentationLayer
             txt_confirmPass.Visible = false;
             lbl_confirmPass.Visible = false;
             btn_AddUser.Visible = true;
+
         }
         private void dgv_Users_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
             var row = dgv_Users.SelectedRows[0];
             selectedUserId = (int)row.Cells["Id"].Value;
             txt_UserName.Text = row.Cells["UserName"].Value.ToString();
@@ -839,13 +861,19 @@ namespace PresentationLayer
 
             string username = txt_UserName.Text.Trim();
             string password = txt_UserPassword.Text.Trim();
-            string role = cmb_Role.SelectedItem.ToString();
-
+            if (cmb_Role.SelectedItem == null)
+            {
+                MessageBox.Show(" u must select Role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string role = cmb_Role.SelectedItem.ToString()!;
             if (string.IsNullOrWhiteSpace(username) ||
                 string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Username and password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
 
             string result = userService.AddUser(username, password, role);
             MessageBox.Show(result);
@@ -939,6 +967,34 @@ namespace PresentationLayer
             cmb_searchRole.Refresh();
             LoadUsers();
         }
+       
+        public void SetUserTabs(string role)
+        {
+            Role = role;
+            if (role == "Manager")
+            {
+                if (materialTabControl1.TabPages.Contains(Users))
+                    materialTabControl1.TabPages.Remove(Users);
+            }
+            else if (role == "Staff")
+            {
+                if (materialTabControl1.TabPages.Contains(Users))
+                    materialTabControl1.TabPages.Remove(Users);
+
+                if (materialTabControl1.TabPages.Contains(Suppliers))
+                    materialTabControl1.TabPages.Remove(Suppliers);
+
+                if (materialTabControl1.TabPages.Contains(Dashboard))
+                    materialTabControl1.TabPages.Remove(Dashboard);
+
+                if (materialTabControl1.TabPages.Contains(Reports))
+                    materialTabControl1.TabPages.Remove(Reports);
+
+                if (materialTabControl1.TabPages.Contains(Stock))
+                    materialTabControl1.TabPages.Remove(Stock);
+            }
+        }
+
+        #endregion
     }
-    #endregion
 }
