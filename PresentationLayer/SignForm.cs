@@ -5,6 +5,7 @@ namespace PresentationLayer
     public partial class SignForm : Form
     {
         UserService US = new UserService();
+        AdminDashBoard DBAd = new AdminDashBoard();
         public SignForm()
         {
             InitializeComponent();
@@ -77,31 +78,38 @@ namespace PresentationLayer
 
             if (role != null)
             {
-                if (role == "Admin")
-                {
-                    this.Hide();
-                    AdminDashBoard adminDashBoard = new AdminDashBoard();
-                    adminDashBoard.ShowDialog();
-                    this.Close();
-                }
-                else if (role == "Manager")
-                {
-                    this.Hide();
-                    ManagerForm managerForm = new ManagerForm();
-                    managerForm.ShowDialog();
-                    this.Close();
-                }
-                else if (role == "Staff")
-                {
-                    this.Hide();
-                    StaffForm staff = new StaffForm();
-                    staff.ShowDialog();
-                    this.Close();
-                }
+                AdminDashBoard adminDashBoard = new AdminDashBoard();
+                this.Hide();
+                adminDashBoard.SetUserTabs(role);
+                adminDashBoard.ShowDialog();
+                this.Close();
+                //if (role == "Admin")
+                //{
+                //    this.Hide();
+                //    AdminDashBoard adminDashBoard = new AdminDashBoard();
+                //    adminDashBoard.SetUserTabs("Admin");
+                //    adminDashBoard.ShowDialog();
+
+                //    this.Close();
+                //}
+                //else if (role == "Manager")
+                //{
+                //    this.Hide();
+                //    ManagerForm managerForm = new ManagerForm();
+                //    managerForm.ShowDialog();
+                //    this.Close();
+                //}
+                //else if (role == "Staff")
+                //{
+                //    this.Hide();
+                //    StaffForm staff = new StaffForm();
+                //    staff.ShowDialog();
+                //    this.Close();
+                //}
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("U cant Login Ask MAnger!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
