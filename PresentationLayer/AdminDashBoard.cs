@@ -4,7 +4,6 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Net;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 
 namespace PresentationLayer
@@ -60,7 +59,6 @@ namespace PresentationLayer
             cmb_searchRole.SelectedIndex = -1;
             LoadUsers();
         }
-
         private void dgv_dashStock_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgv_dashStock.Columns[e.ColumnIndex].Name == "Status")
@@ -92,7 +90,7 @@ namespace PresentationLayer
         #region Product Tap
         public void LoadProducts()
         {
-            
+
             var Products = PS.GetAll();
             dgv_Products.DataSource = Products;
             dgv_Products.Columns["ProductId"].Visible = false;
@@ -130,7 +128,10 @@ namespace PresentationLayer
             cmb_SupProduct.ValueMember = "Id";
             cmb_SupProduct.DisplayMember = "Name";
             cmb_SupProduct.SelectedIndex = -1;
-
+            cmb_filtersupplier.DataSource = S.GetAll();
+            cmb_filtersupplier.ValueMember = "Id";
+            cmb_filtersupplier.DisplayMember = "Name";
+            cmb_filtersupplier.SelectedIndex = -1;
         }
         public void LoadCategory()
         {
@@ -154,7 +155,7 @@ namespace PresentationLayer
         }
         private void dgv_Products_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (Role == "Staff")            
+            if (Role == "Staff")
                 return;
 
             var row = dgv_Products.SelectedRows[0];
@@ -283,6 +284,7 @@ namespace PresentationLayer
             }
         }
         #endregion
+
         #region Stock Tap
         public void LoadStock()
         {
@@ -296,8 +298,8 @@ namespace PresentationLayer
         }
         private void CheckLowStock()
         {
-            if(Role == "Staff")
-                return ;
+            if (Role == "Staff")
+                return;
             bool lowStockExists = false;
             foreach (DataGridViewRow row in dgv_dashStock.Rows)
             {
@@ -334,8 +336,15 @@ namespace PresentationLayer
 
             dgv_StockTap.DataSource = S.GetAll();
         }
+        private void btn_filter_Click(object sender, EventArgs e)
+        {
+            int SupplierId =Convert.ToInt32(cmb_filtersupplier.SelectedValue);
+            var results = S.GetSupplyHistory(SupplierId);
+            cmb_filtersupplier.Refresh();
+            dgv_StockTap.Columns.Clear();
+            dgv_StockTap.DataSource = results;
+        }
         #endregion
-
 
         #region Sale Tap
         private void AddProduct_Click(object sender, EventArgs e)
@@ -416,11 +425,6 @@ namespace PresentationLayer
         {
             dgv_Sale.DataSource = SaleService.GetSalesWithoutNoName();
             var sales = SaleService.GetSalesWithoutNoName();
-            if (sales.Count == 0)
-            {
-                MessageBox.Show("No sales data available.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
         }
         int SaleId;
         private void dgv_Sale_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -442,12 +446,6 @@ namespace PresentationLayer
 
             var sales = SaleService.GetAll();
 
-            if (sales == null || sales.Count == 0)
-            {
-                MessageBox.Show("No sales records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
             CB_SALES.DataSource = sales;
             CB_SALES.DisplayMember = "Customer_Name";
             CB_SALES.ValueMember = "Id";
@@ -456,7 +454,6 @@ namespace PresentationLayer
         {
             try
             {
-
                 myshoereport.Visible = true;
                 await LoadHtmlReport((int)CB_SALES.SelectedValue);
             }
@@ -478,7 +475,7 @@ namespace PresentationLayer
 
             // 🟢 إجبار WebView2 على إعادة تحميل الصفحة بعد كل اختيار جديد
             myshoereport.Source = new Uri("about:blank");
-            await Task.Delay(100); // إعطاء وقت قصير لإعادة التهيئة
+            await Task.Delay(100);
             myshoereport.Source = new Uri(reportPath);
         }
         private void loadProductInCB()
@@ -967,7 +964,7 @@ namespace PresentationLayer
             cmb_searchRole.Refresh();
             LoadUsers();
         }
-       
+
         public void SetUserTabs(string role)
         {
             Role = role;
