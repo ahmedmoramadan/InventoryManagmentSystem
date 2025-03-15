@@ -46,27 +46,32 @@ namespace InventoryManagmentSystem.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Asus Laptops"
+                            Name = "Smartphones"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Dell Laptops"
+                            Name = "Tablets"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "HP Laptops"
+                            Name = "Accessories"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Apple Laptops"
+                            Name = "Cameras"
                         },
                         new
                         {
                             Id = 5,
-                            Name = "Lenovo Laptops"
+                            Name = "Monitors"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Laptops"
                         });
                 });
 
@@ -104,42 +109,82 @@ namespace InventoryManagmentSystem.DAL.Migrations
                         new
                         {
                             ProductId = 1,
-                            CategoryId = 2,
-                            Name = "Dell XPS 13",
-                            Price = 12000m,
+                            CategoryId = 1,
+                            Name = "Samsung Galaxy S24",
+                            Price = 18000m,
                             SupplierId = 1
                         },
                         new
                         {
                             ProductId = 2,
-                            CategoryId = 3,
-                            Name = "HP Spectre x360",
-                            Price = 11000m,
+                            CategoryId = 1,
+                            Name = "iPhone 15 Pro Max",
+                            Price = 22000m,
                             SupplierId = 2
                         },
                         new
                         {
                             ProductId = 3,
-                            CategoryId = 4,
-                            Name = "MacBook Pro 14",
-                            Price = 20000m,
-                            SupplierId = 3
+                            CategoryId = 2,
+                            Name = "iPad Pro 12.9",
+                            Price = 17000m,
+                            SupplierId = 2
                         },
                         new
                         {
                             ProductId = 4,
-                            CategoryId = 5,
-                            Name = "Lenovo ThinkPad X1",
-                            Price = 13000m,
-                            SupplierId = 4
+                            CategoryId = 2,
+                            Name = "Samsung Galaxy Tab S9",
+                            Price = 15000m,
+                            SupplierId = 1
                         },
                         new
                         {
                             ProductId = 5,
-                            CategoryId = 1,
-                            Name = "Asus ROG Zephyrus G14",
-                            Price = 15000m,
+                            CategoryId = 4,
+                            Name = "Sony Alpha a7 IV",
+                            Price = 25000m,
+                            SupplierId = 3
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            CategoryId = 5,
+                            Name = "LG UltraGear 32",
+                            Price = 14000m,
+                            SupplierId = 4
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            CategoryId = 4,
+                            Name = "Canon EOS R5",
+                            Price = 28000m,
                             SupplierId = 5
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            CategoryId = 4,
+                            Name = "Nikon Z9",
+                            Price = 30000m,
+                            SupplierId = 6
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            CategoryId = 6,
+                            Name = "Dell XPS 15",
+                            Price = 20000m,
+                            SupplierId = 7
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            CategoryId = 6,
+                            Name = "HP Spectre x360",
+                            Price = 18000m,
+                            SupplierId = 8
                         });
                 });
 
@@ -165,6 +210,50 @@ namespace InventoryManagmentSystem.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sales");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Customer_Name = "Omar",
+                            Date = new DateTime(2025, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Total_Price = 90000m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Customer_Name = "Mohamed",
+                            Date = new DateTime(2025, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Total_Price = 154000m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Customer_Name = "Ali",
+                            Date = new DateTime(2025, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Total_Price = 68000m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Customer_Name = "Nader",
+                            Date = new DateTime(2025, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Total_Price = 150000m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Customer_Name = "Ahmed",
+                            Date = new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Total_Price = 84000m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Customer_Name = "Sara",
+                            Date = new DateTime(2025, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Total_Price = 56000m
+                        });
                 });
 
             modelBuilder.Entity("DAL.Models.SalesDetails", b =>
@@ -189,6 +278,64 @@ namespace InventoryManagmentSystem.DAL.Migrations
                     b.HasIndex("SaleId");
 
                     b.ToTable("SalesDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            SaleId = 1,
+                            Price = 90000m,
+                            Quantity = 5,
+                            unitPrice = 18000m
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            SaleId = 2,
+                            Price = 154000m,
+                            Quantity = 7,
+                            unitPrice = 22000m
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            SaleId = 3,
+                            Price = 68000m,
+                            Quantity = 4,
+                            unitPrice = 17000m
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            SaleId = 4,
+                            Price = 150000m,
+                            Quantity = 6,
+                            unitPrice = 25000m
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            SaleId = 5,
+                            Price = 84000m,
+                            Quantity = 3,
+                            unitPrice = 28000m
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            SaleId = 6,
+                            Price = 40000m,
+                            Quantity = 2,
+                            unitPrice = 20000m
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            SaleId = 6,
+                            Price = 16000m,
+                            Quantity = 1,
+                            unitPrice = 16000m
+                        });
                 });
 
             modelBuilder.Entity("DAL.Models.Stock", b =>
@@ -216,31 +363,143 @@ namespace InventoryManagmentSystem.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            LastUpdate = new DateTime(2024, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdate = new DateTime(2025, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductId = 1,
-                            Quantity = 50,
+                            Quantity = 40,
                             Type = "Supply"
                         },
                         new
                         {
-                            LastUpdate = new DateTime(2025, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdate = new DateTime(2025, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductId = 2,
-                            Quantity = 30,
+                            Quantity = 35,
                             Type = "Supply"
                         },
                         new
                         {
-                            LastUpdate = new DateTime(2024, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdate = new DateTime(2025, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductId = 3,
                             Quantity = 20,
                             Type = "Supply"
                         },
                         new
                         {
-                            LastUpdate = new DateTime(2024, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastUpdate = new DateTime(2025, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductId = 4,
-                            Quantity = 20,
+                            Quantity = 25,
                             Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 5,
+                            Quantity = 15,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 6,
+                            Quantity = 10,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 7,
+                            Quantity = 8,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 8,
+                            Quantity = 5,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 9,
+                            Quantity = 12,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 10,
+                            Quantity = 18,
+                            Type = "Supply"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 1,
+                            Quantity = 5,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 2,
+                            Quantity = 7,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 3,
+                            Quantity = 4,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 4,
+                            Quantity = 6,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2024, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 5,
+                            Quantity = 3,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 6,
+                            Quantity = 2,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 7,
+                            Quantity = 1,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 8,
+                            Quantity = 2,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 9,
+                            Quantity = 5,
+                            Type = "Sale"
+                        },
+                        new
+                        {
+                            LastUpdate = new DateTime(2025, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductId = 10,
+                            Quantity = 4,
+                            Type = "Sale"
                         });
                 });
 
@@ -275,37 +534,58 @@ namespace InventoryManagmentSystem.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "One Dell Way, Round Rock, TX 78682, USA",
-                            Contact = "+1 800-456-3355",
-                            Name = "Dell Technologies"
+                            Address = "Samsung Town, Seoul, South Korea",
+                            Contact = "82 2 2053 3000",
+                            Name = "Samsung"
                         },
                         new
                         {
                             Id = 2,
-                            Address = "1501 Page Mill Road, Palo Alto, CA 94304, USA",
-                            Contact = "+1 800-474-6836",
-                            Name = "HP Inc."
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "1 Infinite Loop, Cupertino, CA 95014, USA",
-                            Contact = "+1 800-275-2273",
+                            Address = "1 Apple Park Way, Cupertino, CA 95014, USA",
+                            Contact = "1 800-275-2273",
                             Name = "Apple Inc."
                         },
                         new
                         {
+                            Id = 3,
+                            Address = "1-7-1 Konan, Minato-ku, Tokyo, Japan",
+                            Contact = "81 3 6748 2111",
+                            Name = "Sony"
+                        },
+                        new
+                        {
                             Id = 4,
-                            Address = "6/F, Lenovo Building, 29 Science Park Road, Hong Kong",
-                            Contact = "+852 2833 2111",
-                            Name = "Lenovo Group Limited"
+                            Address = "LG Twin Towers, Seoul, South Korea",
+                            Contact = "82 2 3777 1114",
+                            Name = "LG Electronics"
                         },
                         new
                         {
                             Id = 5,
-                            Address = "3351 Michelson Drive, Suite 100, Irvine, CA 92612, USA",
-                            Contact = "+1 800-456-8000",
-                            Name = "Ingram Micro"
+                            Address = "30-2, Shimomaruko 3-chome, Ota-ku, Tokyo, Japan",
+                            Contact = "81 3 3758 2111",
+                            Name = "Canon"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Shinagawa Intercity Tower C, 2-15-3, Konan, Minato-ku, Tokyo, Japan",
+                            Contact = "81 3 6433 3600",
+                            Name = "Nikon"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Round Rock, Texas, USA",
+                            Contact = "1 800-624-9897",
+                            Name = "Dell"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "1501 Page Mill Road, Palo Alto, CA 94304, USA",
+                            Contact = "1 650-857-1501",
+                            Name = "HP"
                         });
                 });
 
@@ -335,6 +615,36 @@ namespace InventoryManagmentSystem.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Password = "admin1234",
+                            Role = "Admin",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Password = "Manager1234",
+                            Role = "Manager",
+                            UserName = "Manager"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Password = "user1234",
+                            Role = "Staff",
+                            UserName = "Staff"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Password = "Ali1234",
+                            Role = "Staff",
+                            UserName = "Ali"
+                        });
                 });
 
             modelBuilder.Entity("DAL.Models.Product", b =>
