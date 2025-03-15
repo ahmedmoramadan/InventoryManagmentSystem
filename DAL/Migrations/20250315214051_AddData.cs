@@ -178,13 +178,13 @@ namespace InventoryManagmentSystem.DAL.Migrations
                 values: new object[,]
                 {
                     { 1, "Samsung Town, Seoul, South Korea", "82 2 2053 3000", "Samsung" },
-                    { 2, "1 Apple Park Way, Cupertino, CA 95014, USA", "1 800-275-2273", "Apple Inc." },
+                    { 2, "1 Apple Park Way, Cupertino, CA 95014, USA", "1 800 275 2273", "Apple Inc." },
                     { 3, "1-7-1 Konan, Minato-ku, Tokyo, Japan", "81 3 6748 2111", "Sony" },
                     { 4, "LG Twin Towers, Seoul, South Korea", "82 2 3777 1114", "LG Electronics" },
                     { 5, "30-2, Shimomaruko 3-chome, Ota-ku, Tokyo, Japan", "81 3 3758 2111", "Canon" },
                     { 6, "Shinagawa Intercity Tower C, 2-15-3, Konan, Minato-ku, Tokyo, Japan", "81 3 6433 3600", "Nikon" },
-                    { 7, "Round Rock, Texas, USA", "1 800-624-9897", "Dell" },
-                    { 8, "1501 Page Mill Road, Palo Alto, CA 94304, USA", "1 650-857-1501", "HP" }
+                    { 7, "Round Rock, Texas, USA", "1 800 624 9897", "Dell" },
+                    { 8, "1501 Page Mill Road, Palo Alto, CA 94304, USA", "1 650 857 1501", "HP" }
                 });
 
             migrationBuilder.InsertData(
@@ -192,10 +192,7 @@ namespace InventoryManagmentSystem.DAL.Migrations
                 columns: new[] { "Id", "Password", "Role", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "admin1234", "Admin", "Admin" },
-                    { 2, "Manager1234", "Manager", "Manager" },
-                    { 3, "user1234", "Staff", "Staff" },
-                    { 4, "Ali1234", "Staff", "Ali" }
+                    { 1, "123456789", "Admin", "admin" }
                 });
 
             migrationBuilder.InsertData(

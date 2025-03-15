@@ -119,10 +119,7 @@ namespace DAL
             );
 
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, UserName = "Admin", Password = "admin1234", Role = "Admin" },
-                new User { Id = 2, UserName = "Manager", Password = "Manager1234", Role = "Manager" },
-                new User { Id = 3, UserName = "Staff", Password = "user1234", Role = "Staff" },
-                new User { Id = 4, UserName = "Ali", Password = "Ali1234", Role = "Staff" }
+                new User { Id = 1, UserName = "admin", Password = "123456789", Role = "Admin" }
             );
 
             modelBuilder.Entity<Product>()

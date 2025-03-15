@@ -181,6 +181,7 @@
             Txt_CName = new MaterialSkin.Controls.MaterialTextBox();
             Cust_Name = new MaterialSkin.Controls.MaterialLabel();
             SaleReceive = new TabPage();
+            btn_print = new MaterialSkin.Controls.MaterialButton();
             CB_SALES = new MaterialSkin.Controls.MaterialComboBox();
             btn_Receive_sale = new MaterialSkin.Controls.MaterialButton();
             myshoereport = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -2366,6 +2367,7 @@
             // 
             // SaleReceive
             // 
+            SaleReceive.Controls.Add(btn_print);
             SaleReceive.Controls.Add(CB_SALES);
             SaleReceive.Controls.Add(btn_Receive_sale);
             SaleReceive.Controls.Add(myshoereport);
@@ -2377,6 +2379,28 @@
             SaleReceive.TabIndex = 8;
             SaleReceive.Text = "SaleReceive";
             SaleReceive.UseVisualStyleBackColor = true;
+            // 
+            // btn_print
+            // 
+            btn_print.AutoSize = false;
+            btn_print.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_print.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btn_print.Depth = 0;
+            btn_print.Enabled = false;
+            btn_print.HighEmphasis = true;
+            btn_print.Icon = null;
+            btn_print.Location = new Point(727, 32);
+            btn_print.Margin = new Padding(4, 6, 4, 6);
+            btn_print.MouseState = MaterialSkin.MouseState.HOVER;
+            btn_print.Name = "btn_print";
+            btn_print.NoAccentTextColor = Color.Empty;
+            btn_print.Size = new Size(99, 41);
+            btn_print.TabIndex = 33;
+            btn_print.Text = "Print";
+            btn_print.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_print.UseAccentColor = false;
+            btn_print.UseVisualStyleBackColor = true;
+            btn_print.Click += btn_print_Click;
             // 
             // CB_SALES
             // 
@@ -2408,7 +2432,7 @@
             btn_Receive_sale.Depth = 0;
             btn_Receive_sale.HighEmphasis = true;
             btn_Receive_sale.Icon = null;
-            btn_Receive_sale.Location = new Point(785, 31);
+            btn_Receive_sale.Location = new Point(834, 32);
             btn_Receive_sale.Margin = new Padding(4, 6, 4, 6);
             btn_Receive_sale.MouseState = MaterialSkin.MouseState.HOVER;
             btn_Receive_sale.Name = "btn_Receive_sale";
@@ -3119,5 +3143,6 @@
         private MaterialSkin.Controls.MaterialButton btn_editCat;
         private MaterialSkin.Controls.MaterialLabel lbl_cat;
         private MaterialSkin.Controls.MaterialTextBox txt_CategoryName;
+        private MaterialSkin.Controls.MaterialButton btn_print;
     }
 }

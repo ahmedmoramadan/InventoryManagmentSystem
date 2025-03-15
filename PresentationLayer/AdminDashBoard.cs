@@ -2,6 +2,7 @@
 using DAL.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Microsoft.Web.WebView2.Core;
 using System.Net;
 using System.Text.RegularExpressions;
 
@@ -147,7 +148,7 @@ namespace PresentationLayer
             cmb_searchProdCat.ValueMember = "Id";
             cmb_searchProdCat.DisplayMember = "Name";
             cmb_searchProdCat.SelectedIndex = -1;
-            if(Role == "Admin" || Role == "Staff")
+            if (Role == "Admin" || Role == "Staff")
             {
                 dgv_Category.DataSource = GS.GetAllCategories();
                 dgv_Category.Columns["Id"].Visible = false;
@@ -549,7 +550,10 @@ namespace PresentationLayer
         {
             try
             {
+                myshoereport.BackColor = Color.White;
                 myshoereport.Visible = true;
+                btn_print.Enabled = false; 
+
                 await LoadHtmlReport((int)CB_SALES.SelectedValue);
             }
             catch (Exception ex)
@@ -557,22 +561,66 @@ namespace PresentationLayer
                 MessageBox.Show($"Error loading report: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private async Task LoadHtmlReport(int saleid)
         {
             await myshoereport.EnsureCoreWebView2Async();
 
             string reportPath = reportService.GenerateHtmlReport(saleid);
+
             if (string.IsNullOrEmpty(reportPath))
             {
                 MessageBox.Show("No sales data available.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btn_print.Enabled = false; 
                 return;
             }
 
-            // 🟢 إجبار WebView2 على إعادة تحميل الصفحة بعد كل اختيار جديد
-            myshoereport.Source = new Uri("about:blank");
+            btn_print.Enabled = false; 
+
+            myshoereport.NavigationCompleted -= WebView_NavigationCompleted;
+            myshoereport.NavigationCompleted += WebView_NavigationCompleted;
+
+            myshoereport.Source = new Uri("about:blank"); 
             await Task.Delay(100);
             myshoereport.Source = new Uri(reportPath);
         }
+
+        private async void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            if (e.IsSuccess && myshoereport.Source != null)
+            {
+                
+                string content = await myshoereport.ExecuteScriptAsync(
+                    "document.body.innerText.trim().length > 0 ? 'loaded' : 'empty';"
+                );
+
+                if (content.Contains("loaded"))
+                {
+                    btn_print.Enabled = true; 
+                }
+                else
+                {
+                    btn_print.Enabled = false;
+                }
+            }
+            else
+            {
+                btn_print.Enabled = false; 
+            }
+        }
+
+        private async void btn_print_Click(object sender, EventArgs e)
+        {
+            if (!btn_print.Enabled)
+            {
+                MessageBox.Show("No content to print!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            await myshoereport.ExecuteScriptAsync("window.print();");
+        }
+
+        
         private void loadProductInCB()
         {
             var allProduct = PS.GetAll().ToList();
@@ -1086,5 +1134,6 @@ namespace PresentationLayer
                     materialTabControl1.TabPages.Remove(Stock);
             }
         }
+
     }
 }
