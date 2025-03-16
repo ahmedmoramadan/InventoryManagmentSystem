@@ -1118,19 +1118,19 @@ namespace PresentationLayer
             }
             else if (role == "Staff")
             {
-                if (materialTabControl1.TabPages.Contains(Users))
+              
                     materialTabControl1.TabPages.Remove(Users);
 
-                if (materialTabControl1.TabPages.Contains(Suppliers))
+              
                     materialTabControl1.TabPages.Remove(Suppliers);
 
-                if (materialTabControl1.TabPages.Contains(Dashboard))
+               
                     materialTabControl1.TabPages.Remove(Dashboard);
 
-                if (materialTabControl1.TabPages.Contains(Reports))
+               
                     materialTabControl1.TabPages.Remove(Reports);
 
-                if (materialTabControl1.TabPages.Contains(Stock))
+                
                     materialTabControl1.TabPages.Remove(Stock);
             }
         }
